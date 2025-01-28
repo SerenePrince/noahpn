@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Link } from "react-scroll";
-import resume from "/Resume2025.pdf";
+import resume from "/NoahPNResume2025.pdf";
 
 function Navigation() {
   const [isVisible, setIsVisible] = useState(false);
