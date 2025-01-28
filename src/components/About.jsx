@@ -42,10 +42,7 @@ function About() {
         <p className="text-2xl">
           Hey there! I&apos;m Noah, a student at Algonquin College studying
           Computer Science, and I&apos;m hoping to be your newest hire.
-          Potentially. Hopefully. Maybe...{" "}
-          <span title="Look I'm pretty desperate here, I'm trying not to speed-run my way to homelessness.">
-            please?
-          </span>
+          Potentially. Hopefully. Maybe... please?
         </p>
 
         <p className="text-2xl">
