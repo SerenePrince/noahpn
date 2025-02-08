@@ -72,14 +72,14 @@ function Experience() {
           <div className="mt-3 space-y-3">
             <div className="flex flex-row justify-evenly">
               <div>
-                <p className="text-base text-zinc-600 xl:text-xl">
+                <p className="font-sans-serif text-base text-zinc-600 xl:text-xl">
                   {education[currentEducationIndex].graduation}
                 </p>
                 <h4 className="font-medium">
                   {education[currentEducationIndex].school} ·{" "}
                   {education[currentEducationIndex].location}
                 </h4>
-                <p className="text-base text-zinc-600 xl:text-xl">
+                <p className="font-sans-serif text-base text-zinc-600 xl:text-xl">
                   {education[currentEducationIndex].degree}
                 </p>
                 <ul className="font-sans-serif text-base text-zinc-700 xl:text-xl">
@@ -110,11 +110,11 @@ function Experience() {
           <div className="mt-3 space-y-3">
             <div className="flex flex-row justify-evenly">
               <div>
-                <p className="text-base text-zinc-600 xl:text-xl">
+                <p className="font-sans-serif text-base text-zinc-600 xl:text-xl">
                   {jobs[currentJobIndex].date}
                 </p>
                 <h4 className="font-medium">{jobs[currentJobIndex].title}</h4>
-                <p className="text-base text-zinc-600 xl:text-xl">
+                <p className="font-sans-serif text-base text-zinc-600 xl:text-xl">
                   {jobs[currentJobIndex].company} ·{" "}
                   {jobs[currentJobIndex].location}
                 </p>
