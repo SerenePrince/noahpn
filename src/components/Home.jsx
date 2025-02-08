@@ -1,3 +1,5 @@
+import resume from "/NoahPNResume2025.pdf";
+
 function Home() {
   return (
     <div className="flex aspect-video w-full flex-col items-center justify-center bg-white px-3 text-black">
@@ -26,7 +28,7 @@ function Home() {
           Let&apos;s Connect
         </a>
         <a
-          href="/NoahPNResume2025.pdf"
+          href={resume}
           aria-label="View Noah's Resume"
           target="_blank"
           rel="noopener noreferrer"
