@@ -98,7 +98,7 @@ function Projects() {
       <div className="w-full space-y-3 text-zinc-800">
         <div className="flex flex-col justify-center text-center">
           <div className="mt-3 flex items-center justify-center gap-3 text-black">
-            <p className="text-lg font-medium text-zinc-700 xl:text-2xl">
+            <p className="text-base font-medium text-zinc-700 xl:text-xl">
               {projects[currentProjectIndex].title}
             </p>
             <a
