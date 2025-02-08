@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import {
   SiExpress,
@@ -48,7 +48,7 @@ function Projects() {
         "A platform I built to easily create personal webpages for hosting links and social profiles.",
       technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind"],
       github: "https://github.com/SerenePrince/LinkLounge",
-      demo: "https://linklounge-2inr.onrender.com/sereneprince/creator",
+      demo: "https://linklounge-2inr.onrender.com",
     },
     {
       title: "Video Game Database",
