@@ -14,16 +14,16 @@ function Contact() {
       <nav className="mt-3 flex flex-col space-y-3 text-center">
         {[
           {
-            href: "https://www.linkedin.com/in/nparknguyen/",
-            label: "linkedin.com/in/nparknguyen",
+            href: "https://github.com/SerenePrince",
+            label: "github.com/SerenePrince",
           },
           {
             href: "mailto:noahparknguyen@gmail.com",
             label: "noahparknguyen@gmail.com",
           },
           {
-            href: "https://github.com/SerenePrince",
-            label: "github.com/SerenePrince",
+            href: "https://www.linkedin.com/in/nparknguyen/",
+            label: "linkedin.com/in/nparknguyen",
           },
         ].map((link) => (
           <a
