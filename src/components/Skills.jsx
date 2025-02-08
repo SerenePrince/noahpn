@@ -75,7 +75,7 @@ function Skills() {
             key={label}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-base font-medium text-zinc-700 transition hover:border-black hover:shadow-xl xl:text-xl"
+            className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-base font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-xl"
             role="listitem"
             aria-label={label}
             href={link}

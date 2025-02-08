@@ -105,7 +105,7 @@ function Projects() {
                 key={tech}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-base font-medium text-zinc-700 transition hover:border-black hover:shadow-xl xl:text-xl"
+                className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-base font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-xl"
                 role="listitem"
                 aria-label={tech}
                 href={resources[tech]}
@@ -116,12 +116,12 @@ function Projects() {
             ))}
           </div>
 
-          <div className="mt-3 flex justify-center gap-4 text-zinc-700">
+          <div className="mt-3 flex justify-center gap-4 text-black">
             <a
               href={projects[currentProjectIndex].github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl transition hover:text-zinc-700 xl:text-4xl"
+              className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 p-3 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
             >
               <SiGithub />
             </a>
@@ -130,7 +130,7 @@ function Projects() {
                 href={projects[currentProjectIndex].demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl transition hover:text-zinc-700 xl:text-4xl"
+                className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 p-3 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
               >
                 <FiExternalLink />
               </a>
