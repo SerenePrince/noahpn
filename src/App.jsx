@@ -169,17 +169,17 @@ function App() {
 
 const getSlideNotes = (slide) =>
   ({
-    Home: "A portfolio inspired by PowerPoint. Mobile responsiveness is a work in progress. Built with React and Tailwind.",
+    Home: "A portfolio inspired by PowerPoint. Best experienced in full screen. Built with React and Tailwind. Mobile responsiveness is a work in progress.",
     About:
       "Outside of tech, you'll find me playing volleyball, hitting the gym, or playing video games. Recently, my favourite hobby has been going on walks while listening to an album I love.",
     Skills:
-      "I've been sharpening my Java skills, working with Spring Boot for back-end development. I'm also learning C, C++, and Python.",
+      "I've also been sharpening my Java skills, working with Spring Boot for back-end development. I'm also learning C, C++, and Python.",
     Experience:
-      "As of February 2025, I've received an offer to join the Department of National Defence (DND). Exciting times ahead—wish me luck!",
+      "As of February 2025, I've received an offer to join the Department of National Defence (DND). Exciting times ahead.",
     Projects:
-      "These projects were created for learning and personal enjoyment. I'll get to the startup one day.",
+      "All of these projects were created for learning and personal growth. I'll get to the startup one day.",
     Contact:
-      "I'm not active on social media, but these are the best ways to get in touch with me.",
+      "I'm not active on social media, so these are the best ways to get in touch with me.",
   })[slide] || "";
 
 export default App;

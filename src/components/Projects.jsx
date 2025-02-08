@@ -45,7 +45,7 @@ function Projects() {
     {
       title: "LinkLounge",
       description:
-        "A platform I built to easily create personal webpages for hosting links and social profiles.",
+        "A platform I built to easily create personal web pages for hosting links and social profiles.",
       technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind"],
       github: "https://github.com/SerenePrince/LinkLounge",
       demo: "https://linklounge-2inr.onrender.com",
@@ -53,7 +53,7 @@ function Projects() {
     {
       title: "Video Game Database",
       description:
-        "A website to discover and explore video games. Read or submit reviews, like IMDb, but for gaming.",
+        "A website to read and write reviews for video games. Discover and explore a variety of games at your leisure.",
       technologies: ["Java", "Spring Boot", "React", "Tailwind"],
       github: "https://github.com/SerenePrince/VGDB",
       demo: "",
@@ -69,7 +69,7 @@ function Projects() {
     {
       title: "TipOff",
       description:
-        "A Wordle-inspired game where players guess NBA players with as few guesses as possible.",
+        "A Wordle-inspired game where users guess the secret NBA player with as few guesses as possible.",
       technologies: ["React", "Tailwind"],
       github: "https://github.com/SerenePrince/TipOff",
       demo: "https://sereneprince.github.io/TipOff/",
