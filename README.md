@@ -1,6 +1,10 @@
 # Noah's Portfolio
 
+![image](https://github.com/user-attachments/assets/07226106-dc93-4bbc-8419-11827a07372d)
+
 Welcome to my portfolio! This website showcases my work and projects, designed with a focus on minimalism, typography, and accessibility. The goal is to provide a clean and intuitive experience while emphasizing content and design clarity.
+
+[Check it out!](https://sereneprince.github.io/noahpn/)
 
 ## Features
 
