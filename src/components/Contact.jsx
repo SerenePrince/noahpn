@@ -7,11 +7,11 @@ function Contact() {
       </h1>
       {/* Tagline */}
       <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
-        Get in touch.
+        Let&apos;s get in touch—if you&apos;re ready.
       </h2>
 
       {/* Links */}
-      <nav className="mt-3 flex flex-col space-y-3 text-center">
+      <nav className="mt-3 flex flex-col space-y-3 text-center text-base xl:text-xl">
         {[
           {
             href: "https://github.com/SerenePrince",

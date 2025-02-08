@@ -53,7 +53,7 @@ function Projects() {
     {
       title: "Video Game Database",
       description:
-        "A website to discover, explore, and review video games, like IMDb, but for gaming.",
+        "A website to discover and explore video games. Read or submit reviews, like IMDb, but for gaming.",
       technologies: ["Java", "Spring Boot", "React", "Tailwind"],
       github: "https://github.com/SerenePrince/VGDB",
       demo: "",
@@ -89,17 +89,42 @@ function Projects() {
       <h1 className="text-3xl leading-tight font-bold tracking-tight xl:text-5xl">
         Projects
       </h1>
+      {/* Title */}
+      <h2 className="ont-medium mt-3 text-xl text-zinc-700 xl:text-3xl">
+        Made with love... and a little stress.
+      </h2>
 
       {/* Project Content */}
-      <div className="w-full space-y-3 text-lg text-zinc-800 xl:text-2xl">
+      <div className="w-full space-y-3 text-zinc-800">
         <div className="flex flex-col justify-center text-center">
-          <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
-            {projects[currentProjectIndex].title}
-          </h2>
-          <p className="mt-3 font-sans-serif text-zinc-700">
+          <div className="mt-3 flex items-center justify-center gap-3 text-black">
+            <p className="text-lg font-medium text-zinc-700 xl:text-2xl">
+              {projects[currentProjectIndex].title}
+            </p>
+            <a
+              href={projects[currentProjectIndex].github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
+            >
+              <SiGithub />
+            </a>
+            {projects[currentProjectIndex].demo && (
+              <a
+                href={projects[currentProjectIndex].demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
+              >
+                <FiExternalLink />
+              </a>
+            )}
+          </div>
+
+          <p className="mt-3 font-sans-serif text-base text-zinc-700 xl:text-xl">
             {projects[currentProjectIndex].description}
           </p>
-          <div className="mt-3 flex flex-row justify-center gap-3 text-zinc-700">
+          <div className="mt-3 flex flex-row justify-center gap-3 font-sans-serif text-lg text-zinc-700 xl:text-2xl">
             {projects[currentProjectIndex].technologies.map((tech) => (
               <a
                 key={tech}
@@ -114,27 +139,6 @@ function Projects() {
                 <span className="hidden sm:inline">{tech}</span>
               </a>
             ))}
-          </div>
-
-          <div className="mt-3 flex justify-center gap-4 text-black">
-            <a
-              href={projects[currentProjectIndex].github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 p-3 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
-            >
-              <SiGithub />
-            </a>
-            {projects[currentProjectIndex].demo && (
-              <a
-                href={projects[currentProjectIndex].demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 p-3 font-sans-serif text-lg font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-2xl"
-              >
-                <FiExternalLink />
-              </a>
-            )}
           </div>
         </div>
 

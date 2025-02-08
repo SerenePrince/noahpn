@@ -44,8 +44,8 @@ function Experience() {
       <h1 className="text-3xl leading-tight font-bold tracking-tight xl:text-5xl">
         Experience
       </h1>
-      <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-2xl">
-        Work. Learn. Repeat.
+      <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
+        Earning by day, learning by night.
       </h2>
 
       {/* Toggle Buttons */}
@@ -72,17 +72,17 @@ function Experience() {
           <div className="mt-3 space-y-3">
             <div className="flex flex-row justify-evenly">
               <div>
-                <p className="font-sans-serif text-zinc-600">
+                <p className="text-base text-zinc-600 xl:text-xl">
                   {education[currentEducationIndex].graduation}
                 </p>
                 <h4 className="font-medium">
                   {education[currentEducationIndex].school} ·{" "}
                   {education[currentEducationIndex].location}
                 </h4>
-                <h5 className="text-zinc-600">
+                <p className="text-base text-zinc-600 xl:text-xl">
                   {education[currentEducationIndex].degree}
-                </h5>
-                <ul className="font-sans-serif text-zinc-700">
+                </p>
+                <ul className="font-sans-serif text-base text-zinc-700 xl:text-xl">
                   {education[currentEducationIndex].achievements.map(
                     (achievement, index) => (
                       <li key={index}>• {achievement}</li>
@@ -110,15 +110,15 @@ function Experience() {
           <div className="mt-3 space-y-3">
             <div className="flex flex-row justify-evenly">
               <div>
-                <p className="font-sans-serif text-zinc-600">
+                <p className="text-base text-zinc-600 xl:text-xl">
                   {jobs[currentJobIndex].date}
                 </p>
                 <h4 className="font-medium">{jobs[currentJobIndex].title}</h4>
-                <h5 className="text-zinc-600">
+                <p className="text-base text-zinc-600 xl:text-xl">
                   {jobs[currentJobIndex].company} ·{" "}
                   {jobs[currentJobIndex].location}
-                </h5>
-                <ul className="font-sans-serif text-zinc-700">
+                </p>
+                <ul className="font-sans-serif text-base text-zinc-700 xl:text-xl">
                   {jobs[currentJobIndex].responsibilities.map((task, index) => (
                     <li key={index}>• {task}</li>
                   ))}

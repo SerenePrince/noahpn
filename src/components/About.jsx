@@ -8,7 +8,7 @@ function About() {
 
       {/* Title */}
       <h2 className="ont-medium mt-3 text-xl text-zinc-700 xl:text-3xl">
-        Making apps. Taking naps.
+        Making apps, taking naps.
       </h2>
 
       {/* Description */}

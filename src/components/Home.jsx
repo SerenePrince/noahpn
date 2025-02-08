@@ -14,9 +14,9 @@ function Home() {
       </h2>
 
       {/* Location & Availability */}
-      <h3 className="mt-3 text-base font-normal text-zinc-700 xl:text-xl">
+      <p className="mt-3 font-sans-serif text-base font-normal text-zinc-700 xl:text-xl">
         Ottawa, ON · Open to remote & in-person roles
-      </h3>
+      </p>
 
       {/* CTA Buttons */}
       <nav className="mt-3 flex w-full items-center justify-center gap-3 font-sans-serif">

@@ -25,7 +25,7 @@ function Skills() {
 
       {/* Tagline */}
       <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
-        The tools in which I yield.
+        The tools I blame for my failures.
       </h2>
 
       {/* Skills Grid */}
