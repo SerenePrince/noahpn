@@ -179,7 +179,7 @@ const getSlideNotes = (slide) =>
     Projects:
       "All of these projects were created for learning and personal growth. I'll get to the startup one day.",
     Contact:
-      "I'm not active on social media, so these are the best ways to get in touch with me.",
+      "I'm not active on social media, so these are the best ways to get connected with me.",
   })[slide] || "";
 
 export default App;
