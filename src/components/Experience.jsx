@@ -55,10 +55,10 @@ function Experience() {
             key={label}
             onClick={() => setIsToggled(index === 1)}
             aria-pressed={isToggled === (index === 1)}
-            className={`cursor-pointer rounded-lg border px-3 py-2 text-base transition xl:text-xl ${
+            className={`cursor-pointer rounded-lg border px-3 py-2 font-sans-serif text-base transition xl:text-xl ${
               isToggled === (index === 1)
                 ? "pointer-events-none border-black bg-black text-white"
-                : "border-zinc-300 bg-white text-black hover:bg-zinc-100"
+                : "border-zinc-300 bg-white text-zinc-700 hover:border-black hover:shadow-xl"
             }`}
           >
             {label}
