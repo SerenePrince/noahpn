@@ -7,7 +7,7 @@ function Contact() {
       </h1>
       {/* Tagline */}
       <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-        Let&apos;s get in touch—if you&apos;re ready.
+        Let&apos;s get in touch—whenever you&apos;re ready.
       </h2>
 
       {/* Links */}

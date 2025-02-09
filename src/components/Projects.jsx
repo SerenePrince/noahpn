@@ -142,7 +142,7 @@ function Projects() {
                 key={tech}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-lg xl:text-2xl"
+                className="mt-1 flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-base xl:text-xl"
                 role="listitem"
                 aria-label={tech}
                 href={resources[tech]}
