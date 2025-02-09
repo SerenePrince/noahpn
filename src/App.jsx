@@ -75,7 +75,7 @@ function App() {
           {/* SOCIAL & SLIDE NAVIGATION */}
           <nav
             role="navigation"
-            className="flex w-full justify-between p-3 text-xl sm:text-3xl xl:text-5xl"
+            className="flex w-full justify-between p-3 text-xl sm:text-2xl xl:text-4xl"
           >
             <section className="flex items-center gap-3 sm:gap-5">
               {[
