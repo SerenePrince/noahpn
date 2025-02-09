@@ -46,7 +46,7 @@ function Timer() {
   };
 
   return (
-    <div className="flex w-full flex-row justify-between text-base xl:text-xl">
+    <div className="flex w-full flex-row justify-between text-xs sm:text-base xl:text-xl">
       <div className="inline-flex items-center gap-3">
         <span>{formatTime(time)}</span>
         <button

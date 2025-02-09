@@ -18,19 +18,19 @@ function Skills() {
       {/* Section Title */}
       <h1
         id="skills-section"
-        className="text-3xl leading-tight font-bold tracking-tight xl:text-5xl"
+        className="text-base leading-tight font-bold tracking-tight sm:text-3xl xl:text-5xl"
       >
         Skills
       </h1>
 
       {/* Tagline */}
-      <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
-        The tools I blame for my failures.
+      <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
+        A bad workman blames his tools, but I do so anyway.
       </h2>
 
       {/* Skills Grid */}
       <div
-        className="mt-3 grid grid-cols-3 gap-3 font-sans-serif md:grid-cols-4"
+        className="grid grid-cols-4 gap-1 font-sans-serif sm:mt-3 sm:grid-cols-3 sm:gap-3 md:grid-cols-4"
         role="list"
       >
         {[
@@ -75,13 +75,13 @@ function Skills() {
             key={label}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 rounded-xl border border-zinc-300 px-3 py-2 font-sans-serif text-base font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl xl:text-xl"
+            className="mt-1 flex items-center justify-center rounded-lg border border-zinc-300 px-3 py-2 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:text-base xl:text-xl"
             role="listitem"
             aria-label={label}
             href={link}
           >
             {icon}
-            {label}
+            <span className="hidden sm:ml-3 sm:inline">{label}</span>
           </a>
         ))}
       </div>

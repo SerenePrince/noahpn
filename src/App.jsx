@@ -75,9 +75,9 @@ function App() {
           {/* SOCIAL & SLIDE NAVIGATION */}
           <nav
             role="navigation"
-            className="flex w-full justify-between p-3 text-3xl xl:text-5xl"
+            className="flex w-full justify-between p-3 text-xl sm:text-3xl xl:text-5xl"
           >
-            <section className="flex items-center gap-5">
+            <section className="flex items-center gap-3 sm:gap-5">
               {[
                 {
                   href: "https://www.linkedin.com/in/nparknguyen/",
@@ -101,20 +101,20 @@ function App() {
                   rel="noopener noreferrer"
                   href={href}
                   aria-label={label}
-                  className="inline-flex items-center rounded-xl border border-primary p-2 transition hover:border-white hover:bg-tertiary hover:text-white"
+                  className="inline-flex items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white sm:p-2"
                 >
                   {icon}
                 </a>
               ))}
             </section>
 
-            <section className="flex items-center gap-5">
+            <section className="flex items-center gap-3 sm:gap-5">
               <button
                 onClick={previousSlide}
                 disabled={slides.indexOf(activeSlide) === 0}
                 aria-label="Previous Slide"
                 aria-disabled={slides.indexOf(activeSlide) === 0}
-                className="inline-flex cursor-pointer items-center rounded-xl border border-primary p-2 transition hover:border-white hover:bg-tertiary hover:text-white disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex cursor-pointer items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:p-2"
               >
                 <FaRegArrowAltCircleLeft />
               </button>
@@ -126,7 +126,7 @@ function App() {
                 aria-disabled={
                   slides.indexOf(activeSlide) === slides.length - 1
                 }
-                className="inline-flex cursor-pointer items-center rounded-xl border border-primary p-2 transition hover:border-white hover:bg-tertiary hover:text-white disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex cursor-pointer items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:p-2"
               >
                 <FaRegArrowAltCircleRight />
               </button>
@@ -135,9 +135,9 @@ function App() {
         </main>
 
         {/* RIGHT COLUMN - NEXT SLIDE PREVIEW & NOTES */}
-        <aside className="flex w-full flex-row gap-3 text-base lg:w-1/3 lg:flex-col xl:text-xl">
+        <aside className="flex w-full flex-row gap-3 pr-3 text-xs sm:text-base lg:w-1/3 lg:flex-col lg:pr-0 xl:text-xl">
           <span className="flex w-1/3 flex-col gap-3 border-r border-tertiary p-3 lg:w-full">
-            <p>
+            <p className="hidden sm:inline">
               {slides.indexOf(activeSlide) < slides.length - 1
                 ? "Next slide"
                 : "End of slide show"}
@@ -147,16 +147,21 @@ function App() {
               className={`flex aspect-video w-full items-center justify-center ${slides.indexOf(activeSlide) < slides.length - 1 ? "bg-white" : "bg-black"}`}
             >
               {slides.indexOf(activeSlide) < slides.length - 1 && (
-                <h1 className="text-3xl font-bold text-black xl:text-5xl">
+                <h1 className="text-sm font-bold text-black sm:text-3xl xl:text-5xl">
                   {slides[slides.indexOf(activeSlide) + 1]}
                 </h1>
               )}
             </div>
+            <p className="inline sm:hidden">
+              {slides.indexOf(activeSlide) < slides.length - 1
+                ? "Next slide"
+                : "End of slide show"}
+            </p>
           </span>
 
           <span className="hidden border-b border-tertiary lg:flex" />
           <p
-            className="mt-3 w-2/3 text-lg lg:mt-0 lg:w-full lg:px-3 xl:text-2xl"
+            className="mt-3 w-2/3 text-sm sm:text-lg lg:mt-0 lg:w-full lg:px-3 xl:text-2xl"
             aria-live="assertive"
           >
             {getSlideNotes(activeSlide)}
@@ -169,7 +174,7 @@ function App() {
 
 const getSlideNotes = (slide) =>
   ({
-    Home: "A portfolio inspired by PowerPoint. Best experienced in full screen. Built with React and Tailwind. Mobile responsiveness is a work in progress.",
+    Home: "A portfolio inspired by PowerPoint. Best experienced in full screen. Built with React and Tailwind.",
     About:
       "Outside of tech, you'll find me playing volleyball, hitting the gym, or playing video games. Recently, my favourite hobby has been going on walks while listening to an album I love.",
     Skills:

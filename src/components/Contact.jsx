@@ -2,16 +2,16 @@ function Contact() {
   return (
     <div className="flex aspect-video w-full flex-col items-center justify-center bg-white px-3 text-black">
       {/* Header */}
-      <h1 className="text-3xl leading-tight font-bold tracking-tight xl:text-5xl">
+      <h1 className="text-base leading-tight font-bold tracking-tight sm:text-3xl xl:text-5xl">
         Contact
       </h1>
       {/* Tagline */}
-      <h2 className="mt-3 text-xl font-medium text-zinc-700 xl:text-3xl">
+      <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
         Let&apos;s get in touch—if you&apos;re ready.
       </h2>
 
       {/* Links */}
-      <nav className="mt-3 flex flex-col space-y-3 text-center text-base xl:text-xl">
+      <nav className="flex flex-col space-y-1 text-center text-xs sm:mt-3 sm:space-y-3 sm:text-base xl:text-xl">
         {[
           {
             href: "https://github.com/SerenePrince",
@@ -31,7 +31,7 @@ function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             href={link.href}
-            className="font-sans-serif text-base text-zinc-600 transition hover:text-zinc-500 hover:underline xl:text-xl"
+            className="text-xm font-sans-serif text-zinc-600 transition hover:text-zinc-500 hover:underline sm:text-base xl:text-xl"
           >
             {link.label}
           </a>
