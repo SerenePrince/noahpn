@@ -51,7 +51,7 @@ function App() {
   });
 
   return (
-    <>
+    <div className="w-full">
       {/* NAVIGATION */}
       <header className="border-b border-tertiary">
         <Navigation
@@ -60,7 +60,6 @@ function App() {
           setActiveSlide={setActiveSlide}
         />
       </header>
-
       <div className="flex flex-col lg:flex-row">
         {/* LEFT COLUMN */}
         <main
@@ -136,7 +135,7 @@ function App() {
 
         {/* RIGHT COLUMN - NEXT SLIDE PREVIEW & NOTES */}
         <aside className="flex w-full flex-row gap-3 pr-3 text-xs sm:text-base lg:w-1/3 lg:flex-col lg:pr-0 xl:text-xl">
-          <span className="flex w-1/3 flex-col gap-3 border-r border-tertiary p-3 lg:w-full">
+          <span className="flex w-1/3 flex-col gap-3 border-r border-tertiary p-3 lg:w-full lg:border-0">
             <p className="hidden sm:inline">
               {slides.indexOf(activeSlide) < slides.length - 1
                 ? "Next slide"
@@ -168,7 +167,7 @@ function App() {
           </p>
         </aside>
       </div>
-    </>
+    </div>
   );
 }
 

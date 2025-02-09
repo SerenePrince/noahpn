@@ -5,6 +5,8 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <div className="m-auto flex h-screen max-h-screen max-w-[1980px] items-center justify-center">
+      <App />
+    </div>
   </StrictMode>,
 );

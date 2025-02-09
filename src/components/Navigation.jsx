@@ -32,7 +32,7 @@ function Navigation({ slides, activeSlide, setActiveSlide }) {
               <li key={slide}>
                 <button
                   onClick={() => setActiveSlide(slides[index])}
-                  className={`flex cursor-pointer items-center rounded-lg border border-primary px-2 py-1 transition-all focus:ring-2 focus:ring-highlight focus:outline-none sm:px-3 sm:py-2 ${isActive ? "aria-current-page pointer-events-none bg-tertiary text-white ring-2" : "hover:border-white hover:bg-tertiary"} `}
+                  className={`flex cursor-pointer items-center rounded-lg border border-primary px-2 py-1 transition-all focus:ring-2 focus:ring-highlight focus:outline-none ${isActive ? "aria-current-page pointer-events-none bg-tertiary text-white ring-2" : "hover:border-white hover:bg-tertiary"} `}
                   aria-label={slide}
                   aria-current={isActive ? "page" : undefined}
                 >
