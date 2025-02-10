@@ -28,7 +28,7 @@ function About() {
           I mainly specialize in software development but know my way around
           some full-stack and IT.
         </p>
-        <p className="hidden sm:mt-3 sm:flex">
+        <p className="hidden sm:mt-3 sm:inline-flex">
           I love to code. It&apos;s what I do best. When I&apos;m not coding, I
           think, &quot;Man, I wish I was coding right now.&quot;
         </p>
