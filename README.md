@@ -1,6 +1,6 @@
 # Noah's Portfolio
 
-![image](https://github.com/user-attachments/assets/07226106-dc93-4bbc-8419-11827a07372d)
+![image](https://github.com/user-attachments/assets/36d69adf-b6e1-4490-8b84-2d7869e30621)
 
 Welcome to my portfolio! This website showcases my work and projects, designed with a focus on minimalism, typography, and accessibility. The goal is to provide a clean and intuitive experience while emphasizing content and design clarity.
 
