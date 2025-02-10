@@ -54,7 +54,7 @@ function Experience() {
       degree: "Computer Engineering Technology - Computer Science",
       school: "Algonquin College",
       location: "Ottawa, ON",
-      graduation: "Expected Graduation 2025",
+      graduation: "Jan 2023 - Present",
       achievements: ["GPA - 3.76 / 4.0", "Dean's Honours List (3x)"],
     },
   ];
@@ -97,11 +97,16 @@ function Experience() {
                   {education[currentEducationIndex].graduation}
                 </p>
                 <h4 className="font-medium">
-                  {education[currentEducationIndex].school} ·{" "}
-                  {education[currentEducationIndex].location}
+                  <span className="inline sm:hidden">
+                    {education[currentEducationIndex].degree.split("-")[0]}
+                  </span>
+                  <span className="hidden sm:inline">
+                    {education[currentEducationIndex].degree}
+                  </span>
                 </h4>
                 <p className="font-sans-serif text-xs text-zinc-600 sm:text-base xl:text-xl">
-                  {education[currentEducationIndex].degree.split("-")[0]}
+                  {education[currentEducationIndex].school} ·{" "}
+                  {education[currentEducationIndex].location}
                 </p>
                 <ul className="hidden font-sans-serif text-xs text-zinc-700 sm:inline sm:text-base xl:text-xl">
                   {education[currentEducationIndex].achievements.map(
