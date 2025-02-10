@@ -2,13 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/noahpn/waving.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hi, I'm Noah :)</title>
+
+    <!-- Description for SEO -->
+    <meta
+      name="description"
+      content="Explore the personal portfolio of Noah, a computer science student specializing in software development, looking for new opportunities."
+    />
+
+    <!-- Author and Theme -->
+    <meta name="author" content="Noah" />
+    <meta name="theme-color" content="#27272a" />
+
+    <!-- Language & Content Settings -->
+    <meta http-equiv="Content-Language" content="en" />
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="Noah's Portfolio" />
+    <meta
+      property="og:description"
+      content="Discover Noah's portfolio, featuring full-stack personal projects, work & education experiences, and highlighted skillset."
+    />
+    <meta property="og:image" content="/noahpn/portfolioThumbnail.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sereneprince.github.io/noahpn/" />
+    <meta property="og:site_name" content="Noah's Portfolio" />
+    <meta property="og:locale" content="en_CA" />
+    <!-- Updated to Canadian locale -->
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Noah's Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Discover the work and projects of Noah, a software developer seeking new opportunities."
+    />
+    <meta name="twitter:image" content="/noahpn/portfolioThumbnail.png" />
+    <meta name="twitter:creator" content="@Serene_Prince" />
+    <meta name="twitter:locale" content="en_CA" />
+    <!-- Updated to Canadian locale -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/noahpn/waving.svg" />
+    <link rel="apple-touch-icon" href="/noahpn/waving.svg" />
+
+    <!-- App Name for Web Apps -->
+    <meta name="application-name" content="Noah's Portfolio" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Robots Meta Tag for SEO -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Noah",
+        "url": "https://sereneprince.github.io/noahpn/",
+        "sameAs": [
+          "https://www.linkedin.com/in/nparknguyen/",
+          "https://github.com/SerenePrince"
+        ],
+        "jobTitle": "Software Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Personal Portfolio"
+        },
+        "image": "https://sereneprince.github.io/noahpn/portfolioThumbnail.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Canada"
+        }
+      }
+    </script>
+
+    <title>Hi, I'm Noah :) - Software Developer Portfolio</title>
     <script type="module" crossorigin src="/noahpn/assets/index-CxL31Iww.js"></script>
     <link rel="stylesheet" crossorigin href="/noahpn/assets/index-CatLLFOE.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" aria-live="polite" role="main"></div>
   </body>
 </html>
