@@ -1,53 +1,53 @@
-# Noah's Portfolio
+# ✨ **Noah's Portfolio**  
 
-![image](https://github.com/user-attachments/assets/36d69adf-b6e1-4490-8b84-2d7869e30621)
+![Portfolio Preview](https://github.com/user-attachments/assets/36d69adf-b6e1-4490-8b84-2d7869e30621)  
 
-Welcome to my portfolio! This website showcases my work and projects, designed with a focus on minimalism, typography, and accessibility. The goal is to provide a clean and intuitive experience while emphasizing content and design clarity.
+Welcome to my portfolio! This site is designed with a strong focus on **minimalism, typography, and accessibility**, providing a **clean, intuitive, and content-first experience**.  
 
-[Check it out!](https://sereneprince.github.io/noahpn/)
+🎨 **Live Version:** [**Check it out!**](https://sereneprince.github.io/noahpn/)  
 
-## Features
+---
 
-- **Minimalist Design**: The portfolio follows an extremely minimalist approach, focusing on typography and clean layouts.
-- **PowerPoint-Inspired**: The layout is designed to resemble PowerPoint's Presenter View, with slides on the left and a preview + notes section on the right.
-- **Accessibility**: ARIA labels, alt text, and semantic tags are used to ensure accessibility.
-- **Projects**: Includes a variety of projects like _TipOff_, a Wordle-inspired game based on guessing NBA players.
-- **Timer**: A simple timer in React with a HH:MM:SS format, along with pause and reset functionality.
+## 🏗️ **Features**  
 
-## Technologies Used
+✔️ **Minimalist Design** – A clean, typography-driven layout for clarity and focus.  
+✔️ **PowerPoint-Inspired UI** – Mirrors **PowerPoint's Presenter View**, with slides on the left and a preview + notes on the right.  
+✔️ **Accessibility-First** – Uses **ARIA labels, alt text, and semantic HTML** for an inclusive experience.  
+✔️ **Projects Showcase** – Features personal projects, including **_TipOff_**, a Wordle-inspired NBA guessing game.  
+✔️ **Built-in Timer** – A simple **HH:MM:SS** timer with pause and reset functionality in React.  
 
-- **React**: For building the user interface.
-- **Spring Boot**: For backend services (learning in progress).
-- **JavaScript (ES6)**: For client-side scripting.
-- **CSS**: For styling with a focus on minimalism.
-- **HTML5**: Semantic markup with accessibility in mind.
+---
 
-## Running Locally
+## 🛠️ **Tech Stack**  
 
-To view the portfolio locally, follow these steps:
+- **React** – Component-based UI structure.  
+- **JavaScript (ES6)** – Client-side logic.  
+- **CSS** – Styling with a focus on minimalism.  
+- **HTML5** – Semantic markup with accessibility in mind.  
+- **Spring Boot** *(learning in progress)* – Backend services.  
 
-1. Clone this repository:
+---
 
+## ⚙️ **Running Locally**  
+
+1️⃣ **Clone the repository:**  
    ```bash
    git clone https://github.com/SerenePrince/noahpn.git
-   ```
-
-2. Navigate to the project directory:
-
+   ```  
+2️⃣ **Navigate to the project directory:**  
    ```bash
    cd portfolio
-   ```
-
-3. Install dependencies:
-
+   ```  
+3️⃣ **Install dependencies:**  
    ```bash
    npm install
-   ```
-
-4. Start the development server:
-
+   ```  
+4️⃣ **Start the development server:**  
    ```bash
    npm run dev
-   ```
+   ```  
+5️⃣ **Open:** [http://localhost:5173](http://localhost:5173) in your browser.  
 
-5. Open your browser and go to [http://localhost:5173](http://localhost:5173).
+---
+
+For questions or feedback, feel free to reach out! 🚀
