@@ -11,7 +11,10 @@ function Contact() {
       </h2>
 
       {/* Links */}
-      <nav className="flex flex-col space-y-1 text-center text-xs sm:mt-3 sm:space-y-3 sm:text-base xl:text-xl">
+      <nav
+        aria-label="Contact Information"
+        className="flex flex-col space-y-1 text-center text-xs sm:mt-3 sm:space-y-3 sm:text-base xl:text-xl"
+      >
         {[
           {
             href: "https://github.com/SerenePrince",
@@ -32,6 +35,7 @@ function Contact() {
             rel="noopener noreferrer"
             href={link.href}
             className="text-xm font-sans-serif text-zinc-600 transition hover:text-zinc-500 hover:underline sm:text-base xl:text-xl"
+            aria-label={`Visit ${link.label}`}
           >
             {link.label}
           </a>

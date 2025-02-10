@@ -43,8 +43,8 @@ function Experience() {
       location: "Ottawa, ON",
       date: "Jan 2024 - Apr 2024",
       responsibilities: [
-        "Built a Java app to automate documentation updates.",
-        "Worked with Apache Maven, Eclipse, and basic fetch requests.",
+        "Developed a Java app to automate documentation updates.",
+        "Built with Eclipse, Apache Maven, and basic fetch requests.",
       ],
     },
   ];
@@ -122,6 +122,7 @@ function Experience() {
               <FaCaretLeft
                 onClick={previousEdcucation}
                 className="cursor-pointer"
+                aria-label="Previous Education"
               />
               {education.map((_, index) => (
                 <span
@@ -132,11 +133,13 @@ function Experience() {
                       ? "bg-black"
                       : "bg-zinc-300 hover:bg-zinc-600"
                   }`}
+                  aria-label={`Select Education ${index + 1}`}
                 ></span>
               ))}
               <FaCaretRight
                 onClick={nextEducation}
                 className="cursor-pointer"
+                aria-label="Next Education"
               />
             </div>
           </div>
@@ -160,7 +163,11 @@ function Experience() {
               </div>
             </div>
             <div className="flex items-center justify-center gap-2 text-base sm:mt-6 sm:gap-3 sm:text-2xl">
-              <FaCaretLeft onClick={previousJob} className="cursor-pointer" />
+              <FaCaretLeft
+                onClick={previousJob}
+                className="cursor-pointer"
+                aria-label="Previous Job"
+              />
               {jobs.map((_, index) => (
                 <span
                   key={index}
@@ -170,9 +177,14 @@ function Experience() {
                       ? "bg-black"
                       : "bg-zinc-400 hover:bg-zinc-600"
                   }`}
+                  aria-label={`Select Job ${index + 1}`}
                 ></span>
               ))}
-              <FaCaretRight onClick={nextJob} className="cursor-pointer" />
+              <FaCaretRight
+                onClick={nextJob}
+                className="cursor-pointer"
+                aria-label="Next Job"
+              />
             </div>
           </div>
         )}

@@ -24,7 +24,7 @@ function Skills() {
       </h1>
 
       {/* Tagline */}
-      <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
+      <h2 className="text-center text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
         A bad workman blames his tools, but I do so anyway.
       </h2>
 
@@ -77,7 +77,7 @@ function Skills() {
             rel="noopener noreferrer"
             className="mt-1 flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-base xl:text-xl"
             role="listitem"
-            aria-label={label}
+            aria-label={`Learn more about ${label}`}
             href={link}
           >
             {icon}

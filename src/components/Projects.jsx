@@ -117,6 +117,7 @@ function Projects() {
               href={projects[currentProjectIndex].github}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit GitHub Repository"
               className="flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-lg xl:text-2xl"
             >
               <SiGithub />
@@ -126,6 +127,7 @@ function Projects() {
                 href={projects[currentProjectIndex].demo}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Live Demo"
                 className="flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-lg xl:text-2xl"
               >
                 <FiExternalLink />
@@ -144,7 +146,7 @@ function Projects() {
                 rel="noopener noreferrer"
                 className="mt-1 flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-base xl:text-xl"
                 role="listitem"
-                aria-label={tech}
+                aria-label={`Learn more about ${tech}`}
                 href={resources[tech]}
               >
                 {icons[tech]}
@@ -155,8 +157,15 @@ function Projects() {
         </div>
 
         {/* Project Navigation */}
-        <div className="flex items-center justify-center gap-2 text-base sm:mt-6 sm:gap-3 sm:text-2xl">
-          <FaCaretLeft onClick={previousProject} className="cursor-pointer" />
+        <nav
+          aria-label="Project Navigation"
+          className="flex items-center justify-center gap-2 text-base sm:mt-6 sm:gap-3 sm:text-2xl"
+        >
+          <FaCaretLeft
+            onClick={previousProject}
+            className="cursor-pointer"
+            aria-label="Previous Project"
+          />
           {projects.map((_, index) => (
             <span
               key={index}
@@ -166,10 +175,15 @@ function Projects() {
                   ? "bg-black"
                   : "bg-zinc-400 hover:bg-zinc-600"
               }`}
+              aria-label={`Project ${index + 1}`}
             ></span>
           ))}
-          <FaCaretRight onClick={nextProject} className="cursor-pointer" />
-        </div>
+          <FaCaretRight
+            onClick={nextProject}
+            className="cursor-pointer"
+            aria-label="Next Project"
+          />
+        </nav>
       </div>
     </div>
   );

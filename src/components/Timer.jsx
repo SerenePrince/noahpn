@@ -48,21 +48,27 @@ function Timer() {
   return (
     <div className="flex w-full flex-row justify-between text-xs sm:text-base xl:text-xl">
       <div className="inline-flex items-center gap-3">
-        <span>{formatTime(time)}</span>
+        <span id="timer-display" aria-live="polite">
+          {formatTime(time)}
+        </span>
         <button
           onClick={handleStartPause}
           className="inline-flex cursor-pointer items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white"
+          aria-label={isRunning ? "Pause timer" : "Start timer"}
         >
           {isRunning ? <FaPause /> : <FaPlay />}
         </button>
         <button
           onClick={handleReset}
           className="inline-flex cursor-pointer items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white"
+          aria-label="Reset timer"
         >
           <FaArrowRotateLeft />
         </button>
       </div>
-      <span>{getCurrentTime()}</span>
+      <span id="current-time" aria-live="polite">
+        {getCurrentTime()}
+      </span>
     </div>
   );
 }

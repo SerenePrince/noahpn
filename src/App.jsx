@@ -33,7 +33,6 @@ function App() {
 
   const ActiveSlideComponent = slideComponents[activeSlide];
 
-  // Adding keyboard event listener
   useEffect(() => {
     const handleKeydown = (event) => {
       if (event.key === "ArrowLeft") {
@@ -41,6 +40,7 @@ function App() {
       } else if (event.key === "ArrowRight") {
         nextSlide();
       } else if (event.key === " ") {
+        event.preventDefault(); // Prevent scrolling when using space for slide navigation
         nextSlide();
       }
     };
@@ -64,11 +64,17 @@ function App() {
         {/* LEFT COLUMN */}
         <main
           role="main"
+          aria-labelledby="active-slide-title"
           className="flex w-full flex-col border-b border-tertiary lg:w-2/3 lg:border-r lg:border-b-0"
         >
           <div className="flex flex-col gap-3 px-3 pt-3">
             <Timer />
-            <ActiveSlideComponent />
+            <section aria-labelledby="active-slide-title">
+              <h1 id="active-slide-title" className="sr-only">
+                {activeSlide} Slide
+              </h1>
+              <ActiveSlideComponent />
+            </section>
           </div>
 
           {/* SOCIAL & SLIDE NAVIGATION */}
@@ -112,6 +118,7 @@ function App() {
                 onClick={previousSlide}
                 disabled={slides.indexOf(activeSlide) === 0}
                 aria-label="Previous Slide"
+                aria-controls="active-slide-title"
                 aria-disabled={slides.indexOf(activeSlide) === 0}
                 className="inline-flex cursor-pointer items-center rounded-lg border border-primary p-1 transition hover:border-white hover:bg-tertiary hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:p-2"
               >
@@ -122,6 +129,7 @@ function App() {
                 onClick={nextSlide}
                 disabled={slides.indexOf(activeSlide) === slides.length - 1}
                 aria-label="Next Slide"
+                aria-controls="active-slide-title"
                 aria-disabled={
                   slides.indexOf(activeSlide) === slides.length - 1
                 }
@@ -134,34 +142,38 @@ function App() {
         </main>
 
         {/* RIGHT COLUMN - NEXT SLIDE PREVIEW & NOTES */}
-        <aside className="flex w-full flex-row gap-3 pr-3 text-xs sm:text-base lg:w-1/3 lg:flex-col lg:pr-0 xl:text-xl">
+        <aside
+          aria-labelledby="next-slide-preview"
+          className="flex w-full flex-row gap-3 pr-3 text-xs sm:text-base lg:w-1/3 lg:flex-col lg:pr-0 xl:text-xl"
+        >
           <span className="flex w-1/3 flex-col gap-3 border-r border-tertiary p-3 lg:w-full lg:border-0">
-            <p className="hidden sm:inline">
+            <p id="next-slide-preview" className="hidden sm:inline">
               {slides.indexOf(activeSlide) < slides.length - 1
                 ? "Next slide"
                 : "End of slide show"}
             </p>
-            <div
-              onClick={() => nextSlide()}
-              className={`flex aspect-video w-full items-center justify-center ${slides.indexOf(activeSlide) < slides.length - 1 ? "bg-white" : "bg-black"}`}
+            <button
+              onClick={nextSlide}
+              disabled={slides.indexOf(activeSlide) >= slides.length - 1}
+              aria-label="Go to next slide"
+              className={`flex aspect-video w-full items-center justify-center ${
+                slides.indexOf(activeSlide) < slides.length - 1
+                  ? "bg-white"
+                  : "bg-black"
+              }`}
             >
               {slides.indexOf(activeSlide) < slides.length - 1 && (
                 <h1 className="text-sm font-bold text-black sm:text-3xl xl:text-5xl">
                   {slides[slides.indexOf(activeSlide) + 1]}
                 </h1>
               )}
-            </div>
-            <p className="inline sm:hidden">
-              {slides.indexOf(activeSlide) < slides.length - 1
-                ? "Next slide"
-                : "End of slide show"}
-            </p>
+            </button>
           </span>
 
           <span className="hidden border-b border-tertiary lg:flex" />
           <p
-            className="mt-3 w-2/3 text-sm sm:text-lg lg:mt-0 lg:w-full lg:px-3 xl:text-2xl"
-            aria-live="assertive"
+            className="mt-3 w-2/3 text-xs sm:text-base lg:mt-0 lg:w-full lg:px-3 xl:text-xl"
+            aria-live="polite"
           >
             {getSlideNotes(activeSlide)}
           </p>
@@ -175,11 +187,11 @@ const getSlideNotes = (slide) =>
   ({
     Home: "A portfolio inspired by PowerPoint. Best experienced in full screen. Built with React and Tailwind.",
     About:
-      "Outside of tech, you'll find me playing volleyball, hitting the gym, or playing video games. Recently, my favourite hobby has been going on walks while listening to an album I love.",
+      "Outside of tech, you'll find me playing volleyball, hitting the gym, or playing video games.",
     Skills:
-      "I've also been sharpening my Java skills, working with Spring Boot for back-end development. I'm also learning C, C++, and Python.",
+      "I've also been sharpening my Java skills, working with Spring Boot for back-end development.",
     Experience:
-      "As of February 2025, I've received an offer to join the Department of National Defence (DND). Exciting times ahead.",
+      "As of February 2025, I've received an offer to join the Department of National Defence (DND).",
     Projects:
       "All of these projects were created for learning and personal growth. I'll get to the startup one day.",
     Contact:
