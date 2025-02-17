@@ -72,6 +72,14 @@ function Projects() {
       demo: "",
     },
     {
+      title: "HighKey",
+      description:
+        "A minimalist typing test app to help improve your typing speed and accuracy.",
+      technologies: ["React", "Tailwind"],
+      github: "https://github.com/SerenePrince/HighKey",
+      demo: "https://sereneprince.github.io/HighKey/",
+    },
+    {
       title: "Flashcards",
       description:
         "A simple tool for creating and reviewing flashcards to make studying easier.",
