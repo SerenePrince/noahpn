@@ -28,13 +28,23 @@ function Experience() {
 
   const jobs = [
     {
+      title: "Developer",
+      company: "Department of National Defence (DND)",
+      location: "Ottawa, ON",
+      date: "Feb 2025 - Present",
+      responsibilities: [
+        "Develop multiple projects using Power Apps and Power Automate.",
+        "Delivered iterative features using Agile methodology and Azure DevOps.",
+      ],
+    },
+    {
       title: "Student Tester",
       company: "Algonquin College",
       location: "Ottawa, ON",
       date: "Sep 2024 - Dec 2024",
       responsibilities: [
-        "Designed and executed test cases using Azure DevOps.",
-        "Focused on regression testing and mobile responsiveness.",
+        "Executed and documented functional and regression test cases.",
+        "Identified defects affecting stability, accessibility, and performance.",
       ],
     },
     {
@@ -43,19 +53,20 @@ function Experience() {
       location: "Ottawa, ON",
       date: "Jan 2024 - Apr 2024",
       responsibilities: [
-        "Developed a Java app to automate documentation updates.",
-        "Built with Eclipse, Apache Maven, and basic fetch requests.",
+        "Created a Java automation tool to streamline API documentation updates.",
+        "Improved code reliability with JUnit 5 and issue resolution in Azure DevOps.",
       ],
     },
   ];
 
   const education = [
     {
-      degree: "Computer Engineering Technology - Computer Science",
+      degree:
+        "Computer Engineering Technology - Computer Science (Advanced Diploma)",
       school: "Algonquin College",
       location: "Ottawa, ON",
-      graduation: "Jan 2023 - Present",
-      achievements: ["GPA - 3.76 / 4.0", "Dean's Honours List (3x)"],
+      graduation: "Expected Graduation 2025",
+      achievements: ["GPA: 3.76 / 4.0", "Dean's Honours List (All terms)"],
     },
   ];
 
@@ -66,7 +77,7 @@ function Experience() {
         Experience
       </h1>
       <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-        Earning by day, learning by night.
+        Learning by day, earning by night.
       </h2>
 
       {/* Toggle Buttons */}

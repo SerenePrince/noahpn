@@ -191,9 +191,9 @@ const getSlideNotes = (slide) =>
     Skills:
       "I've also been sharpening my Java skills, working with Spring Boot for back-end development.",
     Experience:
-      "As of February 2025, I've received an offer to join the Department of National Defence (DND).",
+      "As of February 2025, I've been working at the Department of National Defence (DND).",
     Projects:
-      "All of these projects were created for learning and personal growth. I'll get to the startup one day.",
+      "Due to federal confidentiality, project materials were developed for internal use only and cannot be publicly shared.",
     Contact:
       "I'm not active on social media, so these are the best ways to get connected with me.",
   })[slide] || "";

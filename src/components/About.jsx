@@ -21,21 +21,16 @@ function About() {
       {/* Description */}
       <div className="text-center font-sans-serif text-xs font-normal text-zinc-700 sm:mt-3 sm:text-base xl:text-xl">
         <p>
-          I&apos;m a computer science student at Algonquin in my third and final
-          year.
+          Application Developer specializing in secure, internal solutions for
+          the federal government.
         </p>
         <p className="sm:mt-3">
-          I mainly specialize in software development but know my way around
-          some full-stack and IT.
+          Focused on the Microsoft Power Platform to automate workflows and
+          build applications.
         </p>
-        <p className="hidden sm:mt-3 sm:inline-flex">
-          I love to code. It&apos;s what I do best. When I&apos;m not coding, I
-          think, &quot;Man, I wish I was coding right now.&quot;
-        </p>
-        <p className="text-black sm:mt-3">
-          I want to work for you, and I want to work with you—whether
-          you&apos;re hiring new talent or need an extra hand on your next
-          project.
+        <p className="sm:mt-3">
+          Proficient in React for custom interfaces and experience in Agile
+          environments.
         </p>
       </div>
     </section>

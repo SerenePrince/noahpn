@@ -22,15 +22,15 @@ function Home() {
 
         {/* Title */}
         <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-          Software Developer & Student
+          Developer & Student
         </h2>
 
-        {/* Location & Availability */}
+        {/* Location */}
         <p
           id="home-location"
-          className="text-center font-sans-serif text-xs font-normal text-zinc-700 sm:mt-3 sm:text-base xl:text-xl"
+          className="text-center font-sans-serif text-xs font-normal text-zinc-700 sm:mt-1 sm:text-base xl:text-xl"
         >
-          Ottawa, ON · Open to remote & in-person roles
+          Ottawa, ON
         </p>
       </section>
 

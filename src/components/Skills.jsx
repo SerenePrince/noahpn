@@ -1,13 +1,13 @@
 import {
-  SiCss3,
-  SiExpress,
-  SiHtml5,
-  SiJavascript,
-  SiMongodb,
-  SiNodedotjs,
-  SiReact,
-  SiTailwindcss,
-} from "react-icons/si";
+  BarChart3,
+  Code,
+  Compass,
+  LayoutDashboard,
+  Settings,
+  Zap,
+} from "lucide-react";
+
+const iconClass = "h-4 w-4 sm:h-5 sm:w-5 text-black";
 
 function Skills() {
   return (
@@ -30,59 +30,29 @@ function Skills() {
 
       {/* Skills Grid */}
       <div
-        className="grid grid-cols-4 gap-1 font-sans-serif sm:mt-3 sm:grid-cols-3 sm:gap-3 md:grid-cols-4"
+        className="grid grid-cols-3 gap-1 font-sans-serif sm:mt-3 sm:gap-3"
         role="list"
       >
         {[
-          { icon: <SiReact />, label: "React", link: "https://react.dev/" },
           {
-            icon: <SiTailwindcss />,
-            label: "Tailwind",
-            link: "https://tailwindcss.com",
+            icon: <LayoutDashboard className={iconClass} />,
+            label: "Power Apps",
           },
-          {
-            icon: <SiHtml5 />,
-            label: "HTML",
-            link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-          },
-          {
-            icon: <SiJavascript />,
-            label: "JavaScript",
-            link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-          },
-          {
-            icon: <SiCss3 />,
-            label: "CSS",
-            link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-          },
-          {
-            icon: <SiNodedotjs />,
-            label: "Node.js",
-            link: "https://nodejs.org/en",
-          },
-          {
-            icon: <SiExpress />,
-            label: "Express",
-            link: "https://expressjs.com/",
-          },
-          {
-            icon: <SiMongodb />,
-            label: "MongoDB",
-            link: "https://www.mongodb.com/",
-          },
+          { icon: <Zap className={iconClass} />, label: "Power Automate" },
+          { icon: <BarChart3 className={iconClass} />, label: "Power BI" },
+          { icon: <Settings className={iconClass} />, label: "Dataverse" },
+          { icon: <Code className={iconClass} />, label: "React" },
+          { icon: <Compass className={iconClass} />, label: "Tailwind CSS" },
         ].map(({ icon, label, link }) => (
-          <a
+          <p
             key={label}
-            target="_blank"
-            rel="noopener noreferrer"
             className="mt-1 flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl sm:px-3 sm:py-2 sm:text-base xl:text-xl"
             role="listitem"
-            aria-label={`Learn more about ${label}`}
             href={link}
           >
             {icon}
             <span className="hidden sm:ml-3 sm:inline">{label}</span>
-          </a>
+          </p>
         ))}
       </div>
     </section>
