@@ -22,15 +22,15 @@ function About() {
       <div className="text-center font-sans-serif text-xs font-normal text-zinc-700 sm:mt-3 sm:text-base xl:text-xl">
         <p>
           Application Developer specializing in secure, internal solutions for
-          the federal government.
+          DND.
         </p>
         <p className="sm:mt-3">
           Focused on the Microsoft Power Platform to automate workflows and
-          build applications.
+          build user-focused applications.
         </p>
         <p className="sm:mt-3">
-          Proficient in React for custom interfaces and experience in Agile
-          environments.
+          Proficient in React and Tailwind CSS for custom interfaces, with
+          experience working in Agile team environments.
         </p>
       </div>
     </section>

@@ -22,7 +22,7 @@ function Home() {
 
         {/* Title */}
         <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-          Developer & Student
+          Application Developer & Student
         </h2>
 
         {/* Location */}
@@ -45,7 +45,7 @@ function Home() {
           aria-describedby="home-location"
           className="rounded-lg border bg-black px-2 py-1 font-sans-serif text-xs font-medium text-white transition-all hover:border-zinc-700 hover:bg-zinc-800 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-black sm:px-3 sm:py-2 sm:text-base xl:text-xl"
         >
-          Let&apos;s Connect
+          Connect
         </a>
         <a
           href={resume}
@@ -56,7 +56,7 @@ function Home() {
           title="Opens in a new tab"
           className="flex items-center justify-center rounded-lg border border-zinc-300 px-2 py-1 font-sans-serif text-xs font-medium text-zinc-700 transition hover:border-black hover:text-black hover:shadow-xl focus-visible:ring-2 focus-visible:ring-black sm:px-3 sm:py-2 sm:text-base xl:text-xl"
         >
-          My Resume
+          Resume
         </a>
       </nav>
     </div>

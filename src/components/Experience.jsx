@@ -33,8 +33,8 @@ function Experience() {
       location: "Ottawa, ON",
       date: "Feb 2025 - Present",
       responsibilities: [
-        "Develop multiple projects using Power Apps and Power Automate.",
-        "Delivered iterative features using Agile methodology and Azure DevOps.",
+        "Building secure internal apps with Power Platform.",
+        "Working Agile with Azure DevOps.",
       ],
     },
     {
@@ -43,8 +43,8 @@ function Experience() {
       location: "Ottawa, ON",
       date: "Sep 2024 - Dec 2024",
       responsibilities: [
-        "Executed and documented functional and regression test cases.",
-        "Identified defects affecting stability, accessibility, and performance.",
+        "Tested accessibility, performance, and stability.",
+        "Logged bugs and verified fixes.",
       ],
     },
     {
@@ -53,8 +53,8 @@ function Experience() {
       location: "Ottawa, ON",
       date: "Jan 2024 - Apr 2024",
       responsibilities: [
-        "Created a Java automation tool to streamline API documentation updates.",
-        "Improved code reliability with JUnit 5 and issue resolution in Azure DevOps.",
+        "Automated API documentation updates in Java.",
+        "Improved test coverage with JUnit 5.",
       ],
     },
   ];
@@ -65,7 +65,7 @@ function Experience() {
         "Computer Engineering Technology - Computer Science (Advanced Diploma)",
       school: "Algonquin College",
       location: "Ottawa, ON",
-      graduation: "Expected Graduation 2025",
+      graduation: "Expected Graduation - 2025",
       achievements: ["GPA: 3.76 / 4.0", "Dean's Honours List (All terms)"],
     },
   ];
@@ -77,7 +77,7 @@ function Experience() {
         Experience
       </h1>
       <h2 className="text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-        Learning by day, earning by night.
+        {isToggled ? "Learning by night." : "Earning by day."}
       </h2>
 
       {/* Toggle Buttons */}

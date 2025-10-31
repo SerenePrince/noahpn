@@ -185,17 +185,15 @@ function App() {
 
 const getSlideNotes = (slide) =>
   ({
-    Home: "A portfolio inspired by PowerPoint. Best experienced in full screen. Built with React and Tailwind.",
+    Home: "Inspired by PowerPoint. Best viewed full screen. Built with React and Tailwind.",
     About:
-      "Outside of tech, you'll find me playing volleyball, hitting the gym, or playing video games.",
-    Skills:
-      "I've also been sharpening my Java skills, working with Spring Boot for back-end development.",
+      "When I'm not coding, I'm probably playing volleyball, walking, or gaming.",
+    Skills: "Lately, I've been exploring Python for back-end development.",
     Experience:
-      "As of February 2025, I've been working at the Department of National Defence (DND).",
+      "Since February 2025, I've been developing at the Department of National Defence (DND).",
     Projects:
-      "Due to federal confidentiality, project materials were developed for internal use only and cannot be publicly shared.",
-    Contact:
-      "I'm not active on social media, so these are the best ways to get connected with me.",
+      "All projects are for internal use only and can't be publicly shared.",
+    Contact: "I'm not active on social media—email or LinkedIn works best.",
   })[slide] || "";
 
 export default App;

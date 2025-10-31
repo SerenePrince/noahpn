@@ -25,7 +25,7 @@ function Skills() {
 
       {/* Tagline */}
       <h2 className="text-center text-sm font-medium text-zinc-700 sm:mt-3 sm:text-xl xl:text-3xl">
-        A bad workman blames his tools, but I do so anyway.
+        They pay the bills.
       </h2>
 
       {/* Skills Grid */}

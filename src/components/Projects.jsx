@@ -26,28 +26,25 @@ const icons = {
 
 const projects = [
   {
-    title: "Client Onboarding Automation (DND)",
+    title: "Initiative Onboarding App (DND)",
     description:
-      "A Power Platform workflow automating initiative overview to reduce administrative workload.",
+      "Power Platform solution automating intake and setup workflows.",
     technologies: ["Power Apps", "Power Automate", "Azure DevOps"],
   },
   {
-    title: "AI Chatbot Web Interface (DND)",
-    description:
-      "A lightweight web UI for internal policy document lookup using NLP, built with React and Tailwind CSS.",
+    title: "Internal AI Chatbot UI (DND)",
+    description: "React/Tailwind interface for document and policy lookup.",
     technologies: ["React", "Tailwind CSS"],
   },
   {
-    title: "Executive Data Dashboard (DND)",
-    description:
-      "Interactive Power BI dashboard visualizing federal learning operations for strategic reporting.",
+    title: "Learning Analytics Dashboard (DND)",
+    description: "Power BI dashboard tracking training metrics and trends.",
     technologies: ["Power BI"],
   },
   {
-    title: "API Documentation Automation (FINTRAC)",
-    description:
-      "Java utility to validate OpenAPI documentation and eliminate repetitive manual updates.",
-    technologies: ["Java", "Azure DevOps"],
+    title: "API Doc Sync Tool (FINTRAC)",
+    description: "Java utility automating OpenAPI file validation and updates.",
+    technologies: ["Java"],
   },
 ];
 
@@ -81,7 +78,7 @@ function Projects() {
       </h2>
 
       {/* Project Content */}
-      <div className="w-full space-y-3 text-zinc-800">
+      <div className="text-center font-sans-serif text-xs font-normal text-zinc-700 sm:mt-3 sm:text-base xl:text-xl">
         <div className="flex flex-col justify-center text-center">
           {/* Project Title */}
           <p className="mt-1 text-center font-sans-serif text-xs font-normal text-zinc-700 sm:text-base xl:text-xl">
