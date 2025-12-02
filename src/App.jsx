@@ -189,8 +189,7 @@ const getSlideNotes = (slide) =>
     About:
       "When I'm not coding, I'm probably playing volleyball, walking, or gaming.",
     Skills: "Lately, I've been exploring Python for back-end development.",
-    Experience:
-      "Since February 2025, I've been developing at the Department of National Defence (DND).",
+    Experience: "If things keep going well, I'll be graduating in April 2026.",
     Projects:
       "All projects are for internal use only and can't be publicly shared.",
     Contact: "I'm not active on social media—email or LinkedIn works best.",
