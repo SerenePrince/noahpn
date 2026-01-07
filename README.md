@@ -1,0 +1,44 @@
+# Portfolio — Noah Park-Nguyen
+
+Personal portfolio showcasing my work in application development, internal tools, and automation.
+
+The site focuses on clarity, motion, and content-first presentation, with case studies drawn from real projects in government and enterprise environments.
+
+---
+
+## Built With
+
+- **React**
+- **Tailwind CSS**
+- **Motion**
+- **Vite**
+
+---
+
+## Design & Theme
+
+The design is intentionally restrained and content-driven:
+
+- High-contrast light/dark theme
+- Minimal color palette
+- Typography-led layout
+- Motion used to guide attention, not decorate
+- Fully responsive with accessibility and reduced-motion support
+
+Inspired by modern product documentation and editorial layouts, with an emphasis on readability, focus, and professionalism.
+
+---
+
+## Content
+
+The portfolio includes:
+
+- Selected **case studies** of internal tools and reporting work
+- A concise overview of skills and experience
+- Contact and resume access
+
+All content is curated to reflect real-world application development work and problem-solving.
+
+---
+
+© Noah Park-Nguyen
