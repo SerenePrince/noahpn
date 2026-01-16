@@ -4,8 +4,7 @@
 
 If you discover a security vulnerability related to this site or its dependencies, please report it responsibly.
 
-**Contact:**  
-Email: noahparknguyen@gmail.com
+**Contact:** noahparknguyen@gmail.com
 
 Please do not open a public issue for security-related reports.
 
