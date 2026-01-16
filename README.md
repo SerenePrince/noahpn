@@ -1,5 +1,9 @@
 # Portfolio — Noah Park-Nguyen
 
+<img width="1200" height="630" alt="og" src="https://github.com/user-attachments/assets/49596ff4-9643-4e00-be7c-41883c214301" />
+
+---
+
 Personal portfolio showcasing my work in application development, internal tools, and automation.
 
 The site focuses on clarity, motion, and content-first presentation, with case studies drawn from real projects in government and enterprise environments.
