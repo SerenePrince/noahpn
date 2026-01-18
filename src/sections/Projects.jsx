@@ -14,10 +14,10 @@ const CASE_STUDIES = [
     org: "DND",
     subtitle: "Power Apps • Power Automate • SharePoint",
     cardSummary:
-      "Replaced spreadsheet tracking with an internal app and automated status workflows.",
+      "Replaced spreadsheet tracking with an internal app that keeps initiative status up to date automatically.",
     details: {
       summary:
-        "An internal tracking application paired with automated workflows to centralize initiative data, maintain status consistency, and reduce manual coordination.",
+        "An internal application that replaced spreadsheet-based tracking with a single place to manage initiatives, reduce manual updates, and keep status information consistent.",
       tools: [
         "Power Apps",
         "Power Automate",
@@ -25,18 +25,18 @@ const CASE_STUDIES = [
         "Agile / Scrum",
       ],
       myRole: [
-        "Designed the underlying data structure and built the core app screens for viewing and updating initiative information.",
+        "Designed the data structure and built the main app screens used to view and update initiative information.",
         "Created automated workflows for approvals, status changes, notifications, and maintenance states to reduce manual follow-ups.",
-        "Worked within an Agile team, collaborating with designers and stakeholders and delivering demos that explained tradeoffs and outcomes.",
+        "Worked within an Agile team, collaborating with designers and stakeholders and running demos to explain decisions and tradeoffs.",
       ],
       impact: [
-        "Replaced spreadsheet-based tracking with a structured internal application that made updates faster and more consistent.",
-        "Improved visibility into initiative status and reduced manual coordination across teams.",
+        "Replaced spreadsheet-based tracking with a clearer, more reliable internal application.",
+        "Made it easier for teams to keep initiative status accurate without constant manual coordination.",
         "The application remains in production and is used for ongoing initiative management.",
       ],
       constraints: [
         "Internal tooling — no public links or screenshots.",
-        "Role included both hands-on delivery and cross-functional collaboration.",
+        "Work balanced hands-on development with stakeholder collaboration.",
       ],
     },
   },
@@ -46,24 +46,24 @@ const CASE_STUDIES = [
     org: "DND",
     subtitle: "Power BI • Reporting • Data Cleanup",
     cardSummary:
-      "Consolidated fragmented training data into reliable reporting for leadership use.",
+      "Cleaned up scattered training data and turned it into clear reporting leaders could rely on.",
     details: {
       summary:
-        "Focused on consolidating fragmented training data into reliable, repeatable reporting for leadership use.",
+        "A reporting dashboard built to clean up fragmented training records and provide leadership with clear, repeatable reporting.",
       tools: ["Power BI", "Power Query", "DAX", "Data modeling"],
       myRole: [
-        "Cleaned and consolidated 10,000+ training records from multiple Excel sources to create a consistent reporting foundation.",
-        "Built a data model designed to support refreshes and future data growth.",
-        "Created interactive filters and key metrics for totals, trends, language splits, and demographic breakdowns, and documented the refresh workflow for handoff.",
+        "Cleaned and combined 10,000+ training records from multiple Excel files to create a reliable data foundation.",
+        "Built a data model that supports regular refreshes and future growth as new data is added.",
+        "Created filters and key metrics for totals, trends, language splits, and demographics, and documented the refresh process for handoff.",
       ],
       impact: [
-        "Delivered a client-ready dashboard used for leadership and stakeholder reporting.",
+        "Delivered a dashboard used for leadership and stakeholder reporting.",
         "Replaced manual spreadsheet summaries with repeatable, reliable reporting.",
-        "Improved confidence in the accuracy and usability of training data.",
+        "Improved trust in the accuracy and usability of training data.",
       ],
       constraints: [
         "Internal data — no shareable visuals or datasets.",
-        "Emphasis on data quality, correctness, and stakeholder usability.",
+        "Focus on data quality and usability for non-technical users.",
       ],
     },
   },
@@ -71,12 +71,12 @@ const CASE_STUDIES = [
     id: "fintrac-openapi",
     title: "API Documentation Sync Automation",
     org: "FINTRAC",
-    subtitle: "Java • Internal Automation • Documentation Sync",
+    subtitle: "Java • Internal Automation • Documentation",
     cardSummary:
-      "Automated documentation checks to keep internal API docs in sync with live system data.",
+      "Built a small automation to keep internal API documentation aligned with real system behaviour.",
     details: {
       summary:
-        "A Java-based automation focused on safely synchronizing documentation with live system data.",
+        "A small Java-based automation that compares internal documentation with live system responses and updates documentation safely when they drift out of sync.",
       tools: [
         "Java",
         "Maven",
@@ -84,18 +84,18 @@ const CASE_STUDIES = [
         "Configuration-driven automation",
       ],
       myRole: [
-        "Designed and built the automation from scratch to replace a repetitive, manual documentation validation process.",
-        "Implemented a configuration-driven approach to define which endpoints and fields to compare, avoiding hard-coded logic.",
-        "Added support for controlled additions, removals, inline notes, and manual overrides to handle real-world exceptions safely.",
+        "Built the automation from scratch to replace a slow, manual documentation review process.",
+        "Used a configuration file to control which endpoints and fields were checked, keeping the logic simple and flexible.",
+        "Added support for exceptions, notes, and manual overrides so the tool could handle real-world edge cases safely.",
       ],
       impact: [
-        "Reduced a recurring documentation review workflow from hours of manual effort to seconds.",
-        "Improved confidence in internal API documentation and reduced back-and-forth for developers consuming the APIs.",
-        "The tool became part of the team's ongoing documentation maintenance workflow.",
+        "Reduced a documentation review task from hours of manual work to seconds.",
+        "Made internal API documentation more reliable for developers using the systems.",
+        "The tool became part of the team's regular documentation maintenance workflow.",
       ],
       constraints: [
         "Internal system — no public source code, endpoints, or screenshots.",
-        "Focus was on correctness, safety, and repeatability rather than UI or API design.",
+        "Focus was on correctness and safety rather than UI or API design.",
       ],
     },
   },
