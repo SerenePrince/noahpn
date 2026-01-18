@@ -10,8 +10,10 @@ This includes, but is not limited to:
 - Images, graphics, and screenshots
 - Branding, layout, and visual design
 
+This content is provided for review and evaluation as part of a personal portfolio.
+
 The source code for this project is licensed separately under the MIT License.
 See the `LICENSE` file for details.
 
-You may not copy, reproduce, or redistribute the content for commercial or
-public-facing use without explicit permission.
+You may not copy, reproduce, or redistribute the non-code content for
+commercial or public-facing use without explicit permission.

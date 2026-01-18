@@ -2,7 +2,7 @@
 
 Thanks for your interest in this project.
 
-This repository contains a personal portfolio site and is not open to feature contributions or design changes.
+This repository contains a personal portfolio site and is not open to feature contributions or design changes. However, feedback and issue reports are welcome.
 
 ## Reporting Issues
 
@@ -12,7 +12,7 @@ If you notice a bug or issue, feel free to open an issue with:
 - Steps to reproduce (if applicable)
 - Screenshots or screen recordings, if helpful
 
-Examples of acceptable issues:
+Examples of acceptable issues include:
 
 - Broken links
 - Layout issues on specific devices or browsers
