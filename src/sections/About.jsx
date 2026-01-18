@@ -104,28 +104,36 @@ function About({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-6 text-base leading-relaxed lg:text-lg">
-                    I'm an application developer who builds internal tools and
-                    automation solutions for government and enterprise teams.
+                    I'm a developer, student, and Balatro addict based in
+                    Coquitlam, in the Lower Mainland of British Columbia.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I enjoy taking messy, unstructured ideas — notes,
-                    requirements, half-formed plans — and shaping them into
-                    something clean, functional, and genuinely useful. Most of
-                    my experience has focused on internal applications built
-                    with clarity, reliability, and long-term usability in mind.
+                    I took my first programming class in my senior year of high
+                    school and was instantly inspired. I knew I wanted to study
+                    computer science, so I spent the rest of that summer taking
+                    online courses to raise my math and science grades and get
+                    myself ready for college.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I gravitate toward front-end and application-focused work,
-                    where I can see each change come together visually and
-                    functionally. I work well independently and thrive in teams
-                    that value patience, positive collaboration, and iteration.
+                    The thing I love most about development is starting a
+                    brand-new project and seeing a concept go from an idea to a
+                    finished product. Watching something come together step by
+                    step is still the most satisfying part of the work for me.
                   </p>
 
-                  <p className="mt-8 text-sm tracking-wide opacity-70">
-                    Outside of development, I enjoy competitive volleyball and
-                    strategy-based games.
+                  <p className="mt-4 text-base leading-relaxed lg:text-lg">
+                    I mostly focus on implementation rather than design — design
+                    isn't my strongest suit — but you can count on me to get
+                    things done, whether that's back end, front end, or
+                    everything in between.
+                  </p>
+
+                  <p className="mt-4 text-base leading-relaxed lg:text-lg">
+                    I'm an introvert at heart, but I thrive in work environments
+                    that value patience, positive reinforcement, diversity, and
+                    accountability.
                   </p>
                 </div>
               </motion.div>

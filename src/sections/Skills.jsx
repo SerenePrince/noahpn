@@ -7,22 +7,35 @@ const GROUPS = [
   {
     title: "Frontend",
     Icon: FiCode,
-    items: ["React", "JavaScript", "HTML / CSS", "Tailwind CSS"],
+    items: ["React", "JavaScript", "HTML & CSS", "Tailwind CSS"],
   },
   {
-    title: "Backend & APIs",
+    title: "Backend",
     Icon: FiShare2,
-    items: ["Java", "Node.js"],
+    items: ["Java", "REST APIs", "Maven"],
   },
   {
     title: "Power Platform",
     Icon: FiZap,
-    items: ["Power BI", "Power Apps", "Power Automate", "SharePoint Lists"],
+    items: [
+      "Power Apps",
+      "Power Automate",
+      "Power BI",
+      "SharePoint (Lists)",
+      "Microsoft 365 (SharePoint, Teams)",
+    ],
   },
   {
-    title: "Tooling & Delivery",
+    title: "Workflow",
     Icon: FiGitBranch,
-    items: ["Git", "Azure DevOps", "Agile / Scrum"],
+    items: [
+      "Git",
+      "Azure DevOps",
+      "Linux (Ubuntu / WSL)",
+      "Automation Workflows",
+      "Testing Practices",
+      "Scrum",
+    ],
   },
 ];
 
@@ -100,8 +113,7 @@ function Skills({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Tools and platforms I've worked with across projects,
-                coursework, and experimentation.
+                Tools I've used in work, school, and side projects.
               </motion.p>
             </div>
           </div>

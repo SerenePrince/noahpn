@@ -10,89 +10,94 @@ import {
 const CASE_STUDIES = [
   {
     id: "fintrac-openapi",
-    title: "OpenAPI Sync Automation",
+    title: "API Documentation Sync Automation",
     org: "FINTRAC",
-    subtitle: "Java • REST APIs • OpenAPI",
+    subtitle: "Java • APIs • Documentation Automation",
     cardSummary:
-      "Automated OpenAPI spec validation by comparing documentation with live API responses.",
+      "Built an internal tool that keeps API documentation accurate automatically—cutting hours of manual checking down to seconds.",
     details: {
-      overview:
-        "Designed and built an internal automation tool that keeps OpenAPI (Swagger) YAML documentation accurate by synchronizing it with live endpoint responses.",
-      tech: [
+      summary:
+        "An internal automation tool that keeps API documentation accurate by comparing documentation against what the system actually returns and generating safe updates.",
+      tools: [
         "Java",
-        "OpenAPI / Swagger (YAML)",
         "REST APIs",
-        "Config-driven automation",
+        "OpenAPI / Swagger (YAML)",
+        "Configuration-driven automation",
       ],
-      whatIDid: [
-        "Designed a configuration format mapping endpoints to YAML schema sections.",
-        "Fetched live API responses, compared them against documented fields, and generated safe, structure-preserving YAML updates.",
-        "Added support for inline notes, intentional removals, and manual overrides via configuration.",
+      myRole: [
+        "Designed and built the automation from the ground up.",
+        "Created a configuration-driven approach to map endpoints to documentation sections and apply updates safely.",
+        "Accounted for real-world exceptions like intentional omissions, inline notes, and manual overrides while keeping the output safe and consistent.",
+        ,
       ],
       impact: [
-        "Reduced a recurring manual workflow from ~8 hours to seconds of runtime, with minimal configuration upkeep.",
-        "Improved reliability of internal developer documentation; the tool remains in periodic use by the team.",
+        "Reduced a recurring workflow from roughly 8 hours of manual work to seconds.",
+        "Improved trust in internal documentation and reduced back-and-forth for developers consuming the APIs.",
+        "The tool remains in periodic use by the team.",
       ],
-      notes: [
+      constraints: [
         "Internal system — no public source code, endpoints, or screenshots.",
-        "Emphasis on correctness, repeatability, and maintainability over UI.",
+        "Focused on correctness, repeatability, and long-term maintainability over UI.",
       ],
     },
   },
   {
     id: "dnd-dashboard",
-    title: "Training Completion Dashboard",
+    title: "Training Completion Reporting Dashboard",
     org: "DND",
-    subtitle: "Power BI • DAX • Data Modeling",
+    subtitle: "Power BI • Reporting • Data Cleanup",
     cardSummary:
-      "Consolidated messy training records into a Power BI dashboard with drilldowns and trend reporting.",
+      "Turned scattered training spreadsheets into a single dashboard leaders could use for trends, breakdowns, and reporting.",
     details: {
-      overview:
-        "Designed and built a reporting dashboard for course completions and demographics, backed by a data model structured for ongoing refreshes and growth.",
-      tech: ["Power BI", "Power Query", "DAX", "Data modeling"],
-      whatIDid: [
-        "Ingested and cleaned 10,000+ rows across multiple Excel sources, including derived fiscal year and quarter fields for reporting.",
-        "Normalized bilingual course titles and built DAX measures for totals, language splits, delivery methods, and demographic breakdowns.",
-        "Implemented interactive filtering and documented refresh workflows so stakeholders could maintain the dashboard independently.",
+      summary:
+        "An internal reporting dashboard that consolidates training records into a clear, interactive view for leadership and stakeholder reporting.",
+      tools: ["Power BI", "Power Query", "DAX", "Data modeling"],
+      myRole: [
+        "Combined and cleaned 10,000+ records from multiple Excel sources so reporting could be consistent and reliable.",
+        "Built a data model that supports refreshes and can grow as new data sources are added.",
+        "Created interactive filters and key metrics for totals, trends, language splits, and demographic breakdowns, and documented the refresh workflow for handoff.",
+        ,
       ],
       impact: [
         "Delivered a client-ready dashboard used for leadership and stakeholder reporting.",
-        "Replaced manual spreadsheet summaries with consistent, repeatable reporting.",
+        "Replaced manual spreadsheet summaries with repeatable reporting.",
+        "Improved confidence in the accuracy and usability of training data.",
       ],
-      notes: [
-        "Internal data — visuals and datasets are not publicly shareable.",
+      constraints: [
+        "Internal data — no shareable visuals or datasets.",
         "Emphasis on data quality, correctness, and stakeholder usability.",
       ],
     },
   },
   {
     id: "dnd-tracker",
-    title: "Initiative Tracker + Automation",
+    title: "Initiative Tracker + Automated Workflows",
     org: "DND",
-    subtitle: "Power Apps • Power Automate • SharePoint Lists",
+    subtitle: "Power Apps • Power Automate • SharePoint",
     cardSummary:
-      "Replaced spreadsheet tracking with a Power App and automated workflows for consistent project status updates.",
+      "Replaced spreadsheet tracking with an internal app and automated updates so teams always had a reliable view of project status.",
     details: {
-      overview:
-        "Designed and built an internal initiative tracking application to centralize project data and automate status changes, improving visibility and reducing manual coordination.",
-      tech: [
+      summary:
+        "An internal tracking application plus automated workflows to centralize initiative data, keep statuses consistent, and reduce manual coordination.",
+      tools: [
         "Power Apps",
         "Power Automate",
         "SharePoint Lists",
         "Agile / Scrum",
       ],
-      whatIDid: [
-        "Designed the SharePoint List schema and built core Power App screens for viewing and updating initiatives.",
-        "Implemented Power Automate workflows for approvals, status changes, notifications, and maintenance states.",
-        "Collaborated in an Agile team, integrating design handoffs and delivering demos explaining feature tradeoffs and value.",
+      myRole: [
+        "Designed the underlying data structure and built the core app screens for viewing and updating initiatives.",
+        "Created automated workflows for approvals, status changes, notifications, and maintenance states to reduce manual follow-ups.",
+        "Worked in an Agile team, collaborating with designers and stakeholders and delivering demos that explained tradeoffs and outcomes.",
       ],
       impact: [
-        "Replaced spreadsheet tracking with a structured, UX-focused internal application.",
+        "Replaced spreadsheet-based tracking with a structured, user-friendly internal application that made updates faster and more consistent.",
+        "Improved visibility into initiative status and reduced manual coordination.",
         "The application remains in production and is used for ongoing initiative management.",
       ],
-      notes: [
+      constraints: [
         "Internal tooling — no public links or screenshots.",
-        "Role covered both delivery and cross-functional collaboration.",
+        "Role included both hands-on delivery and cross-functional collaboration.",
       ],
     },
   },
@@ -249,8 +254,8 @@ function Projects({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Selected case studies from internal tools, automation, and
-                reporting work.
+                Selected case studies from internal applications, automation,
+                and reporting work.
               </motion.p>
             </div>
           </div>
@@ -372,37 +377,35 @@ function Projects({ mode = "nav" }) {
                           type="button"
                           onClick={closeDetails}
                           className="shrink-0 underline underline-offset-4"
-                          aria-label="Close case study details"
+                          aria-label="Close case study"
                         >
-                          Close
+                          Back to projects
                         </button>
                       </div>
 
                       <div className="mt-8 min-h-0 flex-1 overflow-auto pr-2">
                         <div className="space-y-10">
-                          <section
-                            aria-labelledby={`${activeItem.id}-overview`}
-                          >
+                          <section aria-labelledby={`${activeItem.id}-summary`}>
                             <h4
-                              id={`${activeItem.id}-overview`}
+                              id={`${activeItem.id}-summary`}
                               className="text-xs font-semibold tracking-widest uppercase opacity-70"
                             >
-                              Overview
+                              Summary
                             </h4>
                             <p className="wrap-break-words mt-3 text-sm leading-relaxed opacity-80">
-                              {activeItem.details.overview}
+                              {activeItem.details.summary}
                             </p>
                           </section>
 
-                          <section aria-labelledby={`${activeItem.id}-tech`}>
+                          <section aria-labelledby={`${activeItem.id}-tools`}>
                             <h4
-                              id={`${activeItem.id}-tech`}
+                              id={`${activeItem.id}-tools`}
                               className="text-xs font-semibold tracking-widest uppercase opacity-70"
                             >
-                              Tech
+                              Tools
                             </h4>
                             <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm opacity-80">
-                              {activeItem.details.tech.map((t) => (
+                              {activeItem.details.tools.map((t) => (
                                 <li key={t} className="wrap-break-words">
                                   {t}
                                 </li>
@@ -410,15 +413,15 @@ function Projects({ mode = "nav" }) {
                             </ul>
                           </section>
 
-                          <section aria-labelledby={`${activeItem.id}-what`}>
+                          <section aria-labelledby={`${activeItem.id}-role`}>
                             <h4
-                              id={`${activeItem.id}-what`}
+                              id={`${activeItem.id}-role`}
                               className="text-xs font-semibold tracking-widest uppercase opacity-70"
                             >
-                              What I did
+                              My Role
                             </h4>
                             <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
-                              {activeItem.details.whatIDid.map((b) => (
+                              {activeItem.details.myRole.map((b) => (
                                 <li key={b} className="wrap-break-words">
                                   {b}
                                 </li>
@@ -442,16 +445,18 @@ function Projects({ mode = "nav" }) {
                             </ul>
                           </section>
 
-                          {activeItem.details.notes?.length ? (
-                            <section aria-labelledby={`${activeItem.id}-notes`}>
+                          {activeItem.details.constraints?.length ? (
+                            <section
+                              aria-labelledby={`${activeItem.id}-constraints`}
+                            >
                               <h4
-                                id={`${activeItem.id}-notes`}
+                                id={`${activeItem.id}-constraints`}
                                 className="text-xs font-semibold tracking-widest uppercase opacity-70"
                               >
-                                Notes
+                                Constraints
                               </h4>
                               <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
-                                {activeItem.details.notes.map((b) => (
+                                {activeItem.details.constraints.map((b) => (
                                   <li key={b} className="wrap-break-words">
                                     {b}
                                   </li>
@@ -461,8 +466,8 @@ function Projects({ mode = "nav" }) {
                           ) : null}
 
                           <p className="sr-only">
-                            Press Escape to close. Use Tab to move through
-                            controls.
+                            Press Escape to close. Use Tab to move through the
+                            panel.
                           </p>
                         </div>
                       </div>
@@ -517,7 +522,7 @@ function CaseStudyCard({ item, onOpen, isOpen }) {
             aria-expanded={isOpen ? "true" : "false"}
             aria-controls={`${item.id}-panel-title`}
           >
-            View details
+            Read case study
           </button>
           <span aria-hidden="true" className="text-xs tracking-wide opacity-70">
             +

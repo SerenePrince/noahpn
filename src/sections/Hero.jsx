@@ -230,12 +230,12 @@ function Hero({ mode = "load" }) {
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
               <p className="mx-auto max-w-3xl text-sm tracking-wide opacity-70">
-                Internal web applications and automation tools for government
-                and enterprise teams.
+                I build internal applications and automation tools that help
+                government and enterprise teams work better.
               </p>
               <p className="mt-4 text-sm tracking-wide opacity-70">
-                Coquitlam, BC • Open to remote work and relocation • Graduating
-                April 2026
+                Coquitlam, BC • Open to remote or relocation • Graduating April
+                2026
               </p>
             </motion.div>
           </div>

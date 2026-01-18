@@ -39,7 +39,7 @@ function Contact({ mode = "nav" }) {
       initial={false}
     >
       <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* ✅ Single scroll owner. No justify-center => no top/bottom clipping. */}
+        {/* Single scroll owner. No justify-center => no top/bottom clipping. */}
         <div className="desktop-scroll min-h-0 flex-1">
           <div className="flex min-h-0 flex-col">
             {/* MAIN ROW */}
@@ -69,8 +69,8 @@ function Contact({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
-                    A single-page summary of my work in internal tools,
-                    automation, and enterprise environments.
+                    A one-page summary of my experience building internal apps,
+                    automation, and reporting tools.
                   </p>
 
                   <div className="mt-6 flex justify-center lg:justify-end">
@@ -81,14 +81,14 @@ function Contact({ mode = "nav" }) {
                       className="inline-flex items-center gap-3 underline underline-offset-4"
                       aria-label="View resume PDF in a new tab"
                     >
-                      <span>View resume (PDF)</span>
+                      <span>Open resume (PDF)</span>
                       <FiArrowUpRight aria-hidden="true" className="h-5 w-5" />
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   </div>
 
                   <p className="mt-6 text-sm tracking-wide opacity-70">
-                    Open to full-time, part-time, or contract roles.
+                    Open to full-time, internship, or contract roles.
                   </p>
                 </motion.div>
               </div>
@@ -143,7 +143,7 @@ function Contact({ mode = "nav" }) {
                   <h3 className="font-semibold tracking-wide">Contact</h3>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
-                    Email is the fastest way to reach me.
+                    Email is usually the best way to reach me.
                   </p>
 
                   <address className="mt-8 not-italic">
@@ -233,8 +233,8 @@ function Contact({ mode = "nav" }) {
                   style={{ willChange: "transform" }}
                 >
                   <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
-                    Most work shown is internal; case studies focus on approach,
-                    decision-making, and measurable impact.
+                    Most of my work is internal, so the case studies focus on my
+                    approach, tradeoffs, and impact.
                   </p>
                 </motion.div>
               </div>

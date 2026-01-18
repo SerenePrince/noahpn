@@ -30,13 +30,13 @@ const EDU_ITEMS = [
     id: "algonquin-2023-2026",
     school: "Algonquin College",
     program:
-      "Advanced Diploma • Computer Engineering Technology – Computer Science",
+      "Advanced Diploma • Computer Science (Computer Engineering Technology)",
     dates: "Jan 2023 – Apr 2026 (expected)",
   },
   {
     id: "activities",
     school: "Activities",
-    program: "Intramural volleyball • Drop-in games and tournaments",
+    program: "Intramural volleyball • Drop-in games & tournaments",
     dates: "",
   },
 ];
@@ -111,7 +111,7 @@ function Experience({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Professional and academic background
+                Where I've worked and what I've studied
               </motion.p>
             </div>
           </div>
