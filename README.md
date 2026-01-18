@@ -9,9 +9,6 @@ Personal portfolio showcasing my work in application development, internal tools
 The site emphasizes clarity, motion, and content-first presentation, with case studies drawn from real projects in government and enterprise environments.
 
 **Live:** [https://sereneprince.github.io/noahpn/](https://sereneprince.github.io/noahpn/)   
-**Deployment:** GitHub Pages
-
----
 
 ## Built With
 
@@ -19,8 +16,6 @@ The site emphasizes clarity, motion, and content-first presentation, with case s
 * **Tailwind CSS**
 * **Motion**
 * **Vite**
-
----
 
 ## Design & Theme
 
@@ -34,8 +29,6 @@ The design is intentionally restrained and content-driven:
 
 Inspired by modern product documentation and editorial layouts, with an emphasis on readability, focus, and professionalism.
 
----
-
 ## Content
 
 The portfolio includes:
@@ -45,8 +38,6 @@ The portfolio includes:
 * Contact and resume access
 
 All content is curated to reflect real-world application development work and problem-solving.
-
----
 
 ## License
 
