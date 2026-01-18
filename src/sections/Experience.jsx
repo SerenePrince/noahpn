@@ -76,7 +76,7 @@ function Experience({ mode = "nav" }) {
       initial={false}
     >
       <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* ✅ One scroll wrapper for the whole section (only scrolls on <lg via .desktop-scroll utility) */}
+        {/* One scroll wrapper for the whole section (only scrolls on <lg via .desktop-scroll utility) */}
         <div className="desktop-scroll min-h-0 flex-1">
           {/* Header */}
           <div className="mb-8 text-center">
@@ -111,7 +111,7 @@ function Experience({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                My journey so far.
+                Professional and academic background
               </motion.p>
             </div>
           </div>

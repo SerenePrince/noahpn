@@ -10,9 +10,9 @@ function Header({ active, onNavigate, mode = "load" }) {
 
   const items = [
     { key: "home", label: "Home" },
-    { key: "about", label: "About" },
-    { key: "experience", label: "Experience" },
     { key: "projects", label: "Projects" },
+    { key: "experience", label: "Experience" },
+    { key: "about", label: "About" },
     { key: "skills", label: "Skills" },
     { key: "contact", label: "Contact" },
   ];

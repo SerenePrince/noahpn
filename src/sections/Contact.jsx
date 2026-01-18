@@ -79,16 +79,16 @@ function Contact({ mode = "nav" }) {
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-3 underline underline-offset-4"
-                      aria-label="Open resume PDF in a new tab"
+                      aria-label="View resume PDF in a new tab"
                     >
-                      <span>Open resume (PDF)</span>
+                      <span>View resume (PDF)</span>
                       <FiArrowUpRight aria-hidden="true" className="h-5 w-5" />
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   </div>
 
                   <p className="mt-6 text-sm tracking-wide opacity-70">
-                    Graduating April 2026 • Open to remote work and relocation
+                    Open to full-time, part-time, or contract roles.
                   </p>
                 </motion.div>
               </div>
@@ -233,7 +233,7 @@ function Contact({ mode = "nav" }) {
                   style={{ willChange: "transform" }}
                 >
                   <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
-                    Most work shown is internal—case studies focus on approach,
+                    Most work shown is internal; case studies focus on approach,
                     decision-making, and measurable impact.
                   </p>
                 </motion.div>

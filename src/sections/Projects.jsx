@@ -12,33 +12,30 @@ const CASE_STUDIES = [
     id: "fintrac-openapi",
     title: "OpenAPI Sync Automation",
     org: "FINTRAC",
-    subtitle: "Java • Maven • REST • OpenAPI",
+    subtitle: "Java • REST APIs • OpenAPI",
     cardSummary:
-      "Automated OpenAPI spec validation by comparing documentation against live API responses.",
+      "Automated OpenAPI spec validation by comparing documentation with live API responses.",
     details: {
       overview:
-        "Built an internal automation tool to keep OpenAPI (Swagger) YAML documentation accurate by synchronizing documented fields with live endpoint data.",
+        "Designed and built an internal automation tool that keeps OpenAPI (Swagger) YAML documentation accurate by synchronizing it with live endpoint responses.",
       tech: [
         "Java",
-        "Maven",
-        "REST APIs",
         "OpenAPI / Swagger (YAML)",
+        "REST APIs",
         "Config-driven automation",
       ],
       whatIDid: [
-        "Designed a configuration format mapping endpoints to their YAML schema sections.",
-        "Fetched live API responses, extracted the relevant arrays/fields, and compared them with documented values.",
-        "Wrote a safe update pipeline that generates a new YAML file with updated fields, preserving structure.",
-        "Added support for inline notes/comments, intentional removals, and manual additions via config.",
+        "Designed a configuration format mapping endpoints to YAML schema sections.",
+        "Fetched live API responses, compared them against documented fields, and generated safe, structure-preserving YAML updates.",
+        "Added support for inline notes, intentional removals, and manual overrides via configuration.",
       ],
       impact: [
-        "Reduced a recurring manual workflow from ~8 hours to seconds of runtime plus ~10 minutes of config upkeep.",
-        "Improved reliability of internal developer documentation and lowered maintenance overhead.",
-        "Tool is still used periodically by the team for ongoing documentation validation.",
+        "Reduced a recurring manual workflow from ~8 hours to seconds of runtime, with minimal configuration upkeep.",
+        "Improved reliability of internal developer documentation; the tool remains in periodic use by the team.",
       ],
       notes: [
-        "Internal system — no source code or endpoints are publicly shareable.",
-        "Focus was correctness, repeatability, and maintainability over flashy UI.",
+        "Internal system — no public source code, endpoints, or screenshots.",
+        "Emphasis on correctness, repeatability, and maintainability over UI.",
       ],
     },
   },
@@ -48,33 +45,23 @@ const CASE_STUDIES = [
     org: "DND",
     subtitle: "Power BI • DAX • Data Modeling",
     cardSummary:
-      "Consolidated messy training records into a clean Power BI dashboard with drilldowns and trend reporting.",
+      "Consolidated messy training records into a Power BI dashboard with drilldowns and trend reporting.",
     details: {
       overview:
-        "Designed a reporting dashboard for course completions and demographics, built on a data model structured for ongoing growth and refresh.",
-      tech: [
-        "Power BI",
-        "Power Query",
-        "DAX",
-        "Data modeling",
-        "Excel ingestion",
-      ],
+        "Designed and built a reporting dashboard for course completions and demographics, backed by a data model structured for ongoing refreshes and growth.",
+      tech: ["Power BI", "Power Query", "DAX", "Data modeling"],
       whatIDid: [
-        "Ingested and cleaned 10,000+ rows across multiple Excel sources.",
-        "Derived fiscal year and fiscal quarter fields from completion dates for time-based reporting.",
-        "Normalized bilingual course titles by grouping on course codes to avoid double-counting.",
-        "Built measures for totals, language splits, delivery methods, and demographic breakdowns.",
-        "Created interactive filters/search so selecting a course updates charts and tables across pages.",
-        "Documented refresh/publish steps so stakeholders could maintain it independently.",
+        "Ingested and cleaned 10,000+ rows across multiple Excel sources, including derived fiscal year and quarter fields for reporting.",
+        "Normalized bilingual course titles and built DAX measures for totals, language splits, delivery methods, and demographic breakdowns.",
+        "Implemented interactive filtering and documented refresh workflows so stakeholders could maintain the dashboard independently.",
       ],
       impact: [
-        "Delivered a clear, client-ready dashboard for leadership and stakeholder reporting.",
-        "Reduced time spent manually summarizing completions and trends from spreadsheets.",
-        "Enabled consistent reporting over time as new data sources are added.",
+        "Delivered a client-ready dashboard used for leadership and stakeholder reporting.",
+        "Replaced manual spreadsheet summaries with consistent, repeatable reporting.",
       ],
       notes: [
-        "Internal data — visuals and dataset can’t be publicly shared.",
-        "Work emphasized data quality, correctness, and stakeholder usability.",
+        "Internal data — visuals and datasets are not publicly shareable.",
+        "Emphasis on data quality, correctness, and stakeholder usability.",
       ],
     },
   },
@@ -82,35 +69,30 @@ const CASE_STUDIES = [
     id: "dnd-tracker",
     title: "Initiative Tracker + Automation",
     org: "DND",
-    subtitle: "Power Apps • Power Automate • SharePoint",
+    subtitle: "Power Apps • Power Automate • SharePoint Lists",
     cardSummary:
       "Replaced spreadsheet tracking with a Power App and automated workflows for consistent project status updates.",
     details: {
       overview:
-        "Built an internal initiative tracking application to centralize project data and automate status changes, improving visibility and reducing manual coordination.",
+        "Designed and built an internal initiative tracking application to centralize project data and automate status changes, improving visibility and reducing manual coordination.",
       tech: [
         "Power Apps",
         "Power Automate",
         "SharePoint Lists",
-        "Microsoft 365",
-        "Agile/Scrum",
+        "Agile / Scrum",
       ],
       whatIDid: [
-        "Designed and implemented the SharePoint List schema to support project, client, funding, and security info.",
-        "Built the Power App’s core screens and forms for viewing and updating initiatives.",
-        "Implemented Power Automate flows for approvals, holds, cancellations, and maintenance states.",
-        "Added quality-of-life automation (e.g., notifications, collaboration setup actions) to reduce manual steps.",
-        "Worked from design handoffs and integrated UI changes into the app.",
-        "Participated in Agile ceremonies and delivered regular demos explaining feature value and tradeoffs.",
+        "Designed the SharePoint List schema and built core Power App screens for viewing and updating initiatives.",
+        "Implemented Power Automate workflows for approvals, status changes, notifications, and maintenance states.",
+        "Collaborated in an Agile team, integrating design handoffs and delivering demos explaining feature tradeoffs and value.",
       ],
       impact: [
-        "Replaced manual spreadsheet tracking with a structured, UX-focused application.",
-        "Improved data consistency across SharePoint and downstream reporting.",
-        "Application remains in production and used as part of ongoing initiative management.",
+        "Replaced spreadsheet tracking with a structured, UX-focused internal application.",
+        "The application remains in production and is used for ongoing initiative management.",
       ],
       notes: [
         "Internal tooling — no public links or screenshots.",
-        "Role covered both delivery and cross-functional collaboration in a small team.",
+        "Role covered both delivery and cross-functional collaboration.",
       ],
     },
   },
@@ -267,7 +249,8 @@ function Projects({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Selected case studies from internal tools and reporting work.
+                Selected case studies from internal tools, automation, and
+                reporting work.
               </motion.p>
             </div>
           </div>

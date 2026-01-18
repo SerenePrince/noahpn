@@ -7,12 +7,12 @@ const GROUPS = [
   {
     title: "Frontend",
     Icon: FiCode,
-    items: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
+    items: ["React", "JavaScript", "HTML / CSS", "Tailwind CSS"],
   },
   {
     title: "Backend & APIs",
     Icon: FiShare2,
-    items: ["Java", "REST APIs", "Node.js", "Maven"],
+    items: ["Java", "Node.js"],
   },
   {
     title: "Power Platform",
@@ -20,7 +20,7 @@ const GROUPS = [
     items: ["Power BI", "Power Apps", "Power Automate", "SharePoint Lists"],
   },
   {
-    title: "Delivery",
+    title: "Tooling & Delivery",
     Icon: FiGitBranch,
     items: ["Git", "Azure DevOps", "Agile / Scrum"],
   },
@@ -63,7 +63,7 @@ function Skills({ mode = "nav" }) {
       initial={false}
     >
       <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* ✅ Single scroll owner (no items-center = no top/bottom clipping) */}
+        {/* Single scroll owner (no items-center = no top/bottom clipping) */}
         <div className="desktop-scroll min-h-0 flex-1">
           {/* Header */}
           <div className="mb-8 text-center lg:text-left">
@@ -100,7 +100,8 @@ function Skills({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Tools and platforms I use regularly.
+                Tools and platforms I've worked with across projects,
+                coursework, and experimentation.
               </motion.p>
             </div>
           </div>

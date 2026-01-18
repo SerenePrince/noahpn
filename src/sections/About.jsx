@@ -104,32 +104,28 @@ function About({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-6 text-base leading-relaxed lg:text-lg">
-                    I&apos;m an application developer who builds internal tools
-                    and automation solutions for government and enterprise
-                    teams.
+                    I'm an application developer who builds internal tools and
+                    automation solutions for government and enterprise teams.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I got into programming in high school and quickly fell in
-                    love with the creative problem-solving side of it. What
-                    keeps me engaged is taking messy, unstructured ideas —
-                    notes, requirements, half-formed plans — and shaping them
-                    into something clean, functional, and genuinely useful.
+                    I enjoy taking messy, unstructured ideas — notes,
+                    requirements, half-formed plans — and shaping them into
+                    something clean, functional, and genuinely useful. Most of
+                    my experience has focused on internal applications built
+                    with clarity, reliability, and long-term usability in mind.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I gravitate toward front-end and application-focused work
-                    because I enjoy seeing each change come together visually
-                    and functionally. I work well independently, but I thrive in
-                    teams that value patience, positive collaboration, and
-                    learning through iteration.
+                    I gravitate toward front-end and application-focused work,
+                    where I can see each change come together visually and
+                    functionally. I work well independently and thrive in teams
+                    that value patience, positive collaboration, and iteration.
                   </p>
 
                   <p className="mt-8 text-sm tracking-wide opacity-70">
-                    Outside of development, you&apos;ll usually find me playing
-                    volleyball — both recreationally and competitively — or
-                    unwinding with strategy and roguelike games. Lately,
-                    that&apos;s meant a lot of Balatro.
+                    Outside of development, I enjoy competitive volleyball and
+                    strategy-based games.
                   </p>
                 </div>
               </motion.div>

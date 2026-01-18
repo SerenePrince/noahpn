@@ -12,9 +12,10 @@ import Contact from "./sections/Contact";
 
 const PAGE_TITLES = {
   home: "Home",
-  about: "About",
-  experience: "Experience",
   projects: "Projects",
+  experience: "Experience",
+  about: "About",
+
   skills: "Skills",
   contact: "Contact",
 };
@@ -84,11 +85,11 @@ function App() {
       >
         <AnimatePresence mode="wait">
           {active === "home" && <Hero key="home" mode={mode} />}
-          {active === "about" && <About key="about" mode={mode} />}
+          {active === "projects" && <Projects key="projects" mode={mode} />}
           {active === "experience" && (
             <Experience key="experience" mode={mode} />
           )}
-          {active === "projects" && <Projects key="projects" mode={mode} />}
+          {active === "about" && <About key="about" mode={mode} />}
           {active === "skills" && <Skills key="skills" mode={mode} />}
           {active === "contact" && <Contact key="contact" mode={mode} />}
         </AnimatePresence>

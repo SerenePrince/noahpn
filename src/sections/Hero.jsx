@@ -230,8 +230,8 @@ function Hero({ mode = "load" }) {
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
               <p className="mx-auto max-w-3xl text-sm tracking-wide opacity-70">
-                Internal apps and automation tools for government and enterprise
-                teams.
+                Internal web applications and automation tools for government
+                and enterprise teams.
               </p>
               <p className="mt-4 text-sm tracking-wide opacity-70">
                 Coquitlam, BC • Open to remote work and relocation • Graduating
