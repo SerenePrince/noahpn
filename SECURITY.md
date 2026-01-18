@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability related to this site, its deployment, or its dependencies, please report it responsibly.
+If you discover a security vulnerability related to this site, its deployment, or its dependencies, please report it responsibly so I can address it.
 
 **Contact:** noahparknguyen@gmail.com
 

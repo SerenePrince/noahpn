@@ -10,7 +10,7 @@ This includes, but is not limited to:
 - Images, graphics, and screenshots
 - Branding, layout, and visual design
 
-This content is provided for review and evaluation as part of a personal portfolio.
+This content is provided for review and evaluation as part of a personal portfolio and is not intended for reuse.
 
 The source code for this project is licensed separately under the MIT License.
 See the `LICENSE` file for details.

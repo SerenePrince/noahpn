@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in this project.
+Thanks for your interest in this project — I appreciate you taking a look.
 
 This repository contains a personal portfolio site and is not open to feature contributions or design changes. However, feedback and issue reports are welcome.
 
@@ -21,6 +21,4 @@ Examples of acceptable issues include:
 
 ## Questions
 
-For general questions or feedback, please reach out directly via the contact information on the site.
-
-Thanks for taking the time to look.
+For general questions or feedback, feel free to reach out using the contact information on the site.
