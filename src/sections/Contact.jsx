@@ -74,7 +74,7 @@ function Contact({ mode = "nav" }) {
 
                   <div className="mt-6 flex justify-center lg:justify-end">
                     <a
-                      href="/resume.pdf"
+                      href="/noahpn/resume.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-3 underline underline-offset-4"
