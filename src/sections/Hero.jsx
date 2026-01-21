@@ -10,7 +10,6 @@ function Hero({ mode = "load" }) {
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  // Timings (line completes before content reveals)
   const pause = reduce ? 0 : isFast ? 0.15 : 1.0;
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
@@ -19,16 +18,13 @@ function Hero({ mode = "load" }) {
   const lineRevealStart = pause;
   const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
 
-  // Exit: content hides first, then line retracts
   const exitContentDelay = 0;
   const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
 
   return (
     <section className="h-full min-h-0" aria-labelledby="hero-title">
-      <div className="mx-auto flex h-full max-w-6xl flex-col justify-center px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* MAIN CONTENT */}
+      <div className="mx-auto flex h-full max-w-6xl flex-col justify-center px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
         <div className="flex flex-col items-center gap-[clamp(1.25rem,3vh,2.5rem)] lg:flex-row lg:gap-0">
-          {/* Left side */}
           <div className="min-w-0 overflow-hidden lg:basis-[60%]">
             <motion.div
               initial={reduce ? { x: 0 } : { x: "100%" }}
@@ -78,7 +74,6 @@ function Hero({ mode = "load" }) {
             </motion.div>
           </div>
 
-          {/* Divider: horizontal on smaller desktop widths, vertical on large */}
           <div
             aria-hidden="true"
             className="relative h-px w-full overflow-hidden lg:hidden"
@@ -111,7 +106,6 @@ function Hero({ mode = "load" }) {
             />
           </div>
 
-          {/* Right side */}
           <div className="min-w-0 overflow-hidden lg:basis-[40%]">
             <motion.div
               initial={reduce ? { x: 0 } : { x: "-100%" }}
@@ -133,54 +127,51 @@ function Hero({ mode = "load" }) {
             >
               <address className="not-italic">
                 <ul className="space-y-4 text-center text-base tracking-wide lg:text-left">
-                  <li>
+                  <li className="min-w-0">
                     <a
                       href="mailto:noahparknguyen@gmail.com"
-                      aria-label="Email Noah at noahparknguyen@gmail.com"
-                      className="group inline-flex items-center justify-center gap-3 lg:justify-start"
+                      className="group inline-flex min-w-0 items-center justify-center gap-3 lg:justify-start"
                     >
                       <SiGmail
                         className="h-6 w-6 shrink-0"
                         aria-hidden="true"
                       />
-                      <span className="underline-offset-4 group-hover:underline">
+                      <span className="wrap-break-words min-w-0 underline-offset-4 group-hover:underline">
                         noahparknguyen@gmail.com
                       </span>
                     </a>
                   </li>
 
-                  <li>
+                  <li className="min-w-0">
                     <a
                       href="https://linkedin.com/in/nparknguyen"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Open LinkedIn profile: linkedin.com/in/nparknguyen (opens in a new tab)"
-                      className="group inline-flex items-center justify-center gap-3 lg:justify-start"
+                      className="group inline-flex min-w-0 items-center justify-center gap-3 lg:justify-start"
                     >
                       <SiLinkedin
                         className="h-6 w-6 shrink-0"
                         aria-hidden="true"
                       />
-                      <span className="underline-offset-4 group-hover:underline">
+                      <span className="wrap-break-words min-w-0 underline-offset-4 group-hover:underline">
                         linkedin.com/in/nparknguyen
                       </span>
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   </li>
 
-                  <li>
+                  <li className="min-w-0">
                     <a
                       href="https://github.com/SerenePrince"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Open GitHub profile: github.com/SerenePrince (opens in a new tab)"
-                      className="group inline-flex items-center justify-center gap-3 lg:justify-start"
+                      className="group inline-flex min-w-0 items-center justify-center gap-3 lg:justify-start"
                     >
                       <SiGithub
                         className="h-6 w-6 shrink-0"
                         aria-hidden="true"
                       />
-                      <span className="underline-offset-4 group-hover:underline">
+                      <span className="wrap-break-words min-w-0 underline-offset-4 group-hover:underline">
                         github.com/SerenePrince
                       </span>
                       <span className="sr-only"> (opens in a new tab)</span>
@@ -192,7 +183,6 @@ function Hero({ mode = "load" }) {
           </div>
         </div>
 
-        {/* BOTTOM META */}
         <div className="mt-[clamp(1.5rem,4vh,3rem)]">
           <div
             aria-hidden="true"

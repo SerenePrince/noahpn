@@ -108,7 +108,7 @@ function Projects({ mode = "nav" }) {
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : 0;
+  const pause = 0;
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
   const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
@@ -116,7 +116,7 @@ function Projects({ mode = "nav" }) {
   const lineRevealStart = pause;
   const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
 
-  const exitContentDelay = reduce ? 0 : 0;
+  const exitContentDelay = 0;
   const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
 
   const hiddenX = "-115%";
@@ -125,6 +125,7 @@ function Projects({ mode = "nav" }) {
   const items = useMemo(() => CASE_STUDIES, []);
 
   const [activeId, setActiveId] = useState(null);
+
   const lastTriggerRef = useRef(null);
   const closeBtnRef = useRef(null);
   const dialogRef = useRef(null);
@@ -133,6 +134,9 @@ function Projects({ mode = "nav" }) {
     () => items.find((x) => x.id === activeId) ?? null,
     [items, activeId],
   );
+
+  const dialogId = activeItem ? `${activeItem.id}-dialog` : null;
+  const descId = activeItem ? `${activeItem.id}-dialog-desc` : null;
 
   useEffect(() => {
     if (isPresent) return;
@@ -144,13 +148,29 @@ function Projects({ mode = "nav" }) {
   useEffect(() => {
     if (!activeId) return;
 
-    closeBtnRef.current?.focus();
+    const prevOverflowHtml = document.documentElement.style.overflow;
+    const prevOverflowBody = document.body.style.overflow;
 
-    const prevOverflow = document.documentElement.style.overflow;
     document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    const t = window.setTimeout(() => closeBtnRef.current?.focus?.(), 0);
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeDetails();
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
-      document.documentElement.style.overflow = prevOverflow;
+      window.clearTimeout(t);
+      window.removeEventListener("keydown", onKeyDown);
+      document.documentElement.style.overflow = prevOverflowHtml;
+      document.body.style.overflow = prevOverflowBody;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeId]);
 
   function openDetails(id, triggerEl) {
@@ -160,7 +180,6 @@ function Projects({ mode = "nav" }) {
 
   function closeDetails() {
     setActiveId(null);
-    requestAnimationFrame(() => lastTriggerRef.current?.focus?.());
   }
 
   function trapTab(e) {
@@ -174,37 +193,29 @@ function Projects({ mode = "nav" }) {
     );
 
     const list = Array.from(focusables).filter(
-      (el) =>
-        el &&
-        !el.hasAttribute("disabled") &&
-        el.getAttribute("aria-hidden") !== "true",
+      (el) => el && el.getAttribute("aria-hidden") !== "true",
     );
 
     if (list.length === 0) return;
 
     const first = list[0];
     const last = list[list.length - 1];
-    const active = document.activeElement;
+    const current = document.activeElement;
 
     if (e.shiftKey) {
-      if (active === first || active === root) {
+      if (current === first || current === root) {
         e.preventDefault();
         last.focus();
       }
     } else {
-      if (active === last) {
+      if (current === last) {
         e.preventDefault();
         first.focus();
       }
     }
   }
 
-  function onPanelKeyDown(e) {
-    if (e.key === "Escape") {
-      e.preventDefault();
-      closeDetails();
-      return;
-    }
+  function onDialogKeyDown(e) {
     trapTab(e);
   }
 
@@ -215,7 +226,7 @@ function Projects({ mode = "nav" }) {
       className="h-full min-h-0"
       initial={false}
     >
-      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
+      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
         <div className="desktop-scroll flex min-h-0 flex-1 flex-col">
           {/* Header */}
           <div className="mb-6 text-center">
@@ -258,7 +269,6 @@ function Projects({ mode = "nav" }) {
             </div>
           </div>
 
-          {/* Row fills remaining height on lg+ */}
           <div className="relative min-h-0 flex-1">
             <div className="flex h-full min-h-0 min-w-0 flex-col lg:flex-row">
               {/* LINE COLUMN */}
@@ -323,6 +333,7 @@ function Projects({ mode = "nav" }) {
                           key={cs.id}
                           item={cs}
                           isOpen={activeId === cs.id}
+                          dialogId={`${cs.id}-dialog`}
                           onOpen={(triggerEl) => openDetails(cs.id, triggerEl)}
                         />
                       ))}
@@ -330,145 +341,188 @@ function Projects({ mode = "nav" }) {
                   </motion.div>
                 </div>
 
-                <AnimatePresence>
+                {/* Overlay / Dialog */}
+                <AnimatePresence
+                  onExitComplete={() => {
+                    lastTriggerRef.current?.focus?.();
+                  }}
+                >
                   {activeItem ? (
                     <motion.div
-                      ref={dialogRef}
-                      role="dialog"
-                      aria-modal="true"
-                      aria-labelledby={`${activeItem.id}-panel-title`}
-                      aria-describedby={`${activeItem.id}-panel-meta`}
-                      tabIndex={-1}
-                      onKeyDown={onPanelKeyDown}
-                      className="absolute top-0 right-px bottom-0 left-0 z-10 flex min-h-0 flex-col rounded-xl border border-current bg-bg p-6 lg:left-10"
-                      style={{ willChange: "transform" }}
-                      initial={reduce ? { x: 0 } : { x: hiddenX }}
-                      animate={{ x: 0 }}
-                      exit={{
-                        x: hiddenX,
-                        transition: {
-                          duration: durContent,
-                          ease,
-                          delay: exitContentDelay,
-                        },
+                      className="fixed inset-0 z-50 lg:absolute lg:inset-0 lg:z-10"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: { duration: reduce ? 0 : 0.12 },
                       }}
-                      transition={{ duration: durContent, ease }}
+                      exit={{
+                        opacity: 0,
+                        transition: { duration: reduce ? 0 : 0.1 },
+                      }}
                     >
-                      <div className="flex items-start justify-between gap-6 border-b border-current pb-6">
-                        <div className="min-w-0">
-                          <h3
-                            id={`${activeItem.id}-panel-title`}
-                            className="wrap-break-words text-[clamp(1.25rem,1.8vw,1.5rem)] font-semibold tracking-wide"
-                          >
-                            {activeItem.title}
-                          </h3>
-                          <p
-                            id={`${activeItem.id}-panel-meta`}
-                            className="mt-2 text-sm tracking-wide opacity-70"
-                          >
-                            {activeItem.org} • {activeItem.subtitle}
-                          </p>
+                      {/* Backdrop only on mobile */}
+                      <button
+                        type="button"
+                        aria-label="Close case study"
+                        onClick={closeDetails}
+                        className="absolute inset-0 bg-bg/80 lg:hidden"
+                        tabIndex={-1}
+                      />
+
+                      <motion.div
+                        id={dialogId}
+                        ref={dialogRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby={`${activeItem.id}-panel-title`}
+                        aria-describedby={descId}
+                        tabIndex={-1}
+                        onKeyDown={onDialogKeyDown}
+                        style={{ willChange: "transform" }}
+                        initial={reduce ? { x: 0 } : { x: hiddenX }}
+                        animate={{ x: 0 }}
+                        exit={{
+                          x: hiddenX,
+                          transition: {
+                            duration: durContent,
+                            ease,
+                            delay: exitContentDelay,
+                          },
+                        }}
+                        transition={{ duration: durContent, ease }}
+                        className={[
+                          "absolute inset-0 flex min-h-0 flex-col border border-current bg-bg p-4 sm:p-6",
+                          "lg:top-0 lg:right-px lg:bottom-0 lg:left-10 lg:rounded-xl lg:p-6",
+                        ].join(" ")}
+                      >
+                        {/* Sticky header keeps close available while scrolling */}
+                        <div className="sticky top-0 z-10 bg-bg pb-4 lg:static lg:pb-6">
+                          <div className="flex items-start justify-between gap-6 border-b border-current pb-4 lg:pb-6">
+                            <div className="min-w-0">
+                              <h3
+                                id={`${activeItem.id}-panel-title`}
+                                className="wrap-break-words text-[clamp(1.25rem,1.8vw,1.5rem)] font-semibold tracking-wide"
+                              >
+                                {activeItem.title}
+                              </h3>
+                              <p className="mt-2 text-sm tracking-wide opacity-70">
+                                {activeItem.org} • {activeItem.subtitle}
+                              </p>
+                              <p id={descId} className="sr-only">
+                                Case study details. Press Escape to close.
+                              </p>
+                            </div>
+
+                            {/* More button-like Back button */}
+                            <button
+                              ref={closeBtnRef}
+                              type="button"
+                              onClick={closeDetails}
+                              className={[
+                                "shrink-0",
+                                "inline-flex items-center justify-center",
+                                "h-10 px-3",
+                                "rounded-full border border-current",
+                                "text-sm tracking-wide",
+                                "hover:bg-fg hover:text-bg",
+                                "focus-visible:outline-offset-4",
+                              ].join(" ")}
+                              aria-label="Back to projects"
+                            >
+                              Back
+                            </button>
+                          </div>
                         </div>
 
-                        <button
-                          ref={closeBtnRef}
-                          type="button"
-                          onClick={closeDetails}
-                          className="shrink-0 underline underline-offset-4"
-                          aria-label="Close case study"
-                        >
-                          Back to projects
-                        </button>
-                      </div>
-
-                      <div className="mt-8 min-h-0 flex-1 overflow-auto pr-2">
-                        <div className="space-y-10">
-                          <section aria-labelledby={`${activeItem.id}-summary`}>
-                            <h4
-                              id={`${activeItem.id}-summary`}
-                              className="text-xs font-semibold tracking-widest uppercase opacity-70"
-                            >
-                              Summary
-                            </h4>
-                            <p className="wrap-break-words mt-3 text-sm leading-relaxed opacity-80">
-                              {activeItem.details.summary}
-                            </p>
-                          </section>
-
-                          <section aria-labelledby={`${activeItem.id}-tools`}>
-                            <h4
-                              id={`${activeItem.id}-tools`}
-                              className="text-xs font-semibold tracking-widest uppercase opacity-70"
-                            >
-                              Tools
-                            </h4>
-                            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm opacity-80">
-                              {activeItem.details.tools.map((t) => (
-                                <li key={t} className="wrap-break-words">
-                                  {t}
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-
-                          <section aria-labelledby={`${activeItem.id}-role`}>
-                            <h4
-                              id={`${activeItem.id}-role`}
-                              className="text-xs font-semibold tracking-widest uppercase opacity-70"
-                            >
-                              My Role
-                            </h4>
-                            <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
-                              {activeItem.details.myRole.map((b) => (
-                                <li key={b} className="wrap-break-words">
-                                  {b}
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-
-                          <section aria-labelledby={`${activeItem.id}-impact`}>
-                            <h4
-                              id={`${activeItem.id}-impact`}
-                              className="text-xs font-semibold tracking-widest uppercase opacity-70"
-                            >
-                              Impact
-                            </h4>
-                            <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
-                              {activeItem.details.impact.map((b) => (
-                                <li key={b} className="wrap-break-words">
-                                  {b}
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-
-                          {activeItem.details.constraints?.length ? (
+                        {/* Scroll area (scrollbar hidden on mobile) */}
+                        <div className="min-h-0 flex-1 overflow-auto pr-0 lg:pr-2">
+                          <div className="space-y-10 pt-4 lg:pt-8">
                             <section
-                              aria-labelledby={`${activeItem.id}-constraints`}
+                              aria-labelledby={`${activeItem.id}-summary`}
                             >
                               <h4
-                                id={`${activeItem.id}-constraints`}
+                                id={`${activeItem.id}-summary`}
                                 className="text-xs font-semibold tracking-widest uppercase opacity-70"
                               >
-                                Constraints
+                                Summary
                               </h4>
-                              <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
-                                {activeItem.details.constraints.map((b) => (
+                              <p className="wrap-break-words mt-3 text-sm leading-relaxed opacity-80">
+                                {activeItem.details.summary}
+                              </p>
+                            </section>
+
+                            <section aria-labelledby={`${activeItem.id}-tools`}>
+                              <h4
+                                id={`${activeItem.id}-tools`}
+                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                              >
+                                Tools
+                              </h4>
+                              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm opacity-80">
+                                {activeItem.details.tools.map((t) => (
+                                  <li key={t} className="wrap-break-words">
+                                    {t}
+                                  </li>
+                                ))}
+                              </ul>
+                            </section>
+
+                            <section aria-labelledby={`${activeItem.id}-role`}>
+                              <h4
+                                id={`${activeItem.id}-role`}
+                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                              >
+                                My Role
+                              </h4>
+                              <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
+                                {activeItem.details.myRole.map((b) => (
                                   <li key={b} className="wrap-break-words">
                                     {b}
                                   </li>
                                 ))}
                               </ul>
                             </section>
-                          ) : null}
 
-                          <p className="sr-only">
-                            Press Escape to close. Use Tab to move through the
-                            panel.
-                          </p>
+                            <section
+                              aria-labelledby={`${activeItem.id}-impact`}
+                            >
+                              <h4
+                                id={`${activeItem.id}-impact`}
+                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                              >
+                                Impact
+                              </h4>
+                              <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
+                                {activeItem.details.impact.map((b) => (
+                                  <li key={b} className="wrap-break-words">
+                                    {b}
+                                  </li>
+                                ))}
+                              </ul>
+                            </section>
+
+                            {activeItem.details.constraints?.length ? (
+                              <section
+                                aria-labelledby={`${activeItem.id}-constraints`}
+                              >
+                                <h4
+                                  id={`${activeItem.id}-constraints`}
+                                  className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                >
+                                  Constraints
+                                </h4>
+                                <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
+                                  {activeItem.details.constraints.map((b) => (
+                                    <li key={b} className="wrap-break-words">
+                                      {b}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </section>
+                            ) : null}
+                          </div>
                         </div>
-                      </div>
+                      </motion.div>
                     </motion.div>
                   ) : null}
                 </AnimatePresence>
@@ -481,7 +535,7 @@ function Projects({ mode = "nav" }) {
   );
 }
 
-function CaseStudyCard({ item, onOpen, isOpen }) {
+function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
   const btnRef = useRef(null);
 
   return (
@@ -518,10 +572,11 @@ function CaseStudyCard({ item, onOpen, isOpen }) {
             className="underline underline-offset-4"
             aria-haspopup="dialog"
             aria-expanded={isOpen ? "true" : "false"}
-            aria-controls={`${item.id}-panel-title`}
+            aria-controls={dialogId}
           >
             Read case study
           </button>
+
           <span aria-hidden="true" className="text-xs tracking-wide opacity-70">
             +
           </span>

@@ -3,8 +3,12 @@
   <head>
     <!-- Core -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+
+    <!-- Nice-to-have standards -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
 
     <title>Noah Park-Nguyen · Portfolio</title>
     <meta
@@ -18,7 +22,7 @@
     <!-- Indexing -->
     <meta name="robots" content="index,follow,max-image-preview:large" />
 
-    <!-- Browser UI color (only your 2 colors) -->
+    <!-- Browser UI color -->
     <meta
       name="theme-color"
       content="#fbfaf5"
@@ -42,7 +46,7 @@
     <meta property="og:title" content="Noah Park-Nguyen · Portfolio" />
     <meta
       property="og:description"
-      content="Application Developer — internal tools, automation, and reporting work. Case studies, skills, and contact."
+      content="Application Developer — internal tools, automation, and reporting work."
     />
     <meta property="og:url" content="https://sereneprince.github.io/noahpn/" />
     <meta property="og:locale" content="en_CA" />
@@ -51,6 +55,8 @@
       content="https://sereneprince.github.io/noahpn/og.png"
     />
     <meta property="og:image:alt" content="Noah Park-Nguyen — Portfolio" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Social: Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -59,6 +65,7 @@
       name="twitter:description"
       content="Application Developer — internal tools, automation, and reporting work."
     />
+    <meta name="twitter:url" content="https://sereneprince.github.io/noahpn/" />
     <meta
       name="twitter:image"
       content="https://sereneprince.github.io/noahpn/og.png"
@@ -91,7 +98,12 @@
   </head>
 
   <body>
-    <noscript>This site requires JavaScript to run.</noscript>
+    <noscript>
+      <div style="padding: 1rem; font-family: system-ui, sans-serif">
+        This site requires JavaScript to run.
+      </div>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,5 +1,6 @@
 // src/components/Header.jsx
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useId, useRef, useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import whiteLogo from "../assets/icons/logo-mark.light.svg";
 import blackLogo from "../assets/icons/logo-mark.dark.svg";
 
@@ -17,27 +18,120 @@ function Header({ active, onNavigate, mode = "load" }) {
     { key: "contact", label: "Contact" },
   ];
 
+  // Reveal timings (your original motion intent)
   const initialPause = reduce ? 0 : isFast ? 0.12 : 0.5;
-
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durNav = reduce ? 0 : isFast ? 0.55 : 0.8;
 
   const lineRevealStart = initialPause;
-
   const navRevealStart = reduce
     ? 0
     : lineRevealStart + durLine + (isFast ? 0.08 : 0.12);
 
-  const exitNavDelay = reduce ? 0 : 0;
+  const exitNavDelay = 0;
   const exitLineDelay = reduce ? 0 : durNav + exitNavDelay + 0.05;
+
+  // Mobile menu state
+  const [open, setOpen] = useState(false);
+  const menuId = useId();
+  const menuTitleId = useId();
+  const menuButtonRef = useRef(null);
+  const menuPanelRef = useRef(null);
+
+  function closeMenu() {
+    setOpen(false);
+  }
+
+  function handleNavigate(key) {
+    onNavigate(key);
+    closeMenu();
+  }
+
+  function trapTab(e) {
+    if (e.key !== "Tab") return;
+
+    const root = menuPanelRef.current;
+    if (!root) return;
+
+    const focusables = root.querySelectorAll(
+      'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+    );
+
+    const list = Array.from(focusables).filter(
+      (el) => el && el.getAttribute("aria-hidden") !== "true",
+    );
+
+    if (list.length === 0) return;
+
+    const first = list[0];
+    const last = list[list.length - 1];
+    const current = document.activeElement;
+
+    if (e.shiftKey) {
+      if (current === first || current === root) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (current === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  // Close on Esc, lock page scroll, and manage focus
+  useEffect(() => {
+    if (!open) return;
+
+    const prevOverflowHtml = document.documentElement.style.overflow;
+    const prevOverflowBody = document.body.style.overflow;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    // Focus first item inside menu (or the panel)
+    const t = window.setTimeout(() => {
+      const first =
+        menuPanelRef.current?.querySelector('button[data-menuitem="true"]') ??
+        menuPanelRef.current;
+      first?.focus?.();
+    }, 0);
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu();
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("keydown", onKeyDown);
+
+      document.documentElement.style.overflow = prevOverflowHtml;
+      document.body.style.overflow = prevOverflowBody;
+
+      // Return focus to menu button
+      menuButtonRef.current?.focus?.();
+    };
+  }, [open]);
+
+  // If route changes while menu is open, close it
+  useEffect(() => {
+    if (open) closeMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
 
   return (
     <header className="z-50 h-16 bg-bg">
       <div className="relative">
-        <div className="overflow-hidden">
+        {/* Keep overflow-y hidden for slide animation; x is allowed for layout */}
+        <div className="overflow-x-visible overflow-y-hidden">
           <motion.nav
             aria-label="Primary"
-            className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
+            className="mx-auto flex h-16 max-w-6xl items-center px-4 sm:px-6"
             initial={reduce ? { y: 0 } : { y: "100%" }}
             animate={{ y: 0 }}
             exit={{
@@ -46,10 +140,11 @@ function Header({ active, onNavigate, mode = "load" }) {
             }}
             transition={{ duration: durNav, ease, delay: navRevealStart }}
           >
+            {/* Logo (left) */}
             <button
               type="button"
-              onClick={() => onNavigate("home")}
-              className="flex items-center"
+              onClick={() => handleNavigate("home")}
+              className="flex h-10 w-10 items-center justify-center"
               aria-label="Go to Home"
               aria-controls="main"
             >
@@ -70,7 +165,8 @@ function Header({ active, onNavigate, mode = "load" }) {
               </picture>
             </button>
 
-            <ul className="flex items-center gap-8">
+            {/* Desktop nav (top-right) */}
+            <ul className="ml-auto hidden items-center gap-8 sm:flex">
               {items.map((item) => {
                 const isActive = item.key === active;
 
@@ -81,7 +177,7 @@ function Header({ active, onNavigate, mode = "load" }) {
                       onClick={() => onNavigate(item.key)}
                       aria-current={isActive ? "page" : undefined}
                       aria-controls="main"
-                      className="relative leading-none tracking-wide underline-offset-4 hover:underline focus-visible:outline-offset-4"
+                      className="relative h-10 px-1 leading-none tracking-wide underline-offset-4 hover:underline"
                     >
                       {/* Single accessible label */}
                       <span className="sr-only">{item.label}</span>
@@ -124,9 +220,32 @@ function Header({ active, onNavigate, mode = "load" }) {
                 );
               })}
             </ul>
+
+            {/* Mobile menu button */}
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              className="ml-auto inline-flex h-10 items-center gap-2 px-2 sm:hidden"
+              aria-haspopup="dialog"
+              aria-expanded={open}
+              aria-controls={open ? menuId : undefined}
+            >
+              <span className="text-sm tracking-wide opacity-80">
+                {open ? "Close" : "Menu"}
+              </span>
+
+              {/* Minimal icon using borders (no extra deps) */}
+              <span aria-hidden="true" className="grid gap-1">
+                <span className="block h-px w-5 bg-current" />
+                <span className="block h-px w-5 bg-current" />
+                <span className="block h-px w-5 bg-current" />
+              </span>
+            </button>
           </motion.nav>
         </div>
 
+        {/* Divider line */}
         <div
           aria-hidden="true"
           className="relative h-px w-full overflow-hidden"
@@ -142,6 +261,92 @@ function Header({ active, onNavigate, mode = "load" }) {
             transition={{ duration: durLine, ease, delay: lineRevealStart }}
           />
         </div>
+
+        {/* Mobile menu overlay + panel */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="menu"
+              className="fixed inset-0 z-50 sm:hidden"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { duration: reduce ? 0 : 0.15 },
+              }}
+              exit={{
+                opacity: 0,
+                transition: { duration: reduce ? 0 : 0.12 },
+              }}
+            >
+              {/* Backdrop */}
+              <button
+                type="button"
+                className="absolute inset-0 cursor-default bg-bg/80"
+                onClick={closeMenu}
+                aria-label="Close menu"
+                tabIndex={-1}
+              />
+
+              {/* Panel */}
+              <motion.div
+                id={menuId}
+                ref={menuPanelRef}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={menuTitleId}
+                className="absolute top-4 right-4 w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-current bg-bg p-4"
+                initial={reduce ? { y: 0, opacity: 1 } : { y: -8, opacity: 0 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: { duration: reduce ? 0 : 0.18, ease },
+                }}
+                exit={{
+                  y: reduce ? 0 : -6,
+                  opacity: 0,
+                  transition: { duration: reduce ? 0 : 0.14, ease },
+                }}
+                onKeyDown={trapTab}
+                tabIndex={-1}
+              >
+                <p
+                  id={menuTitleId}
+                  className="text-xs tracking-wide opacity-70"
+                >
+                  Navigation
+                </p>
+
+                <ul className="mt-3 divide-y divide-current">
+                  {items.map((item) => {
+                    const isActive = item.key === active;
+
+                    return (
+                      <li key={item.key}>
+                        <button
+                          type="button"
+                          data-menuitem="true"
+                          onClick={() => handleNavigate(item.key)}
+                          aria-current={isActive ? "page" : undefined}
+                          className={[
+                            "flex w-full items-center justify-between py-3 text-left tracking-wide",
+                            isActive
+                              ? "font-semibold"
+                              : "opacity-80 hover:opacity-100",
+                          ].join(" ")}
+                        >
+                          <span>{item.label}</span>
+                          {isActive ? (
+                            <span className="text-xs opacity-70">Current</span>
+                          ) : null}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

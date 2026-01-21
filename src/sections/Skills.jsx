@@ -46,7 +46,7 @@ function Skills({ mode = "nav" }) {
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : 0;
+  const pause = 0;
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
   const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
@@ -54,7 +54,7 @@ function Skills({ mode = "nav" }) {
   const lineRevealStart = pause;
   const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
 
-  const exitContentDelay = reduce ? 0 : 0;
+  const exitContentDelay = 0;
   const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
 
   const hiddenFromRight = "120%";
@@ -75,8 +75,8 @@ function Skills({ mode = "nav" }) {
       className="h-full min-h-0"
       initial={false}
     >
-      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* Single scroll owner (no items-center = no top/bottom clipping) */}
+      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
+        {/* Single scroll owner (scrollbars hidden on mobile via global rule + class) */}
         <div className="desktop-scroll min-h-0 flex-1">
           {/* Header */}
           <div className="mb-8 text-center lg:text-left">
@@ -117,13 +117,12 @@ function Skills({ mode = "nav" }) {
               </motion.p>
             </div>
           </div>
-
           {/* Content row */}
           <div className="min-h-0">
             <div className="flex min-h-0 min-w-0 flex-col lg:flex-row">
               {/* CONTENT COLUMN (LEFT on lg+) */}
               <div className="relative min-w-0 flex-1 overflow-hidden pr-px pb-px">
-                {/* Small desktop layout */}
+                {/* <lg: top line + drop-in grid */}
                 <div className="pt-[clamp(1.25rem,3vh,2rem)] lg:hidden">
                   <div
                     aria-hidden="true"
@@ -165,7 +164,7 @@ function Skills({ mode = "nav" }) {
                   </div>
                 </div>
 
-                {/* Large desktop layout */}
+                {/* lg+: slide in from right */}
                 <div className="hidden lg:block">
                   <div className="overflow-hidden pb-px">
                     <motion.div
@@ -214,8 +213,6 @@ function Skills({ mode = "nav" }) {
               </div>
             </div>
           </div>
-
-          {/* Tiny bit of breathing room when it scrolls */}
           <div className="h-[clamp(0.75rem,2vh,1.25rem)]" aria-hidden="true" />
         </div>
       </div>

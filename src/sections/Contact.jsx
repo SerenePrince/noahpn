@@ -11,8 +11,7 @@ function Contact({ mode = "nav" }) {
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : 0;
-
+  const pause = 0;
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
   const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
@@ -20,7 +19,7 @@ function Contact({ mode = "nav" }) {
   const lineRevealStart = pause;
   const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
 
-  const exitContentDelay = reduce ? 0 : 0;
+  const exitContentDelay = 0;
   const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
 
   const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
@@ -38,8 +37,8 @@ function Contact({ mode = "nav" }) {
       className="h-full min-h-0"
       initial={false}
     >
-      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* Single scroll owner. No justify-center => no top/bottom clipping. */}
+      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
+        {/* Single scroll owner (scrollbars hidden on mobile via global rule + class) */}
         <div className="desktop-scroll min-h-0 flex-1">
           <div className="flex min-h-0 flex-col">
             {/* MAIN ROW */}
@@ -75,11 +74,11 @@ function Contact({ mode = "nav" }) {
 
                   <div className="mt-6 flex justify-center lg:justify-end">
                     <a
-                      href="/noahpn/resume.pdf"
+                      href="/resume.pdf"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-3 underline underline-offset-4"
-                      aria-label="View resume PDF in a new tab"
+                      aria-label="Open resume PDF"
                     >
                       <span>Open resume (PDF)</span>
                       <FiArrowUpRight aria-hidden="true" className="h-5 w-5" />
@@ -139,7 +138,6 @@ function Contact({ mode = "nav" }) {
                   }
                   style={{ willChange: "transform" }}
                 >
-                  {/* Visual second title; semantically h3 */}
                   <h3 className="font-semibold tracking-wide">Contact</h3>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
@@ -151,8 +149,8 @@ function Contact({ mode = "nav" }) {
                       <li>
                         <a
                           href="mailto:noahparknguyen@gmail.com"
-                          aria-label="Email Noah at noahparknguyen@gmail.com"
                           className="inline-flex items-center justify-center gap-3 underline underline-offset-4 lg:justify-start"
+                          aria-label="Email Noah at noahparknguyen@gmail.com"
                         >
                           <SiGmail aria-hidden="true" className="h-5 w-5" />
                           <span className="wrap-break-words">
@@ -165,9 +163,9 @@ function Contact({ mode = "nav" }) {
                         <a
                           href="https://linkedin.com/in/nparknguyen"
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-3 underline underline-offset-4 lg:justify-start"
-                          aria-label="Open LinkedIn profile: linkedin.com/in/nparknguyen (opens in a new tab)"
+                          aria-label="Open LinkedIn profile: linkedin.com/in/nparknguyen"
                         >
                           <SiLinkedin aria-hidden="true" className="h-5 w-5" />
                           <span className="wrap-break-words">
@@ -181,9 +179,9 @@ function Contact({ mode = "nav" }) {
                         <a
                           href="https://github.com/SerenePrince"
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-3 underline underline-offset-4 lg:justify-start"
-                          aria-label="Open GitHub profile: github.com/SerenePrince (opens in a new tab)"
+                          aria-label="Open GitHub profile: github.com/SerenePrince"
                         >
                           <SiGithub aria-hidden="true" className="h-5 w-5" />
                           <span className="wrap-break-words">
@@ -240,7 +238,6 @@ function Contact({ mode = "nav" }) {
               </div>
             </div>
 
-            {/* Small extra breathing room when scrolling */}
             <div
               className="h-[clamp(0.75rem,2vh,1.25rem)]"
               aria-hidden="true"

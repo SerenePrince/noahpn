@@ -1,13 +1,15 @@
-// src/sections/About.jsx
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect } from "react";
+import { motion, usePresence, useReducedMotion } from "motion/react";
 import aboutProfileJpg from "../assets/images/about-profile.jpg";
 
 function About({ mode = "nav" }) {
   const reduce = useReducedMotion();
+  const [isPresent, safeToRemove] = usePresence();
+
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : 0;
+  const pause = 0;
 
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
@@ -19,18 +21,27 @@ function About({ mode = "nav" }) {
   const exitContentDelay = 0;
   const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
 
+  const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
+
+  // Ensure exit animations finish before unmount
+  useEffect(() => {
+    if (isPresent) return;
+    const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
+    return () => window.clearTimeout(t);
+  }, [isPresent, safeToRemove, totalExitTime]);
+
   return (
-    <section
+    <motion.section
       id="about"
       aria-labelledby="about-title"
-      className="h-full min-h-0"
+      className="h-full min-h-0 overflow-x-hidden"
+      initial={false}
     >
-      <div className="mx-auto flex h-full min-h-0 max-w-6xl px-6 py-[clamp(1.5rem,4vh,4rem)]">
-        {/* Scroll is allowed on stacked layouts (<lg) via .desktop-scroll utility.
-            Top-align by default so scrolling never clips; center only on lg+. */}
+      <div className="mx-auto flex h-full min-h-0 max-w-6xl px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
+        {/* Scroll allowed on stacked layouts (<lg) via .desktop-scroll */}
         <div className="desktop-scroll flex min-h-0 w-full items-start lg:items-center">
           <div className="flex w-full flex-col items-stretch gap-10 lg:flex-row lg:items-center lg:gap-0">
-            {/* LEFT LINE */}
+            {/* LEFT LINE (desktop) */}
             <div
               aria-hidden="true"
               className="relative hidden h-[min(35rem,60vh)] w-px shrink-0 overflow-hidden lg:block"
@@ -38,15 +49,16 @@ function About({ mode = "nav" }) {
               <motion.div
                 className="absolute inset-0 bg-current opacity-30 will-change-transform"
                 initial={reduce ? { y: 0 } : { y: "-100%" }}
-                animate={{ y: 0 }}
-                exit={{
-                  y: reduce ? 0 : "-100%",
-                  transition: { duration: durLine, ease, delay: exitLineDelay },
+                animate={isPresent ? { y: 0 } : { y: "-100%" }}
+                transition={{
+                  duration: durLine,
+                  ease,
+                  delay: isPresent ? lineRevealStart : exitLineDelay,
                 }}
-                transition={{ duration: durLine, ease, delay: lineRevealStart }}
               />
             </div>
 
+            {/* TOP LINE (mobile) */}
             <div
               aria-hidden="true"
               className="relative h-px w-full overflow-hidden lg:hidden"
@@ -54,36 +66,28 @@ function About({ mode = "nav" }) {
               <motion.div
                 className="absolute inset-0 bg-current opacity-30 will-change-transform"
                 initial={reduce ? { x: 0 } : { x: "-100%" }}
-                animate={{ x: 0 }}
-                exit={{
-                  x: reduce ? 0 : "-100%",
-                  transition: { duration: durLine, ease, delay: exitLineDelay },
+                animate={isPresent ? { x: 0 } : { x: "-100%" }}
+                transition={{
+                  duration: durLine,
+                  ease,
+                  delay: isPresent ? lineRevealStart : exitLineDelay,
                 }}
-                transition={{ duration: durLine, ease, delay: lineRevealStart }}
               />
             </div>
 
-            {/* MASKED UNIT */}
+            {/* MASKED CONTENT */}
             <div className="flex-1 overflow-hidden">
               <motion.div
                 className="flex flex-col items-center gap-10 will-change-transform lg:flex-row lg:items-center lg:gap-16 lg:pl-10"
                 initial={reduce ? { x: 0 } : { x: "-110%" }}
-                animate={{ x: 0 }}
-                exit={{
-                  x: reduce ? 0 : "-110%",
-                  transition: {
-                    duration: durContent,
-                    ease,
-                    delay: exitContentDelay,
-                  },
-                }}
+                animate={isPresent ? { x: 0 } : { x: "-110%" }}
                 transition={{
                   duration: durContent,
                   ease,
-                  delay: contentRevealStart,
+                  delay: isPresent ? contentRevealStart : exitContentDelay,
                 }}
               >
-                {/* Image */}
+                {/* Image (desktop only) */}
                 <figure className="hidden shrink-0 lg:block">
                   <img
                     src={aboutProfileJpg}
@@ -92,7 +96,7 @@ function About({ mode = "nav" }) {
                     height={750}
                     draggable="false"
                     decoding="async"
-                    loading="eager"
+                    loading="lazy"
                     className="aspect-2/3 h-auto w-[min(22rem,40vw)] border border-current object-cover"
                   />
                 </figure>
@@ -141,7 +145,7 @@ function About({ mode = "nav" }) {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

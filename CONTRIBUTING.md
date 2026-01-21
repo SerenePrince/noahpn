@@ -1,24 +1,26 @@
 # Contributing
 
-Thanks for your interest in this project — I appreciate you taking a look.
+Thanks for taking a look — I appreciate the interest.
 
-This repository contains a personal portfolio site and is not open to feature contributions or design changes. However, feedback and issue reports are welcome.
+This repository contains my personal portfolio site and isn’t open to feature additions or design changes. That said, **feedback and issue reports are very welcome**.
 
 ## Reporting Issues
 
-If you notice a bug or issue, feel free to open an issue with:
+If you notice something that isn’t quite right, feel free to open an issue with:
 
 - A clear description of the problem
 - Steps to reproduce (if applicable)
 - Screenshots or screen recordings, if helpful
 
-Examples of acceptable issues include:
+Examples of helpful issues include:
 
 - Broken links
-- Layout issues on specific devices or browsers
+- Layout or responsiveness issues on specific devices or browsers
 - Accessibility problems
 - Typos or factual errors
 
-## Questions
+## Questions & Feedback
 
-For general questions or feedback, feel free to reach out using the contact information on the site.
+For general questions or feedback, you’re welcome to reach out using the contact information on the site.
+
+Thanks again for stopping by.

@@ -4,45 +4,70 @@
 
 ---
 
-This is my personal portfolio site, where I showcase my work as an application developer focused on internal tools, automation, and practical problem-solving.
+This is my personal portfolio site — a single-page app where I document how I approach real-world development work.
 
-The goal of the site is to keep things clear and easy to navigate, with case studies based on real projects from government and enterprise environments. Since most of my work is internal, the emphasis is on _approach, decisions, and impact_ rather than screenshots or source code.
+Most of my experience is in **internal tools, automation, and reporting** across government and enterprise environments. Because of that, you won’t find flashy demos or public source code here. Instead, the focus is on **how problems were approached, decisions made, and impact delivered**.
 
-**Live site:**  
-https://sereneprince.github.io/noahpn/
+If you’re curious how I think, structure work, and ship things responsibly, this site is meant to give you a good sense of that.
+
+**Live site:**
+👉 [https://sereneprince.github.io/noahpn/](https://sereneprince.github.io/noahpn/)
 
 ## Built With
 
-- **React**
-- **Tailwind CSS**
-- **Motion**
-- **Vite**
+- **React** — component-driven UI
+- **Tailwind CSS** — layout, spacing, and typography
+- **Motion (Framer Motion)** — purposeful transitions and layout animations
+- **Vite** — fast dev + clean production builds
+- **GitHub Pages** — deployment
 
-## Design & Approach
+## Design & Philosophy
 
-The design is intentionally minimal and content-first. I wanted the site to feel calm, readable, and focused, without unnecessary visual noise.
+The design is intentionally minimal and content-first. I wanted the site to feel:
+
+- Calm
+- Readable
+- Structured
+- Uncluttered
 
 Some guiding principles:
 
-- High-contrast light and dark themes
-- A small, consistent color palette
+- High-contrast **light and dark themes**
+- A very small, consistent color palette
 - Typography-driven layouts
-- Motion used to guide attention, not decorate
-- Fully responsive with accessibility and reduced-motion support
+- Motion used to **guide attention**, not decorate
+- Fully responsive across desktop and mobile
+- Respect for accessibility and reduced-motion preferences
 
-The layout and motion are inspired by modern documentation sites and editorial layouts, where clarity matters more than flair.
+The layout and motion are inspired more by **editorial sites and technical documentation** than traditional portfolio galleries.
 
-## Content
+## What’s Inside
 
-The portfolio includes:
+The site includes:
 
-- Selected **case studies** from internal applications, automation, and reporting work
-- A high-level overview of my skills and experience
-- Contact information and a downloadable resume
+- **Case studies** based on real internal projects
+  (apps, automation, reporting, and tooling)
+- A breakdown of **skills and workflows** I actually use
+- **Experience & education** history
+- **Contact info** and a downloadable resume
 
-Everything here is curated to reflect how I actually work and think through problems, rather than trying to cover every tool or technology I’ve ever touched.
+Because much of the work is internal, the emphasis is on:
+
+- tradeoffs
+- constraints
+- reasoning
+- outcomes
+
+Not screenshots for the sake of screenshots.
+
+## Notes
+
+- This is a **single-page app** with animated section transitions
+- Navigation swaps entire sections instead of scrolling
+- Mobile UX is intentionally simplified (menus, hidden scrollbars, fewer distractions)
+- The project is actively maintained and iterated on
 
 ## License
 
-Source code is licensed under the MIT License.  
-Site content and branding are © Noah Park-Nguyen.
+- **Source code:** MIT License
+- **Site content & branding:** © Noah Park-Nguyen

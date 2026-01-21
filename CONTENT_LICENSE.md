@@ -1,19 +1,21 @@
 # Content License
 
-Unless otherwise noted, all non-code content in this repository is
+Unless otherwise noted, all **non-code content** in this repository is  
 © Noah Park-Nguyen. All rights reserved.
 
-This includes, but is not limited to:
+This includes (but isn’t limited to):
 
 - Written case studies and descriptions
 - Text content and copy
 - Images, graphics, and screenshots
 - Branding, layout, and visual design
 
-This content is provided for review and evaluation as part of a personal portfolio and is not intended for reuse.
+This content is shared as part of a personal portfolio for **review and evaluation purposes only**.
 
-The source code for this project is licensed separately under the MIT License.
+You may **not** copy, reproduce, or redistribute the non-code content for
+commercial use or public-facing projects without explicit permission.
+
+---
+
+The **source code** for this project is licensed separately under the MIT License.  
 See the `LICENSE` file for details.
-
-You may not copy, reproduce, or redistribute the non-code content for
-commercial or public-facing use without explicit permission.

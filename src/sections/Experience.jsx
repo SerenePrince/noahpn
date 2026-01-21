@@ -1,5 +1,6 @@
 // src/sections/Experience.jsx
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect } from "react";
+import { motion, usePresence, useReducedMotion } from "motion/react";
 
 const WORK_ITEMS = [
   {
@@ -43,10 +44,12 @@ const EDU_ITEMS = [
 
 function Experience({ mode = "nav" }) {
   const reduce = useReducedMotion();
+  const [isPresent, safeToRemove] = usePresence();
+
   const isFast = mode === "nav";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : 0;
+  const pause = 0;
   const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
   const durContent = reduce ? 0 : isFast ? 0.45 : 0.65;
   const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
@@ -65,17 +68,33 @@ function Experience({ mode = "nav" }) {
   const headerExitT = { duration: durContent, ease, delay: exitContentDelay };
 
   const lineEnterT = { duration: durLine, ease, delay: lineRevealStart };
+  const lineExitT = {
+    duration: durLine,
+    ease,
+    delay: exitLineDelay,
+  };
 
   const stagger = reduce ? 0 : 0.06;
+
+  // Ensure section waits for its own exit animations before unmount
+  useEffect(() => {
+    if (isPresent) return;
+    const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
+    const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
+    return () => window.clearTimeout(t);
+  }, [isPresent, safeToRemove, reduce, exitLineDelay, durLine]);
+
+  const headerY = isPresent ? 0 : "100%";
+  const spineY = isPresent ? 0 : "-100%";
 
   return (
     <motion.section
       id="experience"
       aria-labelledby="experience-title"
-      className="h-full min-h-0 overflow-x-hidden"
+      className="h-full min-h-0"
       initial={false}
     >
-      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-6 py-[clamp(1.5rem,4vh,4rem)]">
+      <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
         {/* One scroll wrapper for the whole section (only scrolls on <lg via .desktop-scroll utility) */}
         <div className="desktop-scroll min-h-0 flex-1">
           {/* Header */}
@@ -85,11 +104,8 @@ function Experience({ mode = "nav" }) {
                 id="experience-title"
                 className="font-semibold tracking-wide"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
-                animate={{ y: 0 }}
-                exit={
-                  reduce ? { y: 0 } : { y: "100%", transition: headerExitT }
-                }
-                transition={headerEnterT}
+                animate={reduce ? { y: 0 } : { y: headerY }}
+                transition={isPresent ? headerEnterT : headerExitT}
                 style={{ willChange: "transform" }}
               >
                 Experience
@@ -100,14 +116,13 @@ function Experience({ mode = "nav" }) {
               <motion.p
                 className="text-sm tracking-wide opacity-70"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
-                animate={{ y: 0 }}
-                exit={
-                  reduce ? { y: 0 } : { y: "100%", transition: headerExitT }
-                }
+                animate={reduce ? { y: 0 } : { y: headerY }}
                 transition={
                   reduce
                     ? headerEnterT
-                    : { ...headerEnterT, delay: contentRevealStart + 0.06 }
+                    : isPresent
+                      ? { ...headerEnterT, delay: contentRevealStart + 0.06 }
+                      : headerExitT
                 }
                 style={{ willChange: "transform" }}
               >
@@ -120,13 +135,10 @@ function Experience({ mode = "nav" }) {
           <div className="mb-8 hidden grid-cols-2 lg:grid">
             <div className="overflow-hidden">
               <motion.h3
-                className="mr-10 ml-auto max-w-104 text-center text-sm font-semibold tracking-widest uppercase"
+                className="mr-10 ml-auto max-w-md text-center text-sm font-semibold tracking-widest uppercase"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
-                animate={{ y: 0 }}
-                exit={
-                  reduce ? { y: 0 } : { y: "100%", transition: headerExitT }
-                }
-                transition={headerEnterT}
+                animate={reduce ? { y: 0 } : { y: headerY }}
+                transition={isPresent ? headerEnterT : headerExitT}
                 style={{ willChange: "transform" }}
               >
                 Work
@@ -135,13 +147,10 @@ function Experience({ mode = "nav" }) {
 
             <div className="overflow-hidden">
               <motion.h3
-                className="mr-auto ml-10 max-w-104 text-center text-sm font-semibold tracking-widest uppercase"
+                className="mr-auto ml-10 max-w-md text-center text-sm font-semibold tracking-widest uppercase"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
-                animate={{ y: 0 }}
-                exit={
-                  reduce ? { y: 0 } : { y: "100%", transition: headerExitT }
-                }
-                transition={headerEnterT}
+                animate={reduce ? { y: 0 } : { y: headerY }}
+                transition={isPresent ? headerEnterT : headerExitT}
                 style={{ willChange: "transform" }}
               >
                 Education
@@ -149,28 +158,16 @@ function Experience({ mode = "nav" }) {
             </div>
           </div>
 
-          {/* Content area (no inner scrolling; let the wrapper handle it on <lg) */}
-          <div className="relative min-h-0 overflow-x-hidden">
+          {/* Content area */}
+          <div className="relative min-h-0">
             {/* Center spine (lg+ only) */}
             <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 lg:block">
               <div className="relative h-full w-px overflow-hidden">
                 <motion.div
                   className="absolute inset-0 bg-current opacity-30 will-change-transform"
                   initial={reduce ? { y: 0 } : { y: "-100%" }}
-                  animate={{ y: 0 }}
-                  exit={
-                    reduce
-                      ? { y: 0 }
-                      : {
-                          y: "-100%",
-                          transition: {
-                            duration: durLine,
-                            ease,
-                            delay: exitLineDelay,
-                          },
-                        }
-                  }
-                  transition={lineEnterT}
+                  animate={reduce ? { y: 0 } : { y: spineY }}
+                  transition={isPresent ? lineEnterT : lineExitT}
                 />
               </div>
             </div>
@@ -182,6 +179,7 @@ function Experience({ mode = "nav" }) {
                 items={WORK_ITEMS}
                 side="work"
                 reduce={reduce}
+                isPresent={isPresent}
                 ease={ease}
                 durContent={durContent}
                 contentRevealStart={contentRevealStart}
@@ -193,6 +191,7 @@ function Experience({ mode = "nav" }) {
                 items={EDU_ITEMS}
                 side="edu"
                 reduce={reduce}
+                isPresent={isPresent}
                 ease={ease}
                 durContent={durContent}
                 contentRevealStart={contentRevealStart}
@@ -210,6 +209,7 @@ function Experience({ mode = "nav" }) {
                     side="work"
                     idx={idx}
                     reduce={reduce}
+                    isPresent={isPresent}
                     ease={ease}
                     durContent={durContent}
                     enterBaseDelay={contentRevealStart}
@@ -229,6 +229,7 @@ function Experience({ mode = "nav" }) {
                     side="edu"
                     idx={idx}
                     reduce={reduce}
+                    isPresent={isPresent}
                     ease={ease}
                     durContent={durContent}
                     enterBaseDelay={contentRevealStart}
@@ -253,6 +254,7 @@ function StackedColumn({
   items,
   side,
   reduce,
+  isPresent,
   ease,
   durContent,
   contentRevealStart,
@@ -266,15 +268,16 @@ function StackedColumn({
   };
   const headerExitT = { duration: durContent, ease, delay: exitContentDelay };
 
+  const headerY = isPresent ? 0 : "100%";
+
   return (
     <div>
       <div className="overflow-hidden">
         <motion.h3
           className="text-sm font-semibold tracking-widest uppercase"
           initial={reduce ? { y: 0 } : { y: "100%" }}
-          animate={{ y: 0 }}
-          exit={reduce ? { y: 0 } : { y: "100%", transition: headerExitT }}
-          transition={headerEnterT}
+          animate={reduce ? { y: 0 } : { y: headerY }}
+          transition={isPresent ? headerEnterT : headerExitT}
           style={{ willChange: "transform" }}
         >
           {title}
@@ -288,6 +291,7 @@ function StackedColumn({
             side={side}
             idx={idx}
             reduce={reduce}
+            isPresent={isPresent}
             ease={ease}
             durContent={durContent}
             enterBaseDelay={contentRevealStart}
@@ -311,6 +315,7 @@ function MaskedCard({
   side,
   idx,
   reduce,
+  isPresent,
   ease,
   durContent,
   enterBaseDelay,
@@ -328,12 +333,12 @@ function MaskedCard({
       <motion.article
         className={`will-change-transform ${className}`}
         initial={reduce ? { x: 0 } : { x: hiddenX }}
-        animate={{ x: 0 }}
-        exit={{
-          x: reduce ? 0 : hiddenX,
-          transition: { duration: durContent, ease, delay: exitDelay },
-        }}
-        transition={{ duration: durContent, ease, delay: enterDelay }}
+        animate={isPresent ? { x: 0 } : { x: hiddenX }}
+        transition={
+          isPresent
+            ? { duration: durContent, ease, delay: enterDelay }
+            : { duration: durContent, ease, delay: exitDelay }
+        }
       >
         {children}
       </motion.article>
