@@ -418,18 +418,10 @@ function Projects({ mode = "nav" }) {
                               ref={closeBtnRef}
                               type="button"
                               onClick={closeDetails}
-                              className={[
-                                "shrink-0",
-                                "inline-flex items-center justify-center",
-                                "h-10 px-3",
-                                "rounded-full border border-current",
-                                "text-sm tracking-wide",
-                                "hover:bg-fg hover:text-bg",
-                                "focus-visible:outline-offset-4",
-                              ].join(" ")}
+                              className="text-sm tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
                               aria-label="Back to projects"
                             >
-                              Back
+                              ← Back to projects
                             </button>
                           </div>
                         </div>
@@ -569,12 +561,12 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
             ref={btnRef}
             type="button"
             onClick={() => onOpen(btnRef.current)}
-            className="underline underline-offset-4"
+            className="text-sm tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
             aria-haspopup="dialog"
             aria-expanded={isOpen ? "true" : "false"}
             aria-controls={dialogId}
           >
-            Read case study
+            Read case study →
           </button>
 
           <span aria-hidden="true" className="text-xs tracking-wide opacity-70">
