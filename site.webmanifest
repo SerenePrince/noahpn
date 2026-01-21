@@ -1,8 +1,16 @@
 {
   "name": "Noah Park-Nguyen",
-  "short_name": "NPN",
+  "short_name": "Noah",
   "start_url": "/noahpn/",
+  "scope": "/noahpn/",
   "display": "standalone",
   "background_color": "#fbfaf5",
-  "theme_color": "#fbfaf5"
+  "theme_color": "#fbfaf5",
+  "icons": [
+    {
+      "src": "/noahpn/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
 }
