@@ -219,9 +219,10 @@ function Hero({ mode = "load" }) {
               }}
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
-              <p className="mx-auto max-w-3xl text-sm tracking-wide opacity-70">
-                I build internal applications and automation tools that help
-                government and enterprise teams work better.
+              <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
+                I build internal applications and automation for government and
+                enterprise teams, focused on simplifying complex internal
+                processes.
               </p>
               <p className="mt-4 text-sm tracking-wide opacity-70">
                 Coquitlam, BC • Open to remote or relocation • Graduating April
