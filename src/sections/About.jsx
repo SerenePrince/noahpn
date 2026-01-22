@@ -115,28 +115,28 @@ function About({ mode = "nav" }) {
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
                     I took my first programming class in my senior year of high
                     school and was instantly inspired. I knew I wanted to study
-                    computer science, so I spent the rest of that summer taking
-                    online courses to raise my math and science grades and get
-                    myself ready for college.
+                    computer science, so I spent that summer taking online
+                    courses to strengthen my math and science background and
+                    prepare for college.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    The thing I love most about development is starting a
-                    brand-new project and seeing a concept go from an idea to a
-                    finished product. Watching something come together step by
-                    step is still the most satisfying part of the work for me.
+                    What I enjoy most about development is the final stretch of
+                    MVP work—when a project moves from rough notes and plans
+                    into a fully realized, working product. Seeing that
+                    transformation is when the big picture clicks for me, and
+                    it's the most satisfying part of the work.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I mostly focus on implementation rather than design — design
-                    isn't my strongest suit — but you can count on me to get
-                    things done, whether that's back end, front end, or
-                    everything in between.
+                    I lean more toward implementation than design, but I’m
+                    comfortable working across the stack and quick to pick up
+                    new tools and patterns.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I'm an introvert at heart, but I thrive in work environments
-                    that value patience, positive reinforcement, diversity, and
+                    I'm an introvert at heart, but I thrive in environments that
+                    value patience, positive reinforcement, diversity, and
                     accountability.
                   </p>
                 </div>
