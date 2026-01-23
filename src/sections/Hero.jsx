@@ -1,5 +1,6 @@
 // src/sections/Hero.jsx
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect } from "react";
+import { motion, useReducedMotion, usePresence } from "motion/react";
 import { SiGmail, SiLinkedin, SiGithub } from "react-icons/si";
 
 import whiteLogo from "../assets/icons/logo-mark.light.svg";
@@ -7,40 +8,55 @@ import blackLogo from "../assets/icons/logo-mark.dark.svg";
 
 function Hero({ mode = "load" }) {
   const reduce = useReducedMotion();
-  const isFast = mode === "nav";
+
+  // Manual presence: MUST call safeToRemove() when exiting
+  const [isPresent, safeToRemove] = usePresence();
+  const isInitial = mode === "load";
+  const isExiting = !isPresent;
+
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = reduce ? 0 : isFast ? 0.15 : 1.0;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
-  const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
+  // Always slow (no fast mode)
+  // Keep the big hero pause only on the very first website load (enter only)
+  const pause = reduce ? 0 : isInitial ? 1.0 : 0;
 
+  const durLine = reduce ? 0 : 0.8;
+  const durContent = reduce ? 0 : 0.9;
+  const gap = reduce ? 0 : 0.12;
+
+  // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
-  const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
+  const contentRevealStart = reduce
+    ? 0
+    : isInitial
+      ? lineRevealStart + durLine + gap
+      : lineRevealStart;
 
+  // Exit: ALWAYS simultaneous (what you wanted when leaving Home)
   const exitContentDelay = 0;
-  const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
+  const exitLineDelay = 0;
+
+  // Tell AnimatePresence when it’s safe to remove this view
+  const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
+
+  useEffect(() => {
+    if (isPresent) return;
+    const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
+    return () => window.clearTimeout(t);
+  }, [isPresent, safeToRemove, totalExitTime]);
 
   return (
     <section className="h-full min-h-0" aria-labelledby="hero-title">
-      <div className="mx-auto flex h-full max-w-6xl flex-col justify-center px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
+      <div className="mx-auto flex h-full max-w-6xl flex-col justify-start px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6 lg:justify-center">
         <div className="flex flex-col items-center gap-[clamp(1.25rem,3vh,2.5rem)] lg:flex-row lg:gap-0">
           <div className="min-w-0 overflow-hidden lg:basis-[60%]">
             <motion.div
               initial={reduce ? { x: 0 } : { x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{
-                x: reduce ? 0 : "100%",
-                transition: {
-                  duration: durContent,
-                  ease,
-                  delay: exitContentDelay,
-                },
-              }}
+              animate={isPresent ? { x: 0 } : { x: "100%" }}
               transition={{
                 duration: durContent,
                 ease,
-                delay: contentRevealStart,
+                delay: isPresent ? contentRevealStart : exitContentDelay,
               }}
               className="flex flex-col gap-3 py-2 text-center will-change-transform lg:pr-20"
             >
@@ -81,12 +97,12 @@ function Hero({ mode = "load" }) {
             <motion.div
               className="absolute inset-0 bg-current opacity-30 will-change-transform"
               initial={reduce ? { x: 0 } : { x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{
-                x: reduce ? 0 : "-100%",
-                transition: { duration: durLine, ease, delay: exitLineDelay },
+              animate={isPresent ? { x: 0 } : { x: "-100%" }}
+              transition={{
+                duration: durLine,
+                ease,
+                delay: isPresent ? lineRevealStart : exitLineDelay,
               }}
-              transition={{ duration: durLine, ease, delay: lineRevealStart }}
             />
           </div>
 
@@ -97,31 +113,23 @@ function Hero({ mode = "load" }) {
             <motion.div
               className="absolute inset-0 bg-current opacity-30 will-change-transform"
               initial={reduce ? { y: 0 } : { y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{
-                y: reduce ? 0 : "-100%",
-                transition: { duration: durLine, ease, delay: exitLineDelay },
+              animate={isPresent ? { y: 0 } : { y: "-100%" }}
+              transition={{
+                duration: durLine,
+                ease,
+                delay: isPresent ? lineRevealStart : exitLineDelay,
               }}
-              transition={{ duration: durLine, ease, delay: lineRevealStart }}
             />
           </div>
 
           <div className="min-w-0 overflow-hidden lg:basis-[40%]">
             <motion.div
               initial={reduce ? { x: 0 } : { x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{
-                x: reduce ? 0 : "-100%",
-                transition: {
-                  duration: durContent,
-                  ease,
-                  delay: exitContentDelay,
-                },
-              }}
+              animate={isPresent ? { x: 0 } : { x: "-100%" }}
               transition={{
                 duration: durContent,
                 ease,
-                delay: contentRevealStart,
+                delay: isPresent ? contentRevealStart : exitContentDelay,
               }}
               className="py-2 will-change-transform lg:pl-20"
             >
@@ -191,31 +199,23 @@ function Hero({ mode = "load" }) {
             <motion.div
               className="absolute inset-0 bg-current opacity-30 will-change-transform"
               initial={reduce ? { x: 0 } : { x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{
-                x: reduce ? 0 : "-100%",
-                transition: { duration: durLine, ease, delay: exitLineDelay },
+              animate={isPresent ? { x: 0 } : { x: "-100%" }}
+              transition={{
+                duration: durLine,
+                ease,
+                delay: isPresent ? lineRevealStart : exitLineDelay,
               }}
-              transition={{ duration: durLine, ease, delay: lineRevealStart }}
             />
           </div>
 
           <div className="overflow-hidden">
             <motion.div
               initial={reduce ? { y: 0 } : { y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{
-                y: reduce ? 0 : "-100%",
-                transition: {
-                  duration: durContent,
-                  ease,
-                  delay: exitContentDelay,
-                },
-              }}
+              animate={isPresent ? { y: 0 } : { y: "-100%" }}
               transition={{
                 duration: durContent,
                 ease,
-                delay: contentRevealStart,
+                delay: isPresent ? contentRevealStart : exitContentDelay,
               }}
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >

@@ -43,30 +43,37 @@ function Skills({ mode = "nav" }) {
   const reduce = useReducedMotion();
   const [isPresent, safeToRemove] = usePresence();
 
-  const isFast = mode === "nav";
+  const isInitial = mode === "load";
   const ease = [0.16, 1, 0.3, 1];
 
+  // ✅ Always slow (no fast mode)
   const pause = 0;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
-  const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
+  const durLine = reduce ? 0 : 0.8;
+  const durContent = reduce ? 0 : 0.9;
+  const gap = reduce ? 0 : 0.12;
 
+  // ✅ Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
-  const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
+  const contentRevealStart = reduce
+    ? 0
+    : isInitial
+      ? lineRevealStart + durLine + gap
+      : lineRevealStart;
 
+  // ✅ Exit: always simultaneous
   const exitContentDelay = 0;
-  const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
+  const exitLineDelay = 0;
 
   const hiddenFromRight = "120%";
   const hiddenFromTop = "-120%";
 
-  const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
-
+  // ✅ Ensure exit animations finish before unmount
   useEffect(() => {
     if (isPresent) return;
+    const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
     const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
     return () => window.clearTimeout(t);
-  }, [isPresent, safeToRemove, totalExitTime]);
+  }, [isPresent, safeToRemove, reduce, durLine, durContent]);
 
   return (
     <motion.section
@@ -117,6 +124,7 @@ function Skills({ mode = "nav" }) {
               </motion.p>
             </div>
           </div>
+
           {/* Content row */}
           <div className="min-h-0">
             <div className="flex min-h-0 min-w-0 flex-col lg:flex-row">
@@ -213,6 +221,7 @@ function Skills({ mode = "nav" }) {
               </div>
             </div>
           </div>
+
           <div className="h-[clamp(0.75rem,2vh,1.25rem)]" aria-hidden="true" />
         </div>
       </div>

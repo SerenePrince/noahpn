@@ -22,35 +22,30 @@ const PAGE_TITLES = {
 function App() {
   const [active, setActive] = useState("home");
 
+  // becomes true after the first navigation click
+  const [hasNavigated, setHasNavigated] = useState(false);
+
   useEffect(() => {
     const key = window.location.hash.replace("#", "");
     if (key && PAGE_TITLES[key]) setActive(key);
   }, []);
 
-  const visitedRef = useRef(new Set());
   const mainRef = useRef(null);
-  const didMountRef = useRef(false);
 
-  const mode = visitedRef.current.has(active) ? "nav" : "load";
-
-  useEffect(() => {
-    visitedRef.current.add(active);
-  }, [active]);
+  // Only first page load is "load". After first click, everything is "nav".
+  const mode = hasNavigated ? "nav" : "load";
 
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
-      return;
-    }
-
     mainRef.current?.scrollTo?.({ top: 0, left: 0, behavior: "auto" });
-
-    // Announce view change
     mainRef.current?.focus();
   }, [active]);
 
   function navigate(next) {
     if (next === active) return;
+
+    // flip to nav mode the moment the user starts navigating
+    if (!hasNavigated) setHasNavigated(true);
+
     setActive(next);
     window.history.replaceState(null, "", `#${next}`);
   }

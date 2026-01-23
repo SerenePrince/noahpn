@@ -46,19 +46,26 @@ function Experience({ mode = "nav" }) {
   const reduce = useReducedMotion();
   const [isPresent, safeToRemove] = usePresence();
 
-  const isFast = mode === "nav";
+  const isInitial = mode === "load";
   const ease = [0.16, 1, 0.3, 1];
 
+  // ✅ Always slow (no fast mode)
   const pause = 0;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durContent = reduce ? 0 : isFast ? 0.45 : 0.65;
-  const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
+  const durLine = reduce ? 0 : 0.8;
+  const durContent = reduce ? 0 : 0.65;
+  const gap = reduce ? 0 : 0.12;
 
+  // ✅ Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
-  const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
+  const contentRevealStart = reduce
+    ? 0
+    : isInitial
+      ? lineRevealStart + durLine + gap
+      : lineRevealStart;
 
+  // ✅ Exit: always simultaneous
   const exitContentDelay = 0;
-  const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
+  const exitLineDelay = 0;
 
   const headerEnterT = {
     duration: durContent,
@@ -68,21 +75,17 @@ function Experience({ mode = "nav" }) {
   const headerExitT = { duration: durContent, ease, delay: exitContentDelay };
 
   const lineEnterT = { duration: durLine, ease, delay: lineRevealStart };
-  const lineExitT = {
-    duration: durLine,
-    ease,
-    delay: exitLineDelay,
-  };
+  const lineExitT = { duration: durLine, ease, delay: exitLineDelay };
 
   const stagger = reduce ? 0 : 0.06;
 
-  // Ensure section waits for its own exit animations before unmount
+  // ✅ Ensure section waits for its own exit animations before unmount
   useEffect(() => {
     if (isPresent) return;
-    const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
+    const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
     const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
     return () => window.clearTimeout(t);
-  }, [isPresent, safeToRemove, reduce, exitLineDelay, durLine]);
+  }, [isPresent, safeToRemove, reduce, durLine, durContent]);
 
   const headerY = isPresent ? 0 : "100%";
   const spineY = isPresent ? 0 : "-100%";

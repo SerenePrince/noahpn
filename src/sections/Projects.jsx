@@ -118,25 +118,34 @@ function Projects({ mode = "nav" }) {
   const reduce = useReducedMotion();
   const [isPresent, safeToRemove] = usePresence();
 
-  const isFast = mode === "nav";
+  const isInitial = mode === "load";
   const ease = [0.16, 1, 0.3, 1];
 
-  const pause = 0;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
-  const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
+  // Always slow (no fast mode)
+  const pause = reduce ? 0 : isInitial ? 0.0 : 0.0;
+  const durLine = reduce ? 0 : 0.8;
+  const durContent = reduce ? 0 : 0.9;
+  const gap = reduce ? 0 : 0.12;
 
+  // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
-  const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
+  const contentRevealStart = reduce
+    ? 0
+    : isInitial
+      ? lineRevealStart + durLine + gap
+      : lineRevealStart;
 
+  // Exit: ALWAYS simultaneous
   const exitContentDelay = 0;
-  const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
+  const exitLineDelay = 0;
 
   const hiddenX = "-115%";
-  const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
+
+  // Used only to delay safeToRemove; since exit is simultaneous now,
+  // this is basically "max animation duration"
+  const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
 
   const items = useMemo(() => CASE_STUDIES, []);
-
   const [activeId, setActiveId] = useState(null);
 
   const lastTriggerRef = useRef(null);
@@ -154,6 +163,8 @@ function Projects({ mode = "nav" }) {
   useEffect(() => {
     if (isPresent) return;
     setActiveId(null);
+
+    // allow AnimatePresence to wait for exit
     const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
     return () => window.clearTimeout(t);
   }, [isPresent, safeToRemove, totalExitTime]);
@@ -363,25 +374,16 @@ function Projects({ mode = "nav" }) {
                   {activeItem ? (
                     <motion.div
                       className="fixed inset-0 z-50 lg:absolute lg:inset-0 lg:z-10"
-                      initial={{ opacity: 0 }}
+                      initial={{ opacity: 1 }}
                       animate={{
                         opacity: 1,
-                        transition: { duration: reduce ? 0 : 0.12 },
+                        transition: { duration: reduce ? 0 : durContent },
                       }}
                       exit={{
-                        opacity: 0,
-                        transition: { duration: reduce ? 0 : 0.1 },
+                        opacity: 1,
+                        transition: { duration: reduce ? 0 : durContent },
                       }}
                     >
-                      {/* Backdrop only on mobile */}
-                      <button
-                        type="button"
-                        aria-label="Close case study"
-                        onClick={closeDetails}
-                        className="absolute inset-0 bg-bg/80 lg:hidden"
-                        tabIndex={-1}
-                      />
-
                       <motion.div
                         id={dialogId}
                         ref={dialogRef}
@@ -399,7 +401,7 @@ function Projects({ mode = "nav" }) {
                           transition: {
                             duration: durContent,
                             ease,
-                            delay: exitContentDelay,
+                            delay: 0,
                           },
                         }}
                         transition={{ duration: durContent, ease }}
@@ -426,7 +428,6 @@ function Projects({ mode = "nav" }) {
                               </p>
                             </div>
 
-                            {/* More button-like Back button */}
                             <button
                               ref={closeBtnRef}
                               type="button"
@@ -439,7 +440,6 @@ function Projects({ mode = "nav" }) {
                           </div>
                         </div>
 
-                        {/* Scroll area (scrollbar hidden on mobile) */}
                         <div className="min-h-0 flex-1 overflow-auto pr-0 lg:pr-2">
                           <div className="space-y-10 pt-4 lg:pt-8">
                             <section
@@ -545,10 +545,10 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
 
   return (
     <article
-      className="relative h-[clamp(14.25rem,24vh,16.5rem)] min-h-0 rounded-xl border border-current p-5"
+      className="relative flex min-h-[clamp(14.25rem,24vh,16.5rem)] min-w-0 flex-col rounded-xl border border-current p-5"
       aria-labelledby={`${item.id}-title`}
     >
-      <div className="flex h-full min-h-0 min-w-0 flex-col">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
         <div className="min-w-0">
           <div className="flex min-w-0 items-baseline justify-between gap-4">
             <h3
@@ -569,7 +569,7 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
           {item.cardSummary}
         </p>
 
-        <div className="mt-3 flex items-center justify-between gap-4">
+        <div className="mt-3 flex items-center justify-between gap-4 pt-2">
           <button
             ref={btnRef}
             type="button"

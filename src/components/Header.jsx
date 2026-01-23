@@ -6,7 +6,7 @@ import blackLogo from "../assets/icons/logo-mark.dark.svg";
 
 function Header({ active, onNavigate, mode = "load" }) {
   const reduce = useReducedMotion();
-  const isFast = mode === "nav";
+  const isInitial = mode === "load";
   const ease = [0.16, 1, 0.3, 1];
 
   const items = [
@@ -18,18 +18,22 @@ function Header({ active, onNavigate, mode = "load" }) {
     { key: "contact", label: "Contact" },
   ];
 
-  // Reveal timings (your original motion intent)
-  const initialPause = reduce ? 0 : isFast ? 0.12 : 0.5;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durNav = reduce ? 0 : isFast ? 0.55 : 0.8;
+  // ✅ Always slow (no fast mode)
+  const initialPause = reduce ? 0 : isInitial ? 0.5 : 0;
+  const durLine = reduce ? 0 : 0.8;
+  const durNav = reduce ? 0 : 0.8;
 
+  // ✅ Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = initialPause;
   const navRevealStart = reduce
     ? 0
-    : lineRevealStart + durLine + (isFast ? 0.08 : 0.12);
+    : isInitial
+      ? lineRevealStart + durLine + 0.12
+      : lineRevealStart;
 
+  // ✅ Exit: always simultaneous (matches your updated system)
   const exitNavDelay = 0;
-  const exitLineDelay = reduce ? 0 : durNav + exitNavDelay + 0.05;
+  const exitLineDelay = 0;
 
   // Mobile menu state
   const [open, setOpen] = useState(false);
@@ -90,7 +94,6 @@ function Header({ active, onNavigate, mode = "load" }) {
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
-    // Focus first item inside menu (or the panel)
     const t = window.setTimeout(() => {
       const first =
         menuPanelRef.current?.querySelector('button[data-menuitem="true"]') ??
@@ -113,7 +116,6 @@ function Header({ active, onNavigate, mode = "load" }) {
       document.documentElement.style.overflow = prevOverflowHtml;
       document.body.style.overflow = prevOverflowBody;
 
-      // Return focus to menu button
       menuButtonRef.current?.focus?.();
     };
   }, [open]);
@@ -127,7 +129,6 @@ function Header({ active, onNavigate, mode = "load" }) {
   return (
     <header className="z-50 h-16 bg-bg">
       <div className="relative">
-        {/* Keep overflow-y hidden for slide animation; x is allowed for layout */}
         <div className="overflow-x-visible overflow-y-hidden">
           <motion.nav
             aria-label="Primary"
@@ -165,7 +166,7 @@ function Header({ active, onNavigate, mode = "load" }) {
               </picture>
             </button>
 
-            {/* Desktop nav (top-right) */}
+            {/* Desktop nav */}
             <ul className="ml-auto hidden items-center gap-8 sm:flex">
               {items.map((item) => {
                 const isActive = item.key === active;
@@ -179,10 +180,8 @@ function Header({ active, onNavigate, mode = "load" }) {
                       aria-controls="main"
                       className="relative h-10 px-1 leading-none tracking-wide underline-offset-4 hover:underline"
                     >
-                      {/* Single accessible label */}
                       <span className="sr-only">{item.label}</span>
 
-                      {/* Width anchor (layout only) */}
                       <span
                         aria-hidden="true"
                         className="invisible font-semibold"
@@ -190,7 +189,6 @@ function Header({ active, onNavigate, mode = "load" }) {
                         {item.label}
                       </span>
 
-                      {/* Visible label (inactive) */}
                       <span
                         aria-hidden="true"
                         className={[
@@ -204,7 +202,6 @@ function Header({ active, onNavigate, mode = "load" }) {
                         {item.label}
                       </span>
 
-                      {/* Visible label (active) */}
                       <span
                         aria-hidden="true"
                         className={[
@@ -235,7 +232,6 @@ function Header({ active, onNavigate, mode = "load" }) {
                 {open ? "Close" : "Menu"}
               </span>
 
-              {/* Minimal icon using borders (no extra deps) */}
               <span aria-hidden="true" className="grid gap-1">
                 <span className="block h-px w-5 bg-current" />
                 <span className="block h-px w-5 bg-current" />
@@ -278,7 +274,6 @@ function Header({ active, onNavigate, mode = "load" }) {
                 transition: { duration: reduce ? 0 : 0.12 },
               }}
             >
-              {/* Backdrop */}
               <button
                 type="button"
                 className="absolute inset-0 cursor-default bg-bg/80"
@@ -287,7 +282,6 @@ function Header({ active, onNavigate, mode = "load" }) {
                 tabIndex={-1}
               />
 
-              {/* Panel */}
               <motion.div
                 id={menuId}
                 ref={menuPanelRef}

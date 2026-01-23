@@ -8,27 +8,34 @@ function Contact({ mode = "nav" }) {
   const reduce = useReducedMotion();
   const [isPresent, safeToRemove] = usePresence();
 
-  const isFast = mode === "nav";
+  const isInitial = mode === "load";
   const ease = [0.16, 1, 0.3, 1];
 
+  // ✅ Always slow (no fast mode)
   const pause = 0;
-  const durLine = reduce ? 0 : isFast ? 0.45 : 0.8;
-  const durContent = reduce ? 0 : isFast ? 0.55 : 0.9;
-  const gap = reduce ? 0 : isFast ? 0.08 : 0.12;
+  const durLine = reduce ? 0 : 0.8;
+  const durContent = reduce ? 0 : 0.9;
+  const gap = reduce ? 0 : 0.12;
 
+  // ✅ Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
-  const contentRevealStart = reduce ? 0 : lineRevealStart + durLine + gap;
+  const contentRevealStart = reduce
+    ? 0
+    : isInitial
+      ? lineRevealStart + durLine + gap
+      : lineRevealStart;
 
+  // ✅ Exit: always simultaneous
   const exitContentDelay = 0;
-  const exitLineDelay = reduce ? 0 : durContent + exitContentDelay + 0.05;
+  const exitLineDelay = 0;
 
-  const totalExitTime = reduce ? 0 : exitLineDelay + durLine + 0.05;
-
+  // ✅ Ensure exit animations finish before unmount
   useEffect(() => {
     if (isPresent) return;
+    const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
     const t = window.setTimeout(() => safeToRemove(), totalExitTime * 1000);
     return () => window.clearTimeout(t);
-  }, [isPresent, safeToRemove, totalExitTime]);
+  }, [isPresent, safeToRemove, reduce, durLine, durContent]);
 
   return (
     <motion.section
@@ -39,8 +46,8 @@ function Contact({ mode = "nav" }) {
     >
       <div className="mx-auto flex h-full min-h-0 max-w-6xl flex-col px-4 py-[clamp(1.5rem,4vh,4rem)] sm:px-6">
         {/* Single scroll owner (scrollbars hidden on mobile via global rule + class) */}
-        <div className="desktop-scroll min-h-0 flex-1">
-          <div className="flex min-h-0 flex-col">
+        <div className="desktop-scroll flex min-h-0 flex-1 items-start lg:items-center">
+          <div className="flex min-h-0 w-full flex-col justify-center">
             {/* MAIN ROW */}
             <div className="flex flex-col items-stretch lg:flex-row lg:items-center">
               {/* LEFT (Resume / CTA) */}
@@ -49,15 +56,11 @@ function Contact({ mode = "nav" }) {
                   className="min-w-0 py-4 text-center lg:pr-16 lg:text-right"
                   initial={reduce ? { x: 0 } : { x: "110%" }}
                   animate={isPresent ? { x: 0 } : { x: "110%" }}
-                  transition={
-                    isPresent
-                      ? {
-                          duration: durContent,
-                          ease,
-                          delay: contentRevealStart,
-                        }
-                      : { duration: durContent, ease, delay: exitContentDelay }
-                  }
+                  transition={{
+                    duration: durContent,
+                    ease,
+                    delay: isPresent ? contentRevealStart : exitContentDelay,
+                  }}
                   style={{ willChange: "transform" }}
                 >
                   <h2
@@ -98,11 +101,11 @@ function Contact({ mode = "nav" }) {
                     className="absolute inset-0 bg-current opacity-30 will-change-transform"
                     initial={reduce ? { y: 0 } : { y: "-100%" }}
                     animate={isPresent ? { y: 0 } : { y: "-100%" }}
-                    transition={
-                      isPresent
-                        ? { duration: durLine, ease, delay: lineRevealStart }
-                        : { duration: durLine, ease, delay: exitLineDelay }
-                    }
+                    transition={{
+                      duration: durLine,
+                      ease,
+                      delay: isPresent ? lineRevealStart : exitLineDelay,
+                    }}
                   />
                 </div>
 
@@ -111,11 +114,11 @@ function Contact({ mode = "nav" }) {
                     className="absolute inset-0 bg-current opacity-30 will-change-transform"
                     initial={reduce ? { x: 0 } : { x: "-100%" }}
                     animate={isPresent ? { x: 0 } : { x: "-100%" }}
-                    transition={
-                      isPresent
-                        ? { duration: durLine, ease, delay: lineRevealStart }
-                        : { duration: durLine, ease, delay: exitLineDelay }
-                    }
+                    transition={{
+                      duration: durLine,
+                      ease,
+                      delay: isPresent ? lineRevealStart : exitLineDelay,
+                    }}
                   />
                 </div>
               </div>
@@ -126,15 +129,11 @@ function Contact({ mode = "nav" }) {
                   className="min-w-0 py-4 text-center lg:pl-16 lg:text-left"
                   initial={reduce ? { x: 0 } : { x: "-110%" }}
                   animate={isPresent ? { x: 0 } : { x: "-110%" }}
-                  transition={
-                    isPresent
-                      ? {
-                          duration: durContent,
-                          ease,
-                          delay: contentRevealStart,
-                        }
-                      : { duration: durContent, ease, delay: exitContentDelay }
-                  }
+                  transition={{
+                    duration: durContent,
+                    ease,
+                    delay: isPresent ? contentRevealStart : exitContentDelay,
+                  }}
                   style={{ willChange: "transform" }}
                 >
                   <h3 className="font-semibold tracking-wide">Contact</h3>
@@ -205,11 +204,11 @@ function Contact({ mode = "nav" }) {
                   className="absolute inset-0 bg-current opacity-30 will-change-transform"
                   initial={reduce ? { x: 0 } : { x: "-100%" }}
                   animate={isPresent ? { x: 0 } : { x: "-100%" }}
-                  transition={
-                    isPresent
-                      ? { duration: durLine, ease, delay: lineRevealStart }
-                      : { duration: durLine, ease, delay: exitLineDelay }
-                  }
+                  transition={{
+                    duration: durLine,
+                    ease,
+                    delay: isPresent ? lineRevealStart : exitLineDelay,
+                  }}
                 />
               </div>
 
@@ -218,15 +217,11 @@ function Contact({ mode = "nav" }) {
                   className="pt-8 text-center"
                   initial={reduce ? { y: 0 } : { y: "-110%" }}
                   animate={isPresent ? { y: 0 } : { y: "-110%" }}
-                  transition={
-                    isPresent
-                      ? {
-                          duration: durContent,
-                          ease,
-                          delay: contentRevealStart,
-                        }
-                      : { duration: durContent, ease, delay: exitContentDelay }
-                  }
+                  transition={{
+                    duration: durContent,
+                    ease,
+                    delay: isPresent ? contentRevealStart : exitContentDelay,
+                  }}
                   style={{ willChange: "transform" }}
                 >
                   <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
