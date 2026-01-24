@@ -44,15 +44,18 @@ function Skills({ mode = "nav" }) {
   const [isPresent, safeToRemove] = usePresence();
 
   const isInitial = mode === "load";
-  const ease = [0.16, 1, 0.3, 1];
+  const easeIntro = [0.16, 1, 0.3, 1];
+  const easeFast = [0.25, 0.9, 0.25, 1];
 
-  // ✅ Always slow (no fast mode)
-  const pause = 0;
-  const durLine = reduce ? 0 : 0.8;
-  const durContent = reduce ? 0 : 0.9;
-  const gap = reduce ? 0 : 0.12;
+  const ease = isInitial ? easeIntro : easeFast;
 
-  // ✅ Enter: sequential only on initial load; simultaneous on nav
+  // Keep the big hero pause only on the very first website load (enter only)
+  const pause = reduce ? 0 : isInitial ? 0.3 : 0;
+  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+
+  // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
   const contentRevealStart = reduce
     ? 0
@@ -60,14 +63,14 @@ function Skills({ mode = "nav" }) {
       ? lineRevealStart + durLine + gap
       : lineRevealStart;
 
-  // ✅ Exit: always simultaneous
+  // Exit: always simultaneous
   const exitContentDelay = 0;
   const exitLineDelay = 0;
 
   const hiddenFromRight = "120%";
   const hiddenFromTop = "-120%";
 
-  // ✅ Ensure exit animations finish before unmount
+  // Ensure exit animations finish before unmount
   useEffect(() => {
     if (isPresent) return;
     const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;

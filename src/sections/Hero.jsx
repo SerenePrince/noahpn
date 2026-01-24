@@ -14,15 +14,16 @@ function Hero({ mode = "load" }) {
   const isInitial = mode === "load";
   const isExiting = !isPresent;
 
-  const ease = [0.16, 1, 0.3, 1];
+  const easeIntro = [0.16, 1, 0.3, 1];
+  const easeFast = [0.25, 0.9, 0.25, 1];
 
-  // Always slow (no fast mode)
+  const ease = isInitial ? easeIntro : easeFast;
+
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 1.0 : 0;
-
-  const durLine = reduce ? 0 : 0.8;
-  const durContent = reduce ? 0 : 0.9;
-  const gap = reduce ? 0 : 0.12;
+  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;

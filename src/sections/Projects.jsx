@@ -119,13 +119,16 @@ function Projects({ mode = "nav" }) {
   const [isPresent, safeToRemove] = usePresence();
 
   const isInitial = mode === "load";
-  const ease = [0.16, 1, 0.3, 1];
+  const easeIntro = [0.16, 1, 0.3, 1];
+  const easeFast = [0.25, 0.9, 0.25, 1];
 
-  // Always slow (no fast mode)
-  const pause = reduce ? 0 : isInitial ? 0.0 : 0.0;
-  const durLine = reduce ? 0 : 0.8;
-  const durContent = reduce ? 0 : 0.9;
-  const gap = reduce ? 0 : 0.12;
+  const ease = isInitial ? easeIntro : easeFast;
+
+  // Keep the big hero pause only on the very first website load (enter only)
+  const pause = reduce ? 0 : isInitial ? 0.3 : 0;
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -134,6 +137,9 @@ function Projects({ mode = "nav" }) {
     : isInitial
       ? lineRevealStart + durLine + gap
       : lineRevealStart;
+
+  const panelDur = reduce ? 0 : 0.25; // match fast content transitions
+  const panelEase = easeFast; // fast easing for UI interactions
 
   // Exit: ALWAYS simultaneous
   const exitContentDelay = 0;
@@ -372,18 +378,7 @@ function Projects({ mode = "nav" }) {
                   }}
                 >
                   {activeItem ? (
-                    <motion.div
-                      className="fixed inset-0 z-50 lg:absolute lg:inset-0 lg:z-10"
-                      initial={{ opacity: 1 }}
-                      animate={{
-                        opacity: 1,
-                        transition: { duration: reduce ? 0 : durContent },
-                      }}
-                      exit={{
-                        opacity: 1,
-                        transition: { duration: reduce ? 0 : durContent },
-                      }}
-                    >
+                    <div className="fixed inset-0 z-50 lg:absolute lg:inset-0 lg:z-10">
                       <motion.div
                         id={dialogId}
                         ref={dialogRef}
@@ -396,15 +391,8 @@ function Projects({ mode = "nav" }) {
                         style={{ willChange: "transform" }}
                         initial={reduce ? { x: 0 } : { x: hiddenX }}
                         animate={{ x: 0 }}
-                        exit={{
-                          x: hiddenX,
-                          transition: {
-                            duration: durContent,
-                            ease,
-                            delay: 0,
-                          },
-                        }}
-                        transition={{ duration: durContent, ease }}
+                        exit={{ x: hiddenX }}
+                        transition={{ duration: panelDur, ease: panelEase }}
                         className={[
                           "absolute inset-0 flex min-h-0 flex-col border border-current bg-bg p-4 sm:p-6",
                           "lg:top-0 lg:right-px lg:bottom-0 lg:left-10 lg:rounded-xl lg:p-6",
@@ -528,7 +516,7 @@ function Projects({ mode = "nav" }) {
                           </div>
                         </div>
                       </motion.div>
-                    </motion.div>
+                    </div>
                   ) : null}
                 </AnimatePresence>
               </div>

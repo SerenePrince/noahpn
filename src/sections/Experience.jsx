@@ -47,15 +47,18 @@ function Experience({ mode = "nav" }) {
   const [isPresent, safeToRemove] = usePresence();
 
   const isInitial = mode === "load";
-  const ease = [0.16, 1, 0.3, 1];
+  const easeIntro = [0.16, 1, 0.3, 1];
+  const easeFast = [0.25, 0.9, 0.25, 1];
 
-  // ✅ Always slow (no fast mode)
-  const pause = 0;
-  const durLine = reduce ? 0 : 0.8;
-  const durContent = reduce ? 0 : 0.65;
-  const gap = reduce ? 0 : 0.12;
+  const ease = isInitial ? easeIntro : easeFast;
 
-  // ✅ Enter: sequential only on initial load; simultaneous on nav
+  // Keep the big hero pause only on the very first website load (enter only)
+  const pause = reduce ? 0 : isInitial ? 0.3 : 0;
+  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
+  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+
+  // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
   const contentRevealStart = reduce
     ? 0
@@ -63,7 +66,7 @@ function Experience({ mode = "nav" }) {
       ? lineRevealStart + durLine + gap
       : lineRevealStart;
 
-  // ✅ Exit: always simultaneous
+  // Exit: always simultaneous
   const exitContentDelay = 0;
   const exitLineDelay = 0;
 
@@ -77,9 +80,10 @@ function Experience({ mode = "nav" }) {
   const lineEnterT = { duration: durLine, ease, delay: lineRevealStart };
   const lineExitT = { duration: durLine, ease, delay: exitLineDelay };
 
-  const stagger = reduce ? 0 : 0.06;
+  // Only stagger on initial load (and not when reduced motion)
+  const stagger = reduce ? 0 : isInitial ? 0.06 : 0;
 
-  // ✅ Ensure section waits for its own exit animations before unmount
+  // Ensure section waits for its own exit animations before unmount
   useEffect(() => {
     if (isPresent) return;
     const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
@@ -328,6 +332,9 @@ function MaskedCard({
   children,
 }) {
   const hiddenX = side === "work" ? "115%" : "-115%";
+
+  // When stagger=0 (nav), every card enters at the same base delay.
+  // When initial load, stagger increments up to a cap.
   const enterDelay =
     enterBaseDelay + (reduce ? 0 : Math.min(idx * stagger, 0.18));
 
