@@ -54,9 +54,9 @@ function Experience({ mode = "nav" }) {
 
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 0.3 : 0;
-  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -133,7 +133,7 @@ function Experience({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Where I've worked and what I've studied
+                Professional experience and academic background.
               </motion.p>
             </div>
           </div>

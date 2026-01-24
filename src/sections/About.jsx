@@ -15,9 +15,9 @@ function About({ mode = "nav" }) {
 
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 0.3 : 0;
-  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -118,36 +118,36 @@ function About({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-6 text-base leading-relaxed lg:text-lg">
-                    I'm a developer, student, and Balatro addict based in
+                    I'm a developer and computer science student based in
                     Coquitlam, in the Lower Mainland of British Columbia.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
                     I took my first programming class in my senior year of high
-                    school and was instantly inspired. I knew I wanted to study
-                    computer science, so I spent that summer taking online
-                    courses to strengthen my math and science background and
-                    prepare for college.
+                    school and was immediately drawn to building software. I
+                    knew I wanted to study computer science, so I spent that
+                    summer taking online courses to strengthen my math and
+                    science background and prepare for college.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
                     What I enjoy most about development is the final stretch of
                     MVP work—when a project moves from rough notes and plans
                     into a fully realized, working product. Seeing that
-                    transformation is when the big picture clicks for me, and
-                    it's the most satisfying part of the work.
+                    transition is when the big picture clicks for me, and it's
+                    the most satisfying part of the work.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I lean more toward implementation than design, but I’m
+                    I lean more toward implementation than design, but I'm
                     comfortable working across the stack and quick to pick up
                     new tools and patterns.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I'm an introvert at heart, but I thrive in environments that
-                    value patience, positive reinforcement, diversity, and
-                    accountability.
+                    I'm an introvert at heart, but I do my best work in
+                    environments that value patience, accountability, and
+                    thoughtful collaboration.
                   </p>
                 </div>
               </motion.div>

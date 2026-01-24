@@ -16,9 +16,9 @@ function Contact({ mode = "nav" }) {
 
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 0.3 : 0;
-  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -74,7 +74,7 @@ function Contact({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
-                    A concise summary of my experience and work history.
+                    A concise overview of my experience and work history.
                   </p>
 
                   <div className="mt-6 flex justify-center lg:justify-end">
@@ -92,7 +92,7 @@ function Contact({ mode = "nav" }) {
                   </div>
 
                   <p className="mt-6 text-sm tracking-wide opacity-70">
-                    Open to full-time, internship, or contract opportunities.
+                    Open to permanent full-time or contract opportunities.
                   </p>
                 </motion.div>
               </div>

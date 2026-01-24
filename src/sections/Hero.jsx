@@ -21,9 +21,9 @@ function Hero({ mode = "load" }) {
 
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 1.0 : 0;
-  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -220,9 +220,9 @@ function Hero({ mode = "load" }) {
               }}
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
-              <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
+              <p className="mx-auto max-w-5xl text-sm tracking-wide opacity-70">
                 I build internal applications and automation for government and
-                enterprise teams, focused on simplifying complex internal
+                enterprise teams, focused on simplifying complex operational
                 processes.
               </p>
               <p className="mt-4 text-sm tracking-wide opacity-70">

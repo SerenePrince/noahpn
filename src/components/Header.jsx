@@ -21,7 +21,7 @@ function Header({ active, onNavigate, mode = "load" }) {
   // Always slow (no fast mode)
   const initialPause = reduce ? 0 : isInitial ? 1 : 0;
   const durLine = reduce ? 0 : 0.75;
-  const durNav = reduce ? 0 : 0.75
+  const durNav = reduce ? 0 : 0.75;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = initialPause;

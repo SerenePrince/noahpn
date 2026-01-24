@@ -51,9 +51,9 @@ function Skills({ mode = "nav" }) {
 
   // Keep the big hero pause only on the very first website load (enter only)
   const pause = reduce ? 0 : isInitial ? 0.3 : 0;
-  const durLine = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const durContent = reduce ? 0 : (isInitial ? 0.6 : 0.45);
-  const gap = reduce ? 0 : (isInitial ? 0.3 : 0);
+  const durLine = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const durContent = reduce ? 0 : isInitial ? 0.6 : 0.45;
+  const gap = reduce ? 0 : isInitial ? 0.3 : 0;
 
   // Enter: sequential only on initial load; simultaneous on nav
   const lineRevealStart = pause;
@@ -123,7 +123,8 @@ function Skills({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Tools I've used in work, school, and side projects.
+                Tools and technologies used across work, school, and side
+                projects.
               </motion.p>
             </div>
           </div>
