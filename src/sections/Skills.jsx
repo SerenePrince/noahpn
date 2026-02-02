@@ -109,7 +109,7 @@ function Skills({ mode = "nav" }) {
 
             <div className="mt-2 overflow-hidden">
               <motion.p
-                className="text-sm tracking-wide opacity-70"
+                className="text-base tracking-wide opacity-70"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
                 animate={isPresent ? { y: 0 } : { y: "100%" }}
                 transition={
@@ -250,7 +250,7 @@ function SkillGrid() {
               <Icon aria-hidden="true" className="h-5 w-5 shrink-0" />
               <h3
                 id={id}
-                className="text-sm font-semibold tracking-widest uppercase"
+                className="text-base font-semibold tracking-widest uppercase"
               >
                 {group.title}
               </h3>
@@ -259,7 +259,7 @@ function SkillGrid() {
             <ul className="mt-5 grid min-w-0 grid-cols-1 gap-3" role="list">
               {group.items.map((label) => (
                 <li key={label} className="min-w-0">
-                  <span className="wrap-break-words min-w-0 text-sm tracking-wide opacity-80">
+                  <span className="wrap-break-words min-w-0 text-base tracking-wide opacity-80">
                     {label}
                   </span>
                 </li>

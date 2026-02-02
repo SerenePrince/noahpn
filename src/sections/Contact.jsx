@@ -91,7 +91,7 @@ function Contact({ mode = "nav" }) {
                     </a>
                   </div>
 
-                  <p className="mt-6 text-sm tracking-wide opacity-70">
+                  <p className="mt-6 text-base tracking-wide opacity-70">
                     Open to permanent full-time or contract opportunities.
                   </p>
                 </motion.div>
@@ -139,7 +139,7 @@ function Contact({ mode = "nav" }) {
                   }}
                   style={{ willChange: "transform" }}
                 >
-                  <h3 className="font-semibold tracking-wide">Contact</h3>
+                  <h2 className="font-semibold tracking-wide">Contact</h2>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
                     Email is the best way to reach me.
@@ -227,7 +227,7 @@ function Contact({ mode = "nav" }) {
                   }}
                   style={{ willChange: "transform" }}
                 >
-                  <p className="mx-auto max-w-4xl text-sm tracking-wide opacity-70">
+                  <p className="mx-auto max-w-4xl text-base tracking-wide opacity-70">
                     Most of my work is internal, so the case studies focus on
                     approach, trade-offs, and impact rather than public demos.
                   </p>

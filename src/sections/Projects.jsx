@@ -279,7 +279,7 @@ function Projects({ mode = "nav" }) {
 
             <div className="mt-2 overflow-hidden">
               <motion.p
-                className="text-sm tracking-wide opacity-70"
+                className="text-base tracking-wide opacity-70"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
                 animate={isPresent ? { y: 0 } : { y: "100%" }}
                 transition={
@@ -408,7 +408,7 @@ function Projects({ mode = "nav" }) {
                               >
                                 {activeItem.title}
                               </h3>
-                              <p className="mt-2 text-sm tracking-wide opacity-70">
+                              <p className="mt-2 text-base tracking-wide opacity-70">
                                 {activeItem.org} • {activeItem.subtitle}
                               </p>
                               <p id={descId} className="sr-only">
@@ -420,7 +420,7 @@ function Projects({ mode = "nav" }) {
                               ref={closeBtnRef}
                               type="button"
                               onClick={closeDetails}
-                              className="text-sm tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
+                              className="text-base tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
                               aria-label="Back to projects"
                             >
                               ← Back to projects
@@ -429,17 +429,17 @@ function Projects({ mode = "nav" }) {
                         </div>
 
                         <div className="min-h-0 flex-1 overflow-auto pr-0 lg:pr-2">
-                          <div className="space-y-10 pt-4 lg:pt-8">
+                          <div className="space-y-10">
                             <section
                               aria-labelledby={`${activeItem.id}-summary`}
                             >
                               <h4
                                 id={`${activeItem.id}-summary`}
-                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                className="text-base font-semibold tracking-widest uppercase opacity-70"
                               >
                                 Summary
                               </h4>
-                              <p className="wrap-break-words mt-3 text-sm leading-relaxed opacity-80">
+                              <p className="wrap-break-words mt-3 text-base leading-relaxed opacity-80">
                                 {activeItem.details.summary}
                               </p>
                             </section>
@@ -447,11 +447,11 @@ function Projects({ mode = "nav" }) {
                             <section aria-labelledby={`${activeItem.id}-tools`}>
                               <h4
                                 id={`${activeItem.id}-tools`}
-                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                className="text-base font-semibold tracking-widest uppercase opacity-70"
                               >
                                 Tools
                               </h4>
-                              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm opacity-80">
+                              <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base opacity-80">
                                 {activeItem.details.tools.map((t) => (
                                   <li key={t} className="wrap-break-words">
                                     {t}
@@ -463,11 +463,11 @@ function Projects({ mode = "nav" }) {
                             <section aria-labelledby={`${activeItem.id}-role`}>
                               <h4
                                 id={`${activeItem.id}-role`}
-                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                className="text-base font-semibold tracking-widest uppercase opacity-70"
                               >
                                 My Role
                               </h4>
-                              <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
+                              <ul className="mt-3 space-y-3 text-base leading-relaxed opacity-80">
                                 {activeItem.details.myRole.map((b) => (
                                   <li key={b} className="wrap-break-words">
                                     {b}
@@ -481,11 +481,11 @@ function Projects({ mode = "nav" }) {
                             >
                               <h4
                                 id={`${activeItem.id}-impact`}
-                                className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                className="text-base font-semibold tracking-widest uppercase opacity-70"
                               >
                                 Impact
                               </h4>
-                              <ul className="mt-3 space-y-3 text-sm leading-relaxed opacity-80">
+                              <ul className="mt-3 space-y-3 text-base leading-relaxed opacity-80">
                                 {activeItem.details.impact.map((b) => (
                                   <li key={b} className="wrap-break-words">
                                     {b}
@@ -500,11 +500,11 @@ function Projects({ mode = "nav" }) {
                               >
                                 <h4
                                   id={`${activeItem.id}-constraints`}
-                                  className="text-xs font-semibold tracking-widest uppercase opacity-70"
+                                  className="text-base font-semibold tracking-widest uppercase opacity-70"
                                 >
                                   Constraints
                                 </h4>
-                                <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
+                                <ul className="mt-3 space-y-2 text-base leading-relaxed opacity-70">
                                   {activeItem.details.constraints.map((b) => (
                                     <li key={b} className="wrap-break-words">
                                       {b}
@@ -545,15 +545,15 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
             >
               {item.title}
             </h3>
-            <p className="text-xs tracking-wide opacity-70">{item.org}</p>
+            <p className="text-sm tracking-wide opacity-70">{item.org}</p>
           </div>
 
-          <p className="wrap-break-words mt-2 text-sm tracking-wide opacity-70">
+          <p className="wrap-break-words mt-2 text-base tracking-wide opacity-70">
             {item.subtitle}
           </p>
         </div>
 
-        <p className="wrap-break-words mt-3 min-h-0 flex-1 text-sm leading-relaxed opacity-80">
+        <p className="wrap-break-words mt-3 min-h-0 flex-1 text-base leading-relaxed opacity-80">
           {item.cardSummary}
         </p>
 
@@ -562,7 +562,7 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
             ref={btnRef}
             type="button"
             onClick={() => onOpen(btnRef.current)}
-            className="text-sm tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
+            className="text-base tracking-wide underline underline-offset-4 opacity-80 hover:opacity-100"
             aria-haspopup="dialog"
             aria-expanded={isOpen ? "true" : "false"}
             aria-controls={dialogId}
@@ -570,7 +570,7 @@ function CaseStudyCard({ item, onOpen, isOpen, dialogId }) {
             Read case study →
           </button>
 
-          <span aria-hidden="true" className="text-xs tracking-wide opacity-70">
+          <span aria-hidden="true" className="text-sm tracking-wide opacity-70">
             +
           </span>
         </div>

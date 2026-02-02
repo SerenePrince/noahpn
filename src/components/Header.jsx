@@ -228,7 +228,7 @@ function Header({ active, onNavigate, mode = "load" }) {
               aria-expanded={open}
               aria-controls={open ? menuId : undefined}
             >
-              <span className="text-sm tracking-wide opacity-80">
+              <span className="text-base tracking-wide opacity-80">
                 {open ? "Close" : "Menu"}
               </span>
 
@@ -305,7 +305,7 @@ function Header({ active, onNavigate, mode = "load" }) {
               >
                 <p
                   id={menuTitleId}
-                  className="text-xs tracking-wide opacity-70"
+                  className="text-sm tracking-wide opacity-70"
                 >
                   Navigation
                 </p>
@@ -330,7 +330,7 @@ function Header({ active, onNavigate, mode = "load" }) {
                         >
                           <span>{item.label}</span>
                           {isActive ? (
-                            <span className="text-xs opacity-70">Current</span>
+                            <span className="text-sm opacity-70">Current</span>
                           ) : null}
                         </button>
                       </li>

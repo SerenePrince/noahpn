@@ -37,7 +37,7 @@ function Hero({ mode = "load" }) {
   const exitContentDelay = 0;
   const exitLineDelay = 0;
 
-  // Tell AnimatePresence when it’s safe to remove this view
+  // Tell AnimatePresence when it's safe to remove this view
   const totalExitTime = reduce ? 0 : Math.max(durLine, durContent) + 0.05;
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function Hero({ mode = "load" }) {
                 >
                   Noah Park-Nguyen
                 </h1>
-                <p className="tracking-wide opacity-70">
+                <p className="text-base tracking-wide opacity-70">
                   Application Developer
                 </p>
               </div>
@@ -220,12 +220,12 @@ function Hero({ mode = "load" }) {
               }}
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
-              <p className="mx-auto max-w-5xl text-sm tracking-wide opacity-70">
+              <p className="mx-auto max-w-6xl text-base tracking-wide opacity-70">
                 I build internal applications and automation for government and
                 enterprise teams, focused on simplifying complex operational
                 processes.
               </p>
-              <p className="mt-4 text-sm tracking-wide opacity-70">
+              <p className="mt-4 text-base tracking-wide opacity-70">
                 Coquitlam, BC • Open to remote or relocation • Graduating April
                 2026
               </p>

@@ -121,7 +121,7 @@ function Experience({ mode = "nav" }) {
 
             <div className="mt-2 overflow-hidden">
               <motion.p
-                className="text-sm tracking-wide opacity-70"
+                className="text-base tracking-wide opacity-70"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
                 animate={reduce ? { y: 0 } : { y: headerY }}
                 transition={
@@ -360,10 +360,10 @@ function WorkContent({ item }) {
   return (
     <div className="text-left lg:text-right">
       <h4 className="text-base font-semibold tracking-wide">{item.title}</h4>
-      <p className="mt-1 text-sm tracking-wide opacity-70">
+      <p className="mt-1 text-base tracking-wide opacity-70">
         {item.org} • {item.type}
       </p>
-      <p className="mt-1 text-sm tracking-wide opacity-70">{item.dates}</p>
+      <p className="mt-1 text-base tracking-wide opacity-70">{item.dates}</p>
     </div>
   );
 }
@@ -372,9 +372,9 @@ function EduContent({ item }) {
   return (
     <div className="text-left">
       <h4 className="text-base font-semibold tracking-wide">{item.school}</h4>
-      <p className="mt-1 text-sm tracking-wide opacity-70">{item.program}</p>
+      <p className="mt-1 text-base tracking-wide opacity-70">{item.program}</p>
       {item.dates ? (
-        <p className="mt-1 text-sm tracking-wide opacity-70">{item.dates}</p>
+        <p className="mt-1 text-base tracking-wide opacity-70">{item.dates}</p>
       ) : null}
     </div>
   );
