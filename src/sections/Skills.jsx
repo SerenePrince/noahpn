@@ -12,7 +12,7 @@ const GROUPS = [
   {
     title: "Backend",
     Icon: FiShare2,
-    items: ["Java", "REST API consumption", "Maven"],
+    items: ["Java", "API integration", "Maven", "Express (basic)"],
   },
   {
     title: "Power Platform",
@@ -34,7 +34,7 @@ const GROUPS = [
       "Linux (Ubuntu / WSL)",
       "Process automation",
       "Testing fundamentals",
-      "Scrum",
+      "Agile / Scrum",
     ],
   },
 ];

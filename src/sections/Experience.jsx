@@ -31,7 +31,7 @@ const EDU_ITEMS = [
     id: "algonquin-2023-2026",
     school: "Algonquin College",
     program:
-      "Advanced Diploma • Computer Science (Computer Engineering Technology)",
+      "Advanced Diploma • Computer Engineering Technology – Computer Science",
     dates: "Jan 2023 – Apr 2026 (expected)",
   },
   {

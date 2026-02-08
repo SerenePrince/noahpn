@@ -74,25 +74,40 @@ function Contact({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
-                    A concise overview of my experience and work history.
+                    I keep two resume versions to highlight different parts of
+                    my experience, depending on the role.
                   </p>
 
                   <div className="mt-6 flex justify-center lg:justify-end">
                     <a
-                      href="/noahpn/resume.pdf"
+                      href="/noahpn/NoahPark-Nguyen_Resume_Software-Developer.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-3 underline underline-offset-4"
-                      aria-label="Open resume PDF"
+                      aria-label="Open resume PDF for Software Developer roles"
                     >
-                      <span>Open resume (PDF)</span>
+                      <span>Open resume (Software Developer)</span>
+                      <FiArrowUpRight aria-hidden="true" className="h-5 w-5" />
+                      <span className="sr-only">(opens in a new tab)</span>
+                    </a>
+                  </div>
+
+                  <div className="mt-6 flex justify-center lg:justify-end">
+                    <a
+                      href="/noahpn/NoahPark-Nguyen_Resume_Application-Developer.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 underline underline-offset-4"
+                      aria-label="Open resume PDF for Application Developer roles (internal tools and automation)"
+                    >
+                      <span>Open resume (Application Developer)</span>
                       <FiArrowUpRight aria-hidden="true" className="h-5 w-5" />
                       <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   </div>
 
                   <p className="mt-6 text-base tracking-wide opacity-70">
-                    Open to permanent full-time or contract opportunities.
+                    Open to full-time new grad or contract opportunities.
                   </p>
                 </motion.div>
               </div>
