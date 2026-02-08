@@ -142,7 +142,7 @@ function Experience({ mode = "nav" }) {
           <div className="mb-8 hidden grid-cols-2 lg:grid">
             <div className="overflow-hidden">
               <motion.h3
-                className="mr-10 ml-auto max-w-md text-center text-sm font-semibold tracking-widest uppercase"
+                className="mr-5 ml-auto max-w-md text-center text-base font-semibold tracking-widest uppercase"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
                 animate={reduce ? { y: 0 } : { y: headerY }}
                 transition={isPresent ? headerEnterT : headerExitT}
@@ -154,7 +154,7 @@ function Experience({ mode = "nav" }) {
 
             <div className="overflow-hidden">
               <motion.h3
-                className="mr-auto ml-10 max-w-md text-center text-sm font-semibold tracking-widest uppercase"
+                className="mr-auto ml-5 max-w-md text-center text-base font-semibold tracking-widest uppercase"
                 initial={reduce ? { y: 0 } : { y: "100%" }}
                 animate={reduce ? { y: 0 } : { y: headerY }}
                 transition={isPresent ? headerEnterT : headerExitT}
