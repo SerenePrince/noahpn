@@ -84,7 +84,7 @@ function Hero({ mode = "load" }) {
                 >
                   Noah Park-Nguyen
                 </h1>
-                <p className="text-base tracking-wide opacity-70">
+                <p className="text-xl tracking-wide opacity-70">
                   Software / Application Developer
                 </p>
               </div>
