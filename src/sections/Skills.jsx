@@ -23,6 +23,7 @@ const GROUPS = [
       "Power BI",
       "SharePoint (Lists)",
       "Microsoft 365 (SharePoint, Teams)",
+      "Azure DevOps",
     ],
   },
   {

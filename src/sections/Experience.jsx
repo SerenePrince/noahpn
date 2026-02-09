@@ -133,7 +133,7 @@ function Experience({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Professional experience and academic background.
+                Professional experience and education.
               </motion.p>
             </div>
           </div>

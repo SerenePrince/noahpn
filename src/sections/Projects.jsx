@@ -17,7 +17,7 @@ const CASE_STUDIES = [
       "Replaced spreadsheet-based tracking with a single internal tool that keeps initiative status, ownership, and approvals up to date automatically.",
     details: {
       summary:
-        "A production internal tool that replaced scattered spreadsheets and notes with one reliable place to track initiatives—what they are, who owns them, what stage they’re in, and what needs approval. The focus was on making status trustworthy and reducing manual follow-ups.",
+        "A production internal tool that replaced scattered spreadsheets and notes with one reliable place to track initiatives—what they are, who owns them, what stage they're in, and what needs approval. The focus was on making status trustworthy and reducing manual follow-ups.",
       tools: [
         "Internal web app development",
         "Workflow automation",
@@ -25,16 +25,16 @@ const CASE_STUDIES = [
         "Agile / Scrum",
       ],
       myRole: [
-        "Built the core application experience—screens, form logic, and the main management page—based on teammate-provided designs and stakeholder needs.",
+        "Built the core application experience—screens, form logic, and the main management page—based on designs from teammates and stakeholder needs.",
         "Designed the underlying data structure to store initiative details such as status, ownership, funding info, and lifecycle flags.",
         "Implemented automated workflows for approvals, status changes, notifications, and maintenance states so the system stayed consistent without manual follow-ups.",
         "Added small quality-of-life automations (for example: creating collaboration spaces and notifying developers when they were assigned) to reduce repetitive coordination work.",
-        "Built an automated check that reflected real development progress in the tracker, reducing manual status updates and edge-case errors.",
+        "Built an automated check that reflected real development progress in the tracker, reducing the need for status updates and edge-case errors.",
         "Worked in a small Scrum team: clarified changing requirements, handled edge cases early, and ran demos that explained implementation trade-offs in plain language.",
       ],
       impact: [
         "Replaced fragmented tracking with a single source of truth used for day-to-day initiative management.",
-        "Reduced manual coordination by automating approvals, status updates, and team notifications.",
+        "Reduced coordination overhead by automating approvals, status updates, and team notifications.",
         "Improved visibility into progress and ownership for team leads and stakeholders.",
         "Delivered a tool people actually used by prioritizing reliability and low-maintenance workflows.",
       ],
@@ -61,7 +61,7 @@ const CASE_STUDIES = [
         "Documentation for handoff",
       ],
       myRole: [
-        "Learned the reporting toolset quickly to meet a deadline, focusing on shipping a working MVP first and refining based on feedback.",
+        "Learned Power BI quickly to meet a deadline, focusing on shipping a working MVP first and refining based on feedback.",
         "Cleaned and standardized exported training data from multiple spreadsheet sources so it could be used reliably.",
         "Structured the data so reporting stayed consistent across fiscal years and could be refreshed over time.",
         "Built summaries that showed totals and trends in plain language for non-technical users.",
@@ -70,7 +70,7 @@ const CASE_STUDIES = [
       ],
       impact: [
         "Replaced manual spreadsheet summaries with a single, repeatable reporting tool.",
-        "Gave leadership a clearer view of totals and trends without needing technical help to interpret the data.",
+        "Gave leadership a clearer view of totals and trends without needing technical help.",
         "Improved confidence in reporting by standardizing cleanup rules and making the process repeatable.",
         "Enabled easier year-over-year reporting through a structure designed for ongoing refreshes.",
       ],
@@ -99,8 +99,8 @@ const CASE_STUDIES = [
       ],
       myRole: [
         "Replaced a manual documentation validation process with a repeatable Java automation that ran quickly and consistently.",
-        "Consumed internal API endpoints to retrieve authoritative values used by real forms and workflows.",
-        "Compared existing documentation files against live system responses to detect when documented values drifted from real behaviour.",
+        "Connected to internal API endpoints to retrieve authoritative values used by forms and workflows.",
+        "Compared existing documentation files against live system responses to detect when documented values drifted from actual system behaviour.",
         "Implemented safe update logic that handled additions, removals, and missing values without overwriting intentional exceptions.",
         "Designed a configuration-driven approach so endpoints, fields, and overrides could be changed without modifying code.",
         "Built in guardrails and edge-case handling to keep updates predictable and safe for the team.",

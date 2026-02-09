@@ -221,7 +221,7 @@ function Hero({ mode = "load" }) {
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
               <p className="mx-auto max-w-6xl text-base tracking-wide opacity-70">
-                I build internal applications and automation—turning rough
+                I build internal applications and automation, turning rough
                 requirements into reliable tools that simplify operations.
               </p>
               <p className="mt-4 text-base tracking-wide opacity-70">

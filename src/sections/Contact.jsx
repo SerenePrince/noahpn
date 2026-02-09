@@ -75,7 +75,7 @@ function Contact({ mode = "nav" }) {
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
                     I keep two resume versions to highlight different parts of
-                    my experience, depending on the role.
+                    my experience depending on the role.
                   </p>
 
                   <div className="mt-6 flex justify-center lg:justify-end">
@@ -243,7 +243,7 @@ function Contact({ mode = "nav" }) {
                   style={{ willChange: "transform" }}
                 >
                   <p className="mx-auto max-w-4xl text-base tracking-wide opacity-70">
-                    Most of my work is internal, so the case studies focus on
+                    Most of my work is internal, so these case studies focus on
                     approach, trade-offs, and impact rather than public demos.
                   </p>
                 </motion.div>
