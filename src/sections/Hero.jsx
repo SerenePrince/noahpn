@@ -85,7 +85,7 @@ function Hero({ mode = "load" }) {
                   Noah Park-Nguyen
                 </h1>
                 <p className="text-xl tracking-wide opacity-70">
-                  Software / Application Developer
+                  Software & Application Developer
                 </p>
               </div>
             </motion.div>
@@ -221,12 +221,12 @@ function Hero({ mode = "load" }) {
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
               <p className="mx-auto max-w-6xl text-base tracking-wide opacity-70">
-                I build internal applications and automation, turning rough
-                requirements into reliable tools that simplify operations.
+                I build internal tools and automation, taking rough ideas and
+                turning them into reliable systems teams can depend on.
               </p>
               <p className="mt-4 text-base tracking-wide opacity-70">
-                British Columbia resident, living in Ottawa, Ontario • Open to
-                remote roles or relocation • Graduating April 2026
+                Based in Ottawa (originally from BC) • Open to remote roles or
+                relocation • Graduating April 2026
               </p>
             </motion.div>
           </div>

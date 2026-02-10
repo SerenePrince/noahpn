@@ -12,7 +12,7 @@ const GROUPS = [
   {
     title: "Backend",
     Icon: FiShare2,
-    items: ["Java", "API integration", "Maven", "Express (basic)"],
+    items: ["Java", "REST APIs", "API integration", "Maven", "Express (basic)"],
   },
   {
     title: "Power Platform",
@@ -21,9 +21,8 @@ const GROUPS = [
       "Power Apps",
       "Power Automate",
       "Power BI",
-      "SharePoint (Lists)",
-      "Microsoft 365 (SharePoint, Teams)",
-      "Azure DevOps",
+      "SharePoint Lists",
+      "Microsoft 365 (Teams, SharePoint)",
     ],
   },
   {
@@ -31,11 +30,11 @@ const GROUPS = [
     Icon: FiGitBranch,
     items: [
       "Git",
-      "Azure DevOps",
       "Linux (Ubuntu / WSL)",
       "Process automation",
       "Testing fundamentals",
       "Agile / Scrum",
+      "Azure DevOps",
     ],
   },
 ];

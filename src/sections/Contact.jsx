@@ -74,8 +74,8 @@ function Contact({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-4 text-base leading-relaxed opacity-80 lg:text-lg">
-                    I keep two resume versions to highlight different parts of
-                    my experience depending on the role.
+                    If you're hiring for different types of roles, feel free to
+                    grab the resume that matches what you’re looking for:
                   </p>
 
                   <div className="mt-6 flex justify-center lg:justify-end">

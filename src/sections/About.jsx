@@ -118,29 +118,29 @@ function About({ mode = "nav" }) {
                   </h2>
 
                   <p className="mt-6 text-base leading-relaxed lg:text-lg">
-                    I'm a developer and computer science student from British
-                    Columbia, currently living in Ottawa for school.
+                    I'm a developer and computer science student originally from
+                    British Columbia, currently living in Ottawa for school.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
                     I took my first programming class in my senior year of high
-                    school and was immediately drawn to building software. I
-                    knew I wanted to pursue computer science, so I spent that
+                    school and got hooked on building things that actually work.
+                    I knew I wanted to pursue computer science, so I spent that
                     summer strengthening my math and science foundation to
                     prepare for college.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
                     What I enjoy most about development is the final stretch of
-                    MVP work—when rough notes turn into a working product and
-                    the big picture clicks. That's where I'm most engaged and
-                    motivated.
+                    MVP work—when rough notes turn into something usable and the
+                    big picture finally clicks. That's where I'm most engaged
+                    and motivated.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
-                    I lean more toward implementation than design, but I'm
-                    comfortable working across the stack and quick to learn new
-                    tools when deadlines matter.
+                    I lean more toward implementation than visual design, but
+                    I'm comfortable working across the stack and quick to pick
+                    up new tools when timelines are tight.
                   </p>
 
                   <p className="mt-4 text-base leading-relaxed lg:text-lg">
