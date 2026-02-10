@@ -12,7 +12,7 @@ const GROUPS = [
   {
     title: "Backend",
     Icon: FiShare2,
-    items: ["Java", "REST APIs", "API integration", "Maven", "Express (basic)"],
+    items: ["Java", "REST APIs", "API integration", "Maven", "Node.js"],
   },
   {
     title: "Power Platform",
