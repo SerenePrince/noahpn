@@ -6,9 +6,9 @@
 
 This is my personal portfolio site, where I document how I approach real-world development work.
 
-Most of my experience is in **internal tools, automation, and reporting** across government and enterprise environments. Because of that, you won’t find flashy demos or public source code here. Instead, the focus is on **how problems were approached, decisions made, and impact delivered**.
+Most of my experience is in **internal tools, automation, and reporting** across government and enterprise environments. Because of that, you won't find flashy demos or public source code here. Instead, the focus is on **how problems were approached, decisions made, and impact delivered**.
 
-If you’re curious how I think, structure work, and ship things responsibly, this site is meant to give you a good sense of that.
+If you're curious how I think and structure work, this site is meant to give you a good sense of that.
 
 **Live site:**  
 👉 https://sereneprince.github.io/noahpn/
@@ -23,12 +23,7 @@ If you’re curious how I think, structure work, and ship things responsibly, th
 
 ## Design & Philosophy
 
-The design is intentionally minimal and content-first. I wanted the site to feel:
-
-- Calm
-- Readable
-- Structured
-- Uncluttered
+The design is intentionally minimal and content-first — calm, readable, structured, and uncluttered.
 
 Some guiding principles:
 
@@ -41,7 +36,7 @@ Some guiding principles:
 
 The layout and motion are inspired more by **editorial sites and technical documentation** than traditional portfolio galleries.
 
-## What’s Inside
+## What's Inside
 
 The site includes:
 
@@ -65,9 +60,7 @@ Not screenshots for the sake of screenshots.
 - Single-page application with animated section transitions
 - Navigation swaps sections instead of scrolling
 - Mobile UX is intentionally simplified
-- Actively maintained and iterated on
 
 ## License
 
-- **Source code:** MIT License
-- **Site content & branding:** © Noah Park-Nguyen
+**Source code:** MIT License
