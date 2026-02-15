@@ -7,21 +7,21 @@ const WORK_ITEMS = [
     id: "dnd-2025",
     title: "Application Developer",
     org: "Department of National Defence (DND)",
-    type: "Hybrid",
+    type: "Co-op • Hybrid",
     dates: "Feb 2025 – Dec 2025",
   },
   {
     id: "ac-tester-2024",
     title: "Software Tester",
     org: "Algonquin College",
-    type: "Remote",
+    type: "Co-op • Remote",
     dates: "Sep 2024 – Dec 2024",
   },
   {
     id: "fintrac-2024",
     title: "Application Developer",
     org: "FINTRAC",
-    type: "Hybrid",
+    type: "Co-op • Hybrid",
     dates: "Jan 2024 – Apr 2024",
   },
 ];
@@ -133,7 +133,7 @@ function Experience({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Professional experience and education.
+                Work history and education.
               </motion.p>
             </div>
           </div>
@@ -360,10 +360,10 @@ function WorkContent({ item }) {
   return (
     <div className="text-left lg:text-right">
       <h4 className="text-base font-semibold tracking-wide">{item.title}</h4>
+      <p className="mt-1 text-base tracking-wide opacity-70">{item.org}</p>
       <p className="mt-1 text-base tracking-wide opacity-70">
-        {item.org} • {item.type}
+        {item.type} — {item.dates}
       </p>
-      <p className="mt-1 text-base tracking-wide opacity-70">{item.dates}</p>
     </div>
   );
 }

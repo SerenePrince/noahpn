@@ -221,8 +221,12 @@ function Hero({ mode = "load" }) {
               className="pt-[clamp(1rem,2.5vh,2rem)] text-center will-change-transform"
             >
               <p className="mx-auto max-w-6xl text-base tracking-wide opacity-70">
-                I build internal tools and automation, taking rough ideas and
-                turning them into reliable systems teams can depend on.
+                I build internal tools and automation workflows, taking rough
+                ideas and turning them into products clients are proud of.
+              </p>
+              <p className="mt-4 text-base tracking-wide opacity-70">
+                Just completed a contract with the Department of National
+                Defence — now looking for new opportunities.
               </p>
               <p className="mt-4 text-base tracking-wide opacity-70">
                 Based in Ottawa (originally from BC) • Open to remote roles or

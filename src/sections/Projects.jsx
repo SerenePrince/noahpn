@@ -14,10 +14,10 @@ const CASE_STUDIES = [
     org: "DND",
     subtitle: "Internal App • Workflow Automation",
     cardSummary:
-      "Replaced scattered notes and Excel sheets with one internal app to track initiatives, ownership, and progress, plus automations to cut down on manual follow-ups.",
+      "A Power App backed by SharePoint to centralize initiative tracking, ownership, and progress — replacing a desktop full of notes, Word documents, and Excel sheets.",
     details: {
       summary:
-        "This started as a way for our team lead to stop tracking projects across desktop notes and random Excel files. I built a single Power App backed by SharePoint so initiatives could live in one place, then added automations so the data stayed in sync with how the team actually worked.",
+        "Our DevOps Manager had every ongoing initiative living somewhere different — desktop notes, Word documents, scattered Excel sheets. Nothing connected, and getting a clear picture of who owned what meant digging. I worked closely with them to understand how the team actually tracked work, then built something that fit those workflows rather than forcing new ones.",
       tools: [
         "Power Apps",
         "Power Automate",
@@ -26,18 +26,17 @@ const CASE_STUDIES = [
         "Microsoft Teams",
       ],
       myRole: [
-        "Designed the SharePoint List to hold real project details like client/org info, team roles, links, status flags, and progress (sprint, iteration, phase).",
-        "Built the Power App screens and forms to create and update initiatives, plus management pages for the supervisor to update status and progress.",
-        "Implemented UI designs from Figma mockups created by a teammate (implementation, not visual design).",
-        "Set up Power Automate flows to reduce coordination work: Teams notifications when people were assigned, creating channels/chats for new initiatives, and other small workflow helpers.",
-        "Added a DevOps sync so sprint/iteration/phase info could be pulled into the tracker and stay up to date without manual updates.",
-        "Worked in a small Scrum team and demoed features weekly to our supervisor/client, owning the features I built end to end.",
+        "Implemented Power App screens and forms from design handoff, working from Figma mockups created by a teammate.",
+        "Designed the SharePoint List structure to hold the details that mattered: client and org info, team roles, status flags, and initiative progress.",
+        "Built Power Automate flows to handle the coordination work — team notifications on assignment, automatic channel creation for new initiatives, and other workflow helpers.",
+        "Connected the tracker to Azure DevOps so sprint and iteration data stayed current without manual updates.",
+        "Demoed completed features to our supervisor weekly, taking feedback directly into the next sprint.",
       ],
       impact: [
-        "Replaced scattered notes and spreadsheets with a single place the team actually used to track initiatives.",
-        "Cut down on manual follow-ups by automating notifications and setup work.",
-        "Made it easier for leads and stakeholders to see what was active, who owned what, and what stage things were in.",
-        "Built something that fit real workflows instead of forcing people to change how they worked.",
+        "Gave the team one place to track every initiative — ownership, status, and progress all visible without digging through files.",
+        "Reduced coordination overhead by automating the setup and notification work that would otherwise fall on individuals.",
+        "Made it easier for leads and stakeholders to see what was active and where things stood.",
+        "Fit the way the team already worked, rather than asking them to change their habits to match the tool.",
       ],
       constraints: [
         "Internal tooling — no public links, screenshots, or code.",
@@ -51,28 +50,29 @@ const CASE_STUDIES = [
     org: "DND",
     subtitle: "Power BI • Data Cleanup",
     cardSummary:
-      "Turned raw training exports into a clean Power BI dashboard with fiscal-year trends, demographic breakdowns, and leadership-friendly summary numbers.",
+      "A Power BI dashboard that turned flat course completion records into fiscal-year trends, demographic breakdowns, and summary numbers leadership could read at a glance.",
     details: {
       summary:
-        "The raw export was basically a flat list of course completions, with a lot of useful info missing or buried in codes. I cleaned that up in Power BI so the data could be grouped and reported on, then built a simple dashboard leadership could use without needing someone to walk them through it.",
+        "The source data was a query result — one row per course completion, no grouping, no context, and several fields either missing or buried in encoded values. Before anything could be reported on, the data needed to be interpreted. I worked through what was there, filled in what was missing, and built a dashboard that gave leadership a clear picture of training progress on their own terms.",
       tools: ["Power BI", "Excel"],
       myRole: [
-        "Took spreadsheet exports where each row was one course completion and figured out what was missing for reporting (quarters, demographics, language).",
-        "Pulled missing fields out of encoded completion codes so the data could be grouped in useful ways.",
-        "Mapped English and French versions of the same course to a shared code so completions rolled up into one count.",
-        "Added fiscal year and quarter columns using date rules so trends could be tracked over time.",
-        "Built a dashboard with a high-level summary for leadership, plus deeper pages for trends, demographics, and the raw data view.",
+        "Received a flat query result — one row per course completion — and worked through what was missing or unreadable before any reporting could begin.",
+        "Decoded encoded completion fields to extract useful attributes like demographics, language, and course details that weren't visible in the raw export.",
+        "Identified that English and French versions of the same course were being counted separately, inflating totals and making cross-language reporting unreliable.",
+        "Went back to the client for a full course list, discovered both versions shared a course code, and used that to unify completions under a single total — with language filters preserved.",
+        "Added fiscal year and quarter columns using date logic so trends could be tracked over time.",
+        "Built a dashboard with a high-level summary for leadership and deeper pages for trends, demographics, and the underlying data.",
       ],
       impact: [
-        "Turned incomplete exports into data leadership could actually use.",
-        "Made fiscal-year and quarterly trends visible without manual spreadsheet work.",
-        "Unified bilingual course completions into one set of meaningful totals.",
-        "Delivered a clean, minimalist dashboard the client and leadership were happy with.",
+        "Gave leadership a clear view of training completion across the organization — no spreadsheet work, no manual interpretation.",
+        "Fixed a counting problem that had been splitting bilingual course completions into separate, misleading totals.",
+        "Made fiscal-year and quarterly trends visible for the first time, giving the team a way to track progress over time.",
+        "Delivered something non-technical stakeholders could open and understand on their own.",
       ],
       constraints: [
         "Internal data — no shareable visuals or datasets.",
-        "Source data needed cleanup and interpretation before it was useful.",
-        "Dashboard had to make sense to non-technical users.",
+        "Source data required cleanup and interpretation before it was usable.",
+        "Dashboard had to be self-explanatory for a non-technical audience.",
       ],
     },
   },
@@ -82,26 +82,25 @@ const CASE_STUDIES = [
     org: "FINTRAC",
     subtitle: "Java • Backend Automation",
     cardSummary:
-      "Built a Java tool to compare internal API documentation against live system data and keep it from drifting over time.",
+      "A Java tool to automate API documentation checks — hitting live endpoints and flagging anywhere the documentation had drifted from actual responses.",
     details: {
       summary:
-        "This automated a manual process where someone had to call endpoints and check whether documentation still matched live system responses. I built a small Java app to handle that comparison, with a config file to define endpoints and fields so the tool stayed useful as things changed.",
+        "The team maintained OpenAPI documentation for their internal APIs, but keeping it accurate was a manual process — someone had to hit endpoints and verify whether responses still matched what was documented. I built a small Java tool to handle that comparison automatically. My first coop, first project, and largely independent work from implementation through to delivery.",
       tools: ["Java", "Maven", "REST APIs"],
       myRole: [
-        "Automated a manual documentation check process so it could be run quickly and consistently.",
-        "Built a config format where you list endpoints to hit and map documentation fields to response fields.",
-        "Made it easy to add or remove fields through config without touching code.",
-        "Added support for notes and overrides so intentional exceptions or context could be preserved in the docs.",
-        "Built guardrails so updates were predictable and didn't overwrite things that were intentionally different.",
+        "Built a Java application to hit REST endpoints, compare live responses against documented fields, and flag discrepancies.",
+        "Implemented a JSON config file — suggested by my supervisor — so endpoints and fields could be managed without touching the underlying code.",
+        "Added support for notes and overrides in the config so intentional exceptions could be recorded and preserved across runs.",
+        "Delivered the project independently, with limited guidance and no existing codebase to work from.",
       ],
       impact: [
-        "Turned hours of manual checking into a quick automated run.",
-        "Improved trust in internal API documentation used by developers.",
-        "Made documentation maintenance less fragile by centralizing rules in config.",
+        "Replaced a slow, inconsistent process with something that could be run in minutes.",
+        "Improved confidence in internal API documentation used daily by the development team.",
+        "Left the tool easy to maintain — new endpoints and fields added through config alone.",
       ],
       constraints: [
         "Internal system — no public source code, endpoints, or documentation.",
-        "Focused on correctness and safety rather than building new APIs or UIs.",
+        "Focused on correctness and reliability rather than building new APIs or interfaces.",
       ],
     },
   },
@@ -286,8 +285,8 @@ function Projects({ mode = "nav" }) {
                 }
                 style={{ willChange: "transform" }}
               >
-                Selected case studies from internal tools, automation, and
-                reporting work.
+                Selected case studies from co-op work — no public code due to
+                government security constraints.
               </motion.p>
             </div>
           </div>
