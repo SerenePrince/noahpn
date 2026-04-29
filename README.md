@@ -1,6 +1,6 @@
 # noahpn
 
-Personal portfolio. Built with React, Vite, and Tailwind CSS v4.
+Portfolio of Noah Park-Nguyen — fullstack developer based in Ottawa. Covers case studies from professional work and personal projects built on my own time.
 
 → **[sereneprince.github.io/noahpn](https://sereneprince.github.io/noahpn/)**
 
