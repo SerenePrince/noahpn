@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(1.25,0,0,1.25,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" id="_x32_" viewBox="0 0 512 512" xml:space="preserve" width="800px" height="800px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#0F0F0F;} </style> <g> <path class="st0" d="M383.995,167.044L255.996,51.117l-127.99,115.927L0,98.609v274.524h512V98.609L383.995,167.044z M255.996,289.411l-49.774-45.085l49.774-45.078l49.775,45.078L255.996,289.411z"></path> <rect y="411.771" class="st0" width="512" height="49.112"></rect> </g> </g></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1030)"><rect width="1000" height="1000" fill="#f6f2ea"></rect><g transform="matrix(0.875,0,0,0.875,150,150)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" id="_x32_" viewBox="0 0 512 512" xml:space="preserve" width="800px" height="800px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#0F0F0F;} </style> <g> <path class="st0" d="M383.995,167.044L255.996,51.117l-127.99,115.927L0,98.609v274.524h512V98.609L383.995,167.044z M255.996,289.411l-49.774-45.085l49.774-45.078l49.775,45.078L255.996,289.411z"></path> <rect y="411.771" class="st0" width="512" height="49.112"></rect> </g> </g></svg></g></g><defs><clipPath id="SvgjsClipPath1030"><rect width="1000" height="1000" x="0" y="0" rx="0" ry="0"></rect></clipPath></defs></svg></g></svg>
