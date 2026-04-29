@@ -98,9 +98,7 @@ function About() {
             <div className="grid grid-cols-2 gap-x-6 gap-y-8">
               {skills.map((group) => (
                 <div key={group.label}>
-                  <h3 className="mb-2 text-xs tracking-widest uppercase">
-                    {group.label}
-                  </h3>
+                  <p className="mb-2 font-semibold uppercase">{group.label}</p>
                   <ul className="space-y-1">
                     {group.items.map((item) => (
                       <li key={item} className="text-sm">

@@ -15,8 +15,8 @@ const socials = [
 ];
 
 const resumes = [
-  { label: "Power Platform", href: "/noahpn/resumes/noahpark-nguyen_powerplatform_resume.pdf" },
-  { label: "Fullstack", href: "/noahpn/resumes/noahpark-nguyen_fullstack_resume.pdf" },
+  { label: "Power Platform", href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf` },
+  { label: "Fullstack", href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_fullstack_resume.pdf` },
 ];
 
 function Contact() {

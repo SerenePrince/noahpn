@@ -42,6 +42,9 @@ function Experience() {
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
+          <h2 id="experience-heading" className="sr-only">
+            Experience
+          </h2>
           {/* Work */}
           <section
             aria-labelledby="work-heading"
