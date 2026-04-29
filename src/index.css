@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --nav-height: 4rem;
+  --color-background: #f6f2ea;
+  --color-foreground: #0f0f0f;
+  --font-serif: 'Libre Baskerville', serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  /* Breakpoints — xs covers 320px minimum */
+  --breakpoint-xs: 20rem;  /* 320px */
+  --breakpoint-sm: 40rem;  /* 640px */
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 0.875rem; /* 14px — base for all body/ui text */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* h1 — name, page-level title: bold serif */
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;     /* 24px on 320px+ */
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* h2 — section headings: bold non-italic serif */
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.9375rem;  /* 15px */
+    line-height: 1.4;
+  }
+
+  /* h3 — sub-section labels: regular italic serif, smaller */
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.875rem;   /* 14px */
+    line-height: 1.4;
+  }
+
+  /* Responsive heading scale — sm and up (640px+) */
+  @media (min-width: 40rem) {
+    h1 { font-size: 2.25rem; }   /* 36px */
+    h2 { font-size: 1.0625rem; } /* 17px */
+    h3 { font-size: 0.9375rem; } /* 15px */
+  }
+
+  p {
+    font-family: var(--font-sans);
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.7;
+  }
+
+  /* Tagline — serif italic, for pull quotes and bios */
+  p.tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.875rem;
+  }
+
+  /* Keyboard focus ring — visible for all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* Visually hidden — accessible to screen readers, invisible on screen */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Skip link — hidden until focused by keyboard */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    border: 1px solid var(--color-foreground);
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found · Noah Park-Nguyen</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #f6f2ea;
+        color: #0f0f0f;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 1.5rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 48rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .divider {
+        height: 1px;
+        width: 100%;
+        background-color: #0f0f0f;
+      }
+
+      h1 {
+        font-family: "Libre Baskerville", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      @media (min-width: 40rem) {
+        h1 {
+          font-size: 2.25rem;
+        }
+      }
+
+      p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
+
+      p.tagline {
+        font-family: "Libre Baskerville", serif;
+        font-style: italic;
+        font-size: 0.875rem;
+      }
+
+      a {
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: #0f0f0f;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      :focus-visible {
+        outline: 2px solid #0f0f0f;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" aria-labelledby="error-heading">
+      <div>
+        <h1 id="error-heading">404</h1>
+        <p class="tagline">Page not found.</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <p>
+        This page doesn't exist. You might have followed a broken link or
+        mistyped the address.
+      </p>
+      <a href="/noahpn/">← Back to home</a>
+    </main>
+  </body>
+</html>
