@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -45,20 +45,20 @@
     letter-spacing: -0.02em;
   }
 
-  /* h2 — section headings: bold non-italic serif */
+  /* h2 — section headings: bold serif */
   h2 {
     font-family: var(--font-serif);
-    font-weight: 400;
-    font-style: italic;
+    font-weight: 700;
+    font-style: normal;
     font-size: 0.9375rem;  /* 15px */
     line-height: 1.4;
   }
 
-  /* h3 — sub-section labels: regular italic serif, smaller */
+  /* h3 — sub-section headings: bold serif */
   h3 {
     font-family: var(--font-serif);
-    font-weight: 400;
-    font-style: italic;
+    font-weight: 700;
+    font-style: normal;
     font-size: 0.875rem;   /* 14px */
     line-height: 1.4;
   }
@@ -76,11 +76,22 @@
     line-height: 1.7;
   }
 
-  /* Tagline — serif italic, for pull quotes and bios */
+  /* Tagline — regular serif, for pull quotes and bios */
   p.tagline {
     font-family: var(--font-serif);
-    font-style: italic;
+    font-weight: 400;
+    font-style: normal;
     font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  /* Item title — semibold sans, for project titles and company names */
+  p.title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.4;
   }
 
   /* Keyboard focus ring — visible for all interactive elements */
@@ -91,6 +102,20 @@
 }
 
 @layer utilities {
+  /* Tag — uppercase tracking-widest xs, for technology tags */
+  .tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Italic — DM Sans italic */
+  .italic-sans {
+    font-style: italic;
+  }
+
   /* Visually hidden — accessible to screen readers, invisible on screen */
   .sr-only {
     position: absolute;
