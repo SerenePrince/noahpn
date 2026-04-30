@@ -6,21 +6,21 @@ const workExperience = [
     role: "Application Developer",
     period: "Feb 2025 – Dec 2025",
     description:
-      "Worked as part of a Power Platform team building internal tools for government — specializing in Power Apps and Power Automate.",
+      "Power Platform team building internal tools for government — Power Apps, Power Automate, and SharePoint.",
   },
   {
     company: "Algonquin College",
     role: "Software Tester",
     period: "Sep 2024 – Dec 2024",
     description:
-      "Tested features for R3, Algonquin's upcoming student information system built to replace the existing one.",
+      "Tested features for R3, Algonquin's student information system.",
   },
   {
     company: "FINTRAC",
     role: "Application Developer",
     period: "Jan 2024 – Apr 2024",
     description:
-      "Delivered a complete project independently from start to finish — on my very first professional placement.",
+      "Delivered a complete project independently — on my very first professional placement.",
   },
 ];
 
@@ -50,17 +50,15 @@ function Experience() {
             aria-labelledby="work-heading"
             className="flex flex-col space-y-6"
           >
-            <h3 id="work-heading" className="font-bold not-italic">
-              Work
-            </h3>
+            <h3 id="work-heading">Work</h3>
             <ul>
               {workExperience.map((job) => (
                 <li
                   key={job.company + job.period}
-                  className="border-foreground space-y-1 border-t py-4 last:border-b"
+                  className="border-foreground space-y-2 border-t py-6 last:border-b"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <p className="font-semibold">{job.company}</p>
+                    <p className="title">{job.company}</p>
                     <p className="shrink-0 text-sm">{job.period}</p>
                   </div>
                   <p className="tagline">{job.role}</p>
@@ -74,17 +72,15 @@ function Experience() {
             aria-labelledby="education-heading"
             className="flex flex-col space-y-6"
           >
-            <h3 id="education-heading" className="font-bold not-italic">
-              Education
-            </h3>
+            <h3 id="education-heading">Education</h3>
             <ul>
               {education.map((entry) => (
                 <li
                   key={entry.institution + entry.period}
-                  className="border-foreground space-y-1 border-t py-4 last:border-b"
+                  className="border-foreground space-y-2 border-t py-6 last:border-b"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <p className="font-semibold">{entry.institution}</p>
+                    <p className="title">{entry.institution}</p>
                     <p className="shrink-0 text-sm">{entry.period}</p>
                   </div>
                   <p className="tagline">{entry.credential}</p>

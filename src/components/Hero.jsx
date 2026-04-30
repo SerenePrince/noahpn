@@ -25,7 +25,7 @@ function Hero() {
       className="flex min-h-svh w-full flex-col justify-center pt-16"
     >
       <Container>
-        <div className="flex flex-col space-y-8 py-16">
+        <div className="flex flex-col space-y-8 py-24">
           {/* Name & Title */}
           <div className="space-y-1">
             <h1>Noah Park-Nguyen</h1>
@@ -60,13 +60,14 @@ function Hero() {
           <div className="bg-foreground h-px w-full" aria-hidden="true" />
 
           {/* Bio */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <p className="tagline">
-              Fresh off my last contract, looking for the next one.
+              Enterprise team experience. Ottawa-based, open to remote or
+              relocation.
             </p>
             <p>
-              I love building things that start off simple, that eventually grow
-              into something you'd never expect.
+              The best part of development is when a simple idea flourishes into
+              something much bigger than you imagined.
             </p>
           </div>
 

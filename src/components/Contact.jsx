@@ -15,8 +15,14 @@ const socials = [
 ];
 
 const resumes = [
-  { label: "Power Platform", href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf` },
-  { label: "Fullstack", href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_fullstack_resume.pdf` },
+  {
+    label: "Power Platform",
+    href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf`,
+  },
+  {
+    label: "Fullstack",
+    href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_fullstack_resume.pdf`,
+  },
 ];
 
 function Contact() {
@@ -27,11 +33,9 @@ function Contact() {
       className="w-full pt-16"
     >
       <Container>
-        <div className="flex flex-col space-y-8 pt-24 pb-32">
+        <div className="flex flex-col space-y-8 py-24">
           {/* Heading */}
-          <h2 id="contact-heading" className="font-bold not-italic">
-            Get In Touch
-          </h2>
+          <h2 id="contact-heading">Get In Touch</h2>
 
           {/* Divider */}
           <div className="bg-foreground h-px w-full" aria-hidden="true" />
@@ -93,7 +97,7 @@ function Contact() {
           {/* Closing note */}
           <p className="text-sm">
             My professional work was built for internal teams — the case studies
-            here focus on approach and outcome rather than public code. Personal
+            cover approach and outcome rather than public code. Personal
             projects have full source on GitHub.
           </p>
         </div>
