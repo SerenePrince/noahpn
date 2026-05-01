@@ -16,12 +16,12 @@ const socials = [
 
 const resumes = [
   {
-    label: "Power Platform",
-    href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf`,
-  },
-  {
     label: "Fullstack",
     href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_fullstack_resume.pdf`,
+  },
+  {
+    label: "Power Platform",
+    href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf`,
   },
 ];
 
@@ -70,8 +70,7 @@ function Contact() {
           {/* Resumes */}
           <div className="space-y-2">
             <p className="tagline">
-              Two resumes — one for Power Platform work, one for general
-              fullstack.
+              Currently looking for fullstack or Power Platform roles.
             </p>
             <ul aria-label="Resume downloads" className="flex flex-row gap-6">
               {resumes.map((resume) => (
