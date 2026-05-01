@@ -42,7 +42,8 @@ function About() {
             </p>
             <p>
               I'm comfortable across the stack with backend as my preference. I
-              know the tools I like — I just pick them up as I go.
+              have my go-to toolkit, but I'm always excited to pick up new
+              technologies.
             </p>
             <p>
               I got into coding when I was 17 during my last semester of high
@@ -52,9 +53,9 @@ function About() {
               prerequisites for college.
             </p>
             <p>
-              I may be an introvert at heart, but I know how to be a Good
-              Samaritan — as long as the team values patience, accountability,
-              and learning from mistakes.
+              I'm an introvert at heart, and love working independently, but I
+              know how to be a Good Samaritan — as long as the team values
+              patience, accountability, and learning from mistakes.
             </p>
             <p>
               When I'm not at my computer, you can find me probably taking a
