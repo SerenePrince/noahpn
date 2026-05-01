@@ -13,6 +13,13 @@
   --breakpoint-sm: 40rem;  /* 640px */
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f0f0f;
+    --color-foreground: #f6f2ea;
+  }
+}
+
 @layer base {
   * {
     margin: 0;
@@ -98,6 +105,33 @@
   :focus-visible {
     outline: 2px solid var(--color-foreground);
     outline-offset: 3px;
+  }
+
+  /* Webkit scrollbar (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-foreground);
+    border-radius: 0;
+  }
+
+  /* Firefox desktop */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-foreground) transparent;
+  }
+
+  /* Firefox mobile — hide scrollbar on small screens */
+  @media (max-width: 40rem) {
+    html {
+      scrollbar-width: none;
+    }
   }
 }
 
