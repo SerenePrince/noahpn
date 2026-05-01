@@ -65,10 +65,7 @@ function Hero() {
               Enterprise team experience. Ottawa-based, open to remote or
               relocation.
             </p>
-            <p>
-              The best part of development is when a simple idea flourishes into
-              something much bigger than you imagined.
-            </p>
+            <p>Why chase trends when walking gets you there anyway?</p>
           </div>
 
           {/* CTA */}
