@@ -3,41 +3,19 @@ import Container from "./Container";
 const skills = [
   {
     label: "Frontend",
-    items: ["React", "Vite", "JavaScript", "Tailwind CSS", "HTML & CSS"],
+    items: ["React", "Vite", "JavaScript", "Tailwind CSS"],
   },
   {
     label: "Backend",
-    items: [
-      "Java",
-      "Spring Boot",
-      "Spring Data JPA",
-      "REST APIs",
-      "PostgreSQL",
-      "Node.js",
-      "Express",
-      "JUnit",
-    ],
+    items: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Node.js"],
   },
   {
     label: "Tooling",
-    items: [
-      "Git",
-      "Maven",
-      "Docker",
-      "Linux (WSL / Ubuntu)",
-      "Azure DevOps",
-      "Agile / Scrum",
-    ],
+    items: ["Git", "Maven", "Docker", "Linux (WSL / Ubuntu)", "Azure DevOps"],
   },
   {
     label: "Power Platform",
-    items: [
-      "Power Apps",
-      "Power Automate",
-      "Power BI",
-      "SharePoint Lists",
-      "Microsoft 365",
-    ],
+    items: ["Power Apps", "Power Automate", "Power BI", "SharePoint Lists"],
   },
 ];
 
@@ -59,17 +37,12 @@ function About() {
           {/* Bio */}
           <div className="space-y-6">
             <p>
-              A developer, Java fanatic, and Balatro addict, looking for my next
-              opportunity to show off my fullstack skills.
+              A developer, Java fanatic, and Balatro addict, looking for a new
+              place to call home.
             </p>
             <p>
-              I'm comfortable across the stack with backend as my preference,
-              but I'm always down for a new challenge.
-            </p>
-            <p>
-              I may be an introvert at heart, but I know how to be a Good
-              Samaritan — as long as the team values patience, accountability,
-              and learning from mistakes.
+              I'm comfortable across the stack with backend as my preference. I
+              know the tools I like — I just pick them up as I go.
             </p>
             <p>
               I got into coding when I was 17 during my last semester of high
@@ -79,12 +52,18 @@ function About() {
               prerequisites for college.
             </p>
             <p>
+              I may be an introvert at heart, but I know how to be a Good
+              Samaritan — as long as the team values patience, accountability,
+              and learning from mistakes.
+            </p>
+            <p>
               When I'm not at my computer, you can find me probably taking a
-              walk, playing volleyball, or just meandering along enjoying life.
+              walk, playing volleyball, or working through a game that came out
+              a decade ago.
             </p>
             <p className="tagline">
-              "Even if you're a genius, if you don't have the drive, you're
-              just a regular person."
+              "Even if you're a genius, if you don't have the drive, you're just
+              a regular person."
             </p>
             <p className="text-sm">— Ping Pong the Animation</p>
           </div>
