@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Icon from "../assets/icons/crown-dark.svg";
+import DarkIcon from "../assets/icons/crown-dark.svg";
+import LightIcon from "../assets/icons/crown-light.svg";
 import Container from "./Container";
 
 const links = [
@@ -20,7 +21,10 @@ function Nav() {
       <Container>
         <div className="flex items-center justify-between py-4">
           <a href="#hero" onClick={() => setOpen(false)} aria-label="Go to top">
-            <img src={Icon} alt="" aria-hidden="true" className="h-6 w-auto" />
+            <picture>
+              <source srcSet={LightIcon} media="(prefers-color-scheme: dark)" />
+              <img src={DarkIcon} alt="" aria-hidden="true" className="h-6 w-auto" />
+            </picture>
           </a>
 
           {/* Desktop links */}
