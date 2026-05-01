@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @theme {
   --nav-height: 4rem;
   --color-background: #f6f2ea;
   --color-foreground: #0f0f0f;
-  --font-serif: 'Libre Baskerville', serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --font-sans: "DM Sans", sans-serif;
 
   /* Breakpoints — xs covers 320px minimum */
-  --breakpoint-xs: 20rem;  /* 320px */
-  --breakpoint-sm: 40rem;  /* 640px */
+  --breakpoint-xs: 20rem; /* 320px */
+  --breakpoint-sm: 40rem; /* 640px */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,7 +47,7 @@
     font-family: var(--font-serif);
     font-weight: 700;
     font-style: normal;
-    font-size: 1.5rem;     /* 24px on 320px+ */
+    font-size: 1.5rem; /* 24px on 320px+ */
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
@@ -57,7 +57,7 @@
     font-family: var(--font-serif);
     font-weight: 700;
     font-style: normal;
-    font-size: 0.9375rem;  /* 15px */
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.4;
   }
 
@@ -66,15 +66,21 @@
     font-family: var(--font-serif);
     font-weight: 700;
     font-style: normal;
-    font-size: 0.875rem;   /* 14px */
+    font-size: 0.875rem; /* 14px */
     line-height: 1.4;
   }
 
   /* Responsive heading scale — sm and up (640px+) */
   @media (min-width: 40rem) {
-    h1 { font-size: 2.25rem; }   /* 36px */
-    h2 { font-size: 1.0625rem; } /* 17px */
-    h3 { font-size: 0.9375rem; } /* 15px */
+    h1 {
+      font-size: 2.25rem;
+    } /* 36px */
+    h2 {
+      font-size: 1.0625rem;
+    } /* 17px */
+    h3 {
+      font-size: 0.9375rem;
+    } /* 15px */
   }
 
   p {
