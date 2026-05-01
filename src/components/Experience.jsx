@@ -6,14 +6,14 @@ const workExperience = [
     role: "Application Developer",
     period: "Feb 2025 – Dec 2025",
     description:
-      "Power Platform team building internal tools for government — Power Apps, Power Automate, and SharePoint.",
+      "Learned what it means to own a feature end-to-end — demos, feedback, and shipped tools still in use today.",
   },
   {
     company: "Algonquin College",
     role: "Software Tester",
     period: "Sep 2024 – Dec 2024",
     description:
-      "Tested features for R3, Algonquin's student information system.",
+      "Practiced the full testing lifecycle — writing tests, running them, and reporting what broke.",
   },
   {
     company: "FINTRAC",
