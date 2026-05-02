@@ -65,7 +65,7 @@ function Hero() {
               Enterprise team experience. Ottawa-based, open to remote or
               relocation.
             </p>
-            <p>Why chase trends when walking gets you there anyway?</p>
+            <p>Why chase trends when you can just walk at your own pace?</p>
           </div>
 
           {/* CTA */}
