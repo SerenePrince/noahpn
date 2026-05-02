@@ -63,10 +63,10 @@ function About() {
               a decade ago.
             </p>
             <p className="tagline">
-              "Even if you're a genius, if you don't have the drive, you're just
-              a regular person."
+              "I am built of the things I do every day, and the results are no
+              more than a byproduct."
             </p>
-            <p className="text-sm">— Ping Pong the Animation</p>
+            <p className="text-sm">— Shinsuke Kita</p>
           </div>
 
           {/* Divider */}
