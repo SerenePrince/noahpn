@@ -95,7 +95,7 @@ const personalProjects = [
   {
     id: "statmon",
     title: "Statmon",
-    tags: ["React", "Vite", "Tailwind CSS"],
+    tags: ["React", "Vite", "Tailwind CSS", "Cloudflare Pages"],
     summary:
       "Every Pokémon stats site I've used is cluttered with ads, animations, and features I never open. I wanted one that just shows the data. Statmon is a minimal toolkit for looking up and comparing base stats.",
     details: [
@@ -103,7 +103,7 @@ const personalProjects = [
       "Built with React and Vite, styled with Tailwind CSS v4. Pokémon data is fetched at build time through a custom script that pulls from PokéAPI and writes a static JSON file, keeping the app fast and runtime requests minimal. Type colors are mapped to accessible pastel values and applied consistently across stat bars, type badges, and the comparison chart.",
     ],
     github: "https://github.com/SerenePrince/statmon",
-    live: "https://sereneprince.github.io/statmon/",
+    live: "https://master.statmon.pages.dev/",
     note: null,
   },
 ];
