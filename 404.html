@@ -12,6 +12,18 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --color-background: #f6f2ea;
+        --color-foreground: #0f0f0f;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-background: #0f0f0f;
+          --color-foreground: #f6f2ea;
+        }
+      }
+
       *,
       *::before,
       *::after {
@@ -26,8 +38,8 @@
       }
 
       body {
-        background-color: #f6f2ea;
-        color: #0f0f0f;
+        background-color: var(--color-background);
+        color: var(--color-foreground);
         font-family: "DM Sans", sans-serif;
         font-size: 0.875rem;
         line-height: 1.6;
@@ -51,7 +63,7 @@
       .divider {
         height: 1px;
         width: 100%;
-        background-color: #0f0f0f;
+        background-color: var(--color-foreground);
       }
 
       h1 {
@@ -84,7 +96,7 @@
       a {
         font-size: 0.875rem;
         text-decoration: none;
-        color: #0f0f0f;
+        color: var(--color-foreground);
       }
 
       a:hover {
@@ -93,7 +105,7 @@
       }
 
       :focus-visible {
-        outline: 2px solid #0f0f0f;
+        outline: 2px solid var(--color-foreground);
         outline-offset: 3px;
       }
     </style>
