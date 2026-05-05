@@ -1,12 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:wght@400;700&display=swap");
 @import "tailwindcss";
 
+/*
+  Tuned fallback fonts — match the metrics of each custom font so the browser
+  swap from fallback → custom is invisible (no layout shift / jitter).
+  Values calibrated to minimise CLS. Fine-tune with https://screenspan.net/fallback
+*/
+
+/* Arial scaled to approximate DM Sans proportions */
+@font-face {
+  font-family: "DM Sans Fallback";
+  src: local("Arial");
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+}
+
+/* Georgia scaled to approximate Libre Baskerville proportions */
+@font-face {
+  font-family: "Libre Baskerville Fallback";
+  src: local("Georgia");
+  size-adjust: 100%;
+  ascent-override: 89%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
 @theme {
   --nav-height: 4rem;
   --color-background: #f6f2ea;
   --color-foreground: #0f0f0f;
-  --font-serif: "Libre Baskerville", serif;
-  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Libre Baskerville", "Libre Baskerville Fallback", serif;
+  --font-sans: "DM Sans", "DM Sans Fallback", sans-serif;
 
   /* Breakpoints — xs covers 320px minimum */
   --breakpoint-xs: 20rem; /* 320px */
@@ -57,7 +83,7 @@
     font-family: var(--font-serif);
     font-weight: 700;
     font-style: normal;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 1rem; /* 16px */
     line-height: 1.4;
   }
 
@@ -66,21 +92,15 @@
     font-family: var(--font-serif);
     font-weight: 700;
     font-style: normal;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem; /* 14px — same as body; differentiated by font-family and weight */
     line-height: 1.4;
   }
 
   /* Responsive heading scale — sm and up (640px+) */
   @media (min-width: 40rem) {
     h1 {
-      font-size: 2.25rem;
-    } /* 36px */
-    h2 {
-      font-size: 1.0625rem;
-    } /* 17px */
-    h3 {
-      font-size: 0.9375rem;
-    } /* 15px */
+      font-size: 2.25rem; /* 36px */
+    }
   }
 
   p {
