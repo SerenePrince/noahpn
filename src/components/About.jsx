@@ -21,11 +21,7 @@ const skills = [
 
 function About() {
   return (
-    <section
-      id="about"
-      aria-labelledby="about-heading"
-      className="w-full pt-16"
-    >
+    <section id="about" aria-labelledby="about-heading" className="w-full">
       <Container>
         <div className="flex flex-col space-y-8 py-24">
           {/* Section heading */}
@@ -37,13 +33,9 @@ function About() {
           {/* Bio */}
           <div className="space-y-6">
             <p>
-              A developer, Java fanatic, and Balatro addict, looking for a new
-              place to call home.
-            </p>
-            <p>
-              I'm comfortable across the stack with backend as my preference. I
-              have my go-to toolkit, but I'm always excited to pick up new
-              technologies.
+              A developer, Java fanatic, and Balatro addict — looking for
+              fullstack, backend, or software dev roles. Open to remote or
+              relocation within BC and ON.
             </p>
             <p>
               I got into coding when I was 17 during my last semester of high
@@ -53,9 +45,14 @@ function About() {
               prerequisites for college.
             </p>
             <p>
+              I'm comfortable across the stack with backend as my preference. I
+              have my go-to toolkit, but I'm always excited to pick up new
+              skills and technologies.
+            </p>
+            <p>
               I'm an introvert at heart, and love working independently, but I
-              know how to be a Good Samaritan — as long as the team values
-              patience, accountability, and learning from mistakes.
+              know how to be a Good Samaritan — as long as the team I'm on
+              values patience, accountability, and learning from mistakes.
             </p>
             <p>
               When I'm not at my computer, you can find me probably taking a

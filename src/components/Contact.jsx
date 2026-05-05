@@ -30,7 +30,7 @@ function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="w-full pt-16"
+      className="w-full"
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">

@@ -259,7 +259,7 @@ function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="w-full pt-16"
+      className="w-full"
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
@@ -277,7 +277,7 @@ function Projects() {
                 aria-selected={activeTab === "case-studies"}
                 aria-controls="tabpanel-projects"
                 onClick={() => setActiveTab("case-studies")}
-                className={`text-sm ${
+                className={`cursor-pointer text-sm ${
                   activeTab === "case-studies"
                     ? "font-semibold underline underline-offset-4"
                     : "hover:underline hover:underline-offset-4"
@@ -291,7 +291,7 @@ function Projects() {
                 aria-selected={activeTab === "personal"}
                 aria-controls="tabpanel-projects"
                 onClick={() => setActiveTab("personal")}
-                className={`text-sm ${
+                className={`cursor-pointer text-sm ${
                   activeTab === "personal"
                     ? "font-semibold underline underline-offset-4"
                     : "hover:underline hover:underline-offset-4"
