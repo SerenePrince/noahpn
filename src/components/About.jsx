@@ -76,6 +76,8 @@ function About() {
             className="flex flex-col space-y-6"
           >
             <h3 id="skills-heading">Skills</h3>
+            {/* Divider */}
+            <div className="bg-foreground h-px w-full" aria-hidden="true" />
             <div className="grid grid-cols-2 gap-x-6 gap-y-8">
               {skills.map((group) => (
                 <div key={group.label}>
