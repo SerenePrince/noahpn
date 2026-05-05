@@ -141,25 +141,25 @@ function CaseStudyCard({ project }) {
       </div>
 
       {/* Summary */}
-      <p className="text-sm">{project.summary}</p>
+      <p>{project.summary}</p>
 
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
         <div className="space-y-6 pt-4">
           <div className="space-y-2">
             <p className="tagline">Problem</p>
-            <p className="text-sm">{project.problem}</p>
+            <p>{project.problem}</p>
           </div>
           <div className="space-y-2">
             <p className="tagline">My Role</p>
-            <p className="text-sm whitespace-pre-line">{project.role}</p>
+            <p className="whitespace-pre-line">{project.role}</p>
           </div>
           <div className="space-y-2">
             <p className="tagline">Outcome</p>
-            <p className="text-sm">{project.outcome}</p>
+            <p>{project.outcome}</p>
           </div>
           {project.constraints && (
-            <p className="italic-sans text-sm">{project.constraints}</p>
+            <p className="italic-sans">{project.constraints}</p>
           )}
         </div>
       </div>
@@ -221,14 +221,14 @@ function PersonalProjectCard({ project }) {
       </div>
 
       {/* Summary */}
-      <p className="text-sm">{project.summary}</p>
+      <p>{project.summary}</p>
 
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
         <div className="space-y-6 pt-4">
           <div className="space-y-6">
             {project.details.map((para, i) => (
-              <p key={i} className="text-sm">
+              <p key={i}>
                 {para}
               </p>
             ))}

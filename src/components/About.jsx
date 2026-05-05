@@ -64,7 +64,7 @@ function About() {
               "I am built of the things I do every day, and the results are no
               more than a byproduct."
             </p>
-            <p className="text-sm">— Shinsuke Kita</p>
+            <p>— Shinsuke Kita</p>
           </div>
 
           {/* Divider */}
@@ -84,7 +84,7 @@ function About() {
                   <p className="title mb-2">{group.label}</p>
                   <ul className="space-y-1">
                     {group.items.map((item) => (
-                      <li key={item} className="text-sm">
+                      <li key={item}>
                         {item}
                       </li>
                     ))}

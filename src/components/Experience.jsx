@@ -59,10 +59,10 @@ function Experience() {
                 >
                   <div className="flex items-baseline justify-between gap-4">
                     <p className="title">{job.company}</p>
-                    <p className="shrink-0 text-sm">{job.period}</p>
+                    <p className="shrink-0">{job.period}</p>
                   </div>
                   <p className="tagline">{job.role}</p>
-                  <p className="text-sm">{job.description}</p>
+                  <p>{job.description}</p>
                 </li>
               ))}
             </ul>
@@ -81,10 +81,10 @@ function Experience() {
                 >
                   <div className="flex items-baseline justify-between gap-4">
                     <p className="title">{entry.institution}</p>
-                    <p className="shrink-0 text-sm">{entry.period}</p>
+                    <p className="shrink-0">{entry.period}</p>
                   </div>
                   <p className="tagline">{entry.credential}</p>
-                  <p className="text-sm">{entry.detail}</p>
+                  <p>{entry.detail}</p>
                 </li>
               ))}
             </ul>

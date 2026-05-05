@@ -8,7 +8,7 @@ function Footer() {
     >
       <Container>
         <div className="flex flex-col items-center gap-4 py-6 sm:flex-row sm:justify-between">
-          <p className="text-sm">
+          <p>
             <small>© {new Date().getFullYear()} Noah Park-Nguyen</small>
           </p>
           <a

@@ -94,7 +94,7 @@ function Contact() {
           <div className="bg-foreground h-px w-full" aria-hidden="true" />
 
           {/* Closing note */}
-          <p className="text-sm">
+          <p>
             My professional work was built for internal teams — the case studies
             cover approach and outcome rather than public code. Personal
             projects have full source on GitHub.
