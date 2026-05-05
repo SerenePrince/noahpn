@@ -33,29 +33,30 @@ function About() {
           {/* Bio */}
           <div className="space-y-6">
             <p>
-              A developer, Java fanatic, and Balatro addict — looking for
-              fullstack, backend, or software dev roles. Open to remote or
-              relocation within BC and ON.
+              A fullstack developer with experience building production-ready
+              tools and apps. Looking for roles in frontend, backend, or
+              anything in between. Open to remote or relocation within BC and
+              ON.
             </p>
             <p>
-              I got into coding when I was 17 during my last semester of high
-              school. I signed up for a beginner programming class on a whim and
-              immediately knew what I wanted to do for a living. Over the summer
-              I worked full-time while taking online courses to meet the math
+              I got into coding at 17 in my last semester of high school —
+              signed up for a beginner class on a whim and immediately knew it
+              was what I wanted to do for a living. I spent that summer working
+              full-time while taking online courses to meet the math
               prerequisites for college.
             </p>
             <p>
-              I'm comfortable across the stack with backend as my preference. I
-              have my go-to toolkit, but I'm always excited to pick up new
-              skills and technologies.
+              My regular toolkit includes Java, Spring Boot, React, and
+              Tailwind. I have my go-to setup, but I'm always excited to pick up
+              something new.
             </p>
             <p>
-              I'm an introvert at heart, and love working independently, but I
-              know how to be a Good Samaritan — as long as the team I'm on
-              values patience, accountability, and learning from mistakes.
+              I work best independently, but I know how to show up for a team —
+              one that values patience, accountability, and learning from
+              mistakes over blame.
             </p>
             <p>
-              When I'm not at my computer, you can find me probably taking a
+              When I'm not at my computer, you can probably find me taking a
               walk, playing volleyball, or working through a game that came out
               a decade ago.
             </p>
