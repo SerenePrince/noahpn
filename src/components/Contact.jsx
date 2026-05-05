@@ -70,7 +70,7 @@ function Contact() {
           {/* Resumes */}
           <div className="space-y-2">
             <p className="tagline">
-              Currently looking for fullstack or Power Platform roles.
+              Currently looking for frontend, backend, or fullstack roles — Power Platform resume available too.
             </p>
             <ul aria-label="Resume downloads" className="flex flex-row gap-6">
               {resumes.map((resume) => (

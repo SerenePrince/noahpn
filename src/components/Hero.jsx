@@ -22,7 +22,7 @@ function Hero() {
     <section
       id="hero"
       aria-label="Introduction"
-      className="flex min-h-svh w-full flex-col justify-center pt-16"
+      className="flex min-h-svh w-full flex-col justify-center"
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
@@ -63,7 +63,7 @@ function Hero() {
           <div className="space-y-6">
             <p className="tagline">
               Enterprise team experience. Ottawa-based, open to remote or
-              relocation.
+              relocation within BC and ON.
             </p>
             <p>Why chase trends when you can just walk at your own pace?</p>
           </div>
