@@ -69,10 +69,10 @@ const personalProjects = [
     title: "Java Dictionary",
     tags: ["Java", "Spring Boot", "PostgreSQL"],
     summary:
-      "Memorizing interview answers never worked for me — I wanted to actually understand the concepts. Java Dictionary lets you store terms with two definitions: one in your own words, one for the interview.",
+      "Memorizing interview answers never worked for me — I wanted to actually understand the concepts. Java Dictionary is where I build and study my own Java glossary, with every term defined two ways: one in your own words, one polished for the interview room.",
     details: [
-      "I built a full-stack application using Java, Spring Boot, and PostgreSQL. Each term stores two definitions — one written in your own words, one polished for interviews. If you can write both, you understand it. If you can only write one, you know exactly where the gap is.",
-      "A personal study tool I actually use. The dual-definition structure forces real understanding over surface-level memorization.",
+      "Java Dictionary is a full-stack web application built with Spring Boot, Thymeleaf, and PostgreSQL. Every term entry holds two definitions — one written in your own words, one polished for the interview. That split is intentional: if you can write both, you understand it; if you can only write one, you know exactly where the gap is. Terms can also be sourced from a YAML-driven study guide that organizes Java fundamentals by book and chapter — adding new content requires only editing a config file.",
+      "A few deliberate choices shaped how it was built. The UI is rendered entirely server-side with Thymeleaf — no separate frontend framework — which keeps the stack cohesive and lets the project demonstrate Spring Boot end-to-end. Terms are stored flat in the database; the same concept can appear across multiple rows when sourced from different books or chapters, with grouping handled at the service layer using a URL-safe slug before anything reaches the UI or API.",
     ],
     github: "https://github.com/SerenePrince/java-dictionary",
     live: null,
@@ -83,10 +83,11 @@ const personalProjects = [
     title: "HubSpot Recommendation Tool",
     tags: ["Node.js", "React", "Docker"],
     summary:
-      "Our client was spending hours manually researching a prospect's tech stack before every sales call. I built the backend that does it in seconds — paste a URL, get HubSpot replacement recommendations back immediately.",
+      "Our client was spending hours manually researching a prospect's tech stack before every sales call — I built the tool that does it in seconds.",
     details: [
-      "Inbox — a HubSpot Platinum Solutions Partner in Ottawa — was doing their prospect research by hand. Before every sales call, someone had to manually identify what technologies a potential client's website was running and figure out which HubSpot tools could replace them.",
-      "I built the entire backend — a vanilla Node.js HTTP server with no Express, a deliberate choice to keep the stack lean. The core is a detection engine that fetches a target URL, runs it against a Wappalyzer-style dataset to identify technologies in use, and maps those findings to HubSpot replacement recommendations. I also handled the Docker setup so the full application could be handed off cleanly. The frontend was handled by teammates.",
+      "Inbox — a HubSpot Platinum Solutions Partner based in Ottawa — was doing their prospect research by hand. Before every sales call, someone had to manually identify what technologies a potential client's website was running, then figure out which HubSpot products could replace them. I built an internal tool to automate that entire workflow: paste in a URL, and within seconds the team has a structured report mapping every detected technology to a tailored HubSpot recommendation.",
+      "The backend is a vanilla Node.js HTTP server — no Express, a deliberate choice to keep the dependency footprint minimal. The core is a detection pipeline that fetches the target URL, fingerprints its tech stack against a Wappalyzer-compatible dataset, and maps each result to a recommendation with a product name, priority, and a plain-English description written for sales conversations. CLI tooling lets the internal team browse the taxonomy and update recommendations without touching code; Docker handles the rest.",
+      "The frontend is a React SPA built with Vite — started by a teammate, taken over by me once the skeleton was in place. The design is driven entirely by CSS custom properties — every colour, typeface, and size defined once and referenced everywhere — so the application can be rebranded from a single block of variables. The report table stacks to a card layout on mobile, and the interface is built to accessibility standards throughout.",
     ],
     github: "https://github.com/SerenePrince/hubspot-recommendation-tool",
     live: "https://hubspot-recommendation-tool.onrender.com/",
@@ -97,10 +98,11 @@ const personalProjects = [
     title: "Statmon",
     tags: ["React", "Vite", "Tailwind CSS", "Cloudflare Pages"],
     summary:
-      "Every Pokémon stats site I've used is cluttered with ads, animations, and features I never open. I wanted one that just shows the data. Statmon is a minimal toolkit for looking up and comparing base stats.",
+      "Every Pokémon stats site I've tried is cluttered with ads, animations, and features I never open — Statmon is the one I actually wanted: a minimal toolkit that just shows the data.",
     details: [
-      "Most Pokémon tools do too much. The information I actually want — base stats, types, forms — is usually buried behind a noisy layout. Statmon is a direct response to that: a small set of focused tools built around readability, with nothing added that doesn't earn its place.",
-      "Built with React and Vite, styled with Tailwind CSS v4. Pokémon data is fetched at build time through a custom script that pulls from PokéAPI and writes a static JSON file, keeping the app fast and runtime requests minimal. Type colors are mapped to accessible pastel values and applied consistently across stat bars, type badges, and the comparison chart.",
+      "Most Pokémon tools do too much. The information I actually want — base stats, types, alternate forms — is usually buried behind a noisy layout. Statmon is a direct response to that: a focused set of tools built around readability, where nothing gets added unless it earns its place. A consistent design language runs through every page — 18 type colors mapped to accessible pastel values, a unified typographic hierarchy, and a dark theme built on CSS custom properties — so the data always stays front and center.",
+      "There are three tools. The Pokédex lets you browse base stats for every Pokémon across all nine generations, filtered by game, type, and generation. Each game uses its authentic regional Pokédex order with the correct entry numbers — Bulbasaur is #001 in Kanto and #226 in Johto — and Generation 1 Pokémon display the original combined Special stat. Compare puts any two Pokémon side by side with type-colored stat bars and a head-to-head chart highlighting the winner and margin for each stat. Type Clash is a type matchup quiz — at the hardest difficulty, a Pokémon is revealed through a decelerating slot-machine animation and you have to recall its typing from memory before answering.",
+      "Built with React, Vite, Tailwind CSS, and deployed to Cloudflare Pages. Pokémon data is sourced from PokéAPI entirely at build time through three custom Node scripts — one for base stats, one to patch in the Gen 1 Special stat, and one for per-game regional Pokédex numbers — and bundled as static JSON. There are zero API calls at runtime. The scripts are written to be considerate: requests run in batches with delays between bursts, and a skip-if-exists guard prevents unnecessary re-fetching when the data is already current.",
     ],
     github: "https://github.com/SerenePrince/statmon",
     live: "https://master.statmon.pages.dev/",
