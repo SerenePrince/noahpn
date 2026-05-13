@@ -20,6 +20,7 @@ function Nav() {
     >
       <Container>
         <div className="flex items-center justify-between py-4">
+          {/* Logo */}
           <a href="#hero" onClick={() => setOpen(false)} aria-label="Go to top">
             <picture>
               <source srcSet={LightIcon} media="(prefers-color-scheme: dark)" />
@@ -34,17 +35,14 @@ function Nav() {
           >
             {links.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-sm hover:underline hover:underline-offset-4"
-                >
+                <a href={link.href} className="nav-link text-sm">
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          {/* Hamburger button — mobile only */}
+          {/* Hamburger — mobile only */}
           <button
             className="flex flex-col justify-center gap-1.5 p-1 sm:hidden"
             onClick={() => setOpen((prev) => !prev)}
@@ -72,26 +70,23 @@ function Nav() {
       <ul
         id="mobile-menu"
         aria-label="Navigation links"
-        className={`border-foreground flex flex-col border-t sm:hidden ${
-          open ? "" : "hidden"
-        }`}
+        className={`border-rule flex flex-col border-t sm:hidden ${open ? "" : "hidden"}`}
       >
         {links.map((link) => (
-          <li
-            key={link.href}
-            className="border-foreground border-b last:border-b-0"
-          >
+          <li key={link.href} className="border-rule border-b last:border-b-0">
             <a
               href={link.href}
               onClick={() => setOpen(false)}
-              className="flex px-4 py-3 text-sm hover:underline hover:underline-offset-4"
+              className="nav-link flex px-4 py-3 text-sm"
             >
               {link.label}
             </a>
           </li>
         ))}
       </ul>
-      <div className="bg-foreground h-px w-full" aria-hidden="true" />
+
+      {/* Bottom rule — light grey, not black */}
+      <div className="bg-rule h-px w-full" aria-hidden="true" />
     </nav>
   );
 }
