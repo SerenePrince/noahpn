@@ -110,16 +110,51 @@ const personalProjects = [
   },
 ];
 
+// --- Tag color mapping ---
+
+const tagVariant = {
+  // Green — Java ecosystem
+  "Java":         "badge-green",
+  "Spring Boot":  "badge-green",
+  "Maven":        "badge-green",
+
+  // Blue — JS ecosystem, web platforms
+  "JavaScript":   "badge-blue",
+  "React":        "badge-blue",
+  "Node.js":      "badge-blue",
+  "Tailwind":     "badge-blue",
+  "Tailwind CSS": "badge-blue",
+  "Vite":         "badge-blue",
+  "Power Apps":   "badge-blue",
+  "SharePoint":   "badge-blue",
+
+  // Teal — data and analysis tools
+  "PostgreSQL":   "badge-teal",
+  "Power BI":     "badge-teal",
+  "Excel":        "badge-teal",
+
+  // Purple — automation and infrastructure
+  "Docker":            "badge-purple",
+  "Power Automate":    "badge-purple",
+  "Cloudflare Pages":  "badge-purple",
+
+  // Amber — protocols and tooling
+  "REST APIs":    "badge-amber",
+};
+
 // --- Sub-components ---
 
 function Tags({ tags }) {
   return (
-    <ul aria-label="Technologies used" className="flex flex-wrap gap-4">
-      {tags.map((tag) => (
-        <li key={tag} className="tag">
-          {tag}
-        </li>
-      ))}
+    <ul aria-label="Technologies used" className="flex flex-wrap gap-2">
+      {tags.map((tag) => {
+        const variant = tagVariant[tag] ?? "badge-neutral";
+        return (
+          <li key={tag}>
+            <span className={`badge ${variant}`}>{tag}</span>
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -131,37 +166,37 @@ function CaseStudyCard({ project }) {
   return (
     <article
       aria-labelledby={`title-${project.id}`}
-      className="border-foreground space-y-6 border-t py-6 last:border-b"
+      className="card p-6 space-y-4"
     >
       {/* Header */}
-      <div className="space-y-1">
-        <div className="flex items-baseline justify-between gap-4">
+      <div className="space-y-2">
+        <div className="flex items-start justify-between gap-4">
           <h3 id={`title-${project.id}`}>{project.title}</h3>
-          <p className="tagline shrink-0">{project.company}</p>
+          <p className="eyebrow shrink-0 pt-0.5">{project.company}</p>
         </div>
         <Tags tags={project.tags} />
       </div>
 
       {/* Summary */}
-      <p>{project.summary}</p>
+      <p className="secondary">{project.summary}</p>
 
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
-        <div className="space-y-6 pt-4">
-          <div className="space-y-2">
-            <p className="tagline">Problem</p>
-            <p>{project.problem}</p>
+        <div className="border-rule space-y-5 border-t pt-5">
+          <div className="space-y-1">
+            <p className="eyebrow">Problem</p>
+            <p className="secondary">{project.problem}</p>
           </div>
-          <div className="space-y-2">
-            <p className="tagline">My Role</p>
-            <p className="whitespace-pre-line">{project.role}</p>
+          <div className="space-y-1">
+            <p className="eyebrow">My Role</p>
+            <p className="secondary">{project.role}</p>
           </div>
-          <div className="space-y-2">
-            <p className="tagline">Outcome</p>
-            <p>{project.outcome}</p>
+          <div className="space-y-1">
+            <p className="eyebrow">Outcome</p>
+            <p className="secondary">{project.outcome}</p>
           </div>
           {project.constraints && (
-            <p className="italic-sans">{project.constraints}</p>
+            <p className="muted italic-sans">{project.constraints}</p>
           )}
         </div>
       </div>
@@ -171,9 +206,9 @@ function CaseStudyCard({ project }) {
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-controls={detailsId}
-        className="text-sm hover:underline hover:underline-offset-4"
+        className="nav-link text-sm"
       >
-        {open ? "Read less ↑" : "Read more ↓"}
+        {open ? <>Read less <span aria-hidden="true">↑</span></> : <>Read more <span aria-hidden="true">↓</span></>}
       </button>
     </article>
   );
@@ -186,19 +221,19 @@ function PersonalProjectCard({ project }) {
   return (
     <article
       aria-labelledby={`title-${project.id}`}
-      className="border-foreground space-y-6 border-t py-6 last:border-b"
+      className="card p-6 space-y-4"
     >
       {/* Header */}
-      <div className="space-y-1">
-        <div className="flex items-baseline justify-between gap-4">
+      <div className="space-y-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <h3 id={`title-${project.id}`}>{project.title}</h3>
-          <div className="flex shrink-0 gap-4">
+          <div className="flex gap-4">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm hover:underline hover:underline-offset-4"
+                className="link text-sm"
               >
                 GitHub
                 <span aria-hidden="true"> ↗</span>
@@ -210,7 +245,7 @@ function PersonalProjectCard({ project }) {
                 href={project.live}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm hover:underline hover:underline-offset-4"
+                className="link text-sm"
               >
                 Live
                 <span aria-hidden="true"> ↗</span>
@@ -223,19 +258,15 @@ function PersonalProjectCard({ project }) {
       </div>
 
       {/* Summary */}
-      <p>{project.summary}</p>
+      <p className="secondary">{project.summary}</p>
 
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
-        <div className="space-y-6 pt-4">
-          <div className="space-y-6">
-            {project.details.map((para, i) => (
-              <p key={i}>
-                {para}
-              </p>
-            ))}
-          </div>
-          {project.note && <p className="tagline">{project.note}</p>}
+        <div className="border-rule space-y-4 border-t pt-5">
+          {project.details.map((para, i) => (
+            <p key={i} className="secondary">{para}</p>
+          ))}
+          {project.note && <p className="muted">{project.note}</p>}
         </div>
       </div>
 
@@ -244,9 +275,9 @@ function PersonalProjectCard({ project }) {
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-controls={detailsId}
-        className="text-sm hover:underline hover:underline-offset-4"
+        className="nav-link text-sm"
       >
-        {open ? "Read less ↑" : "Read more ↓"}
+        {open ? <>Read less <span aria-hidden="true">↑</span></> : <>Read more <span aria-hidden="true">↓</span></>}
       </button>
     </article>
   );
@@ -254,8 +285,22 @@ function PersonalProjectCard({ project }) {
 
 // --- Main section ---
 
+const tabs = ["case-studies", "personal"];
+
 function Projects() {
   const [activeTab, setActiveTab] = useState("case-studies");
+
+  function handleTabKeyDown(e, currentTab) {
+    const currentIndex = tabs.indexOf(currentTab);
+    let nextIndex = null;
+    if (e.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+    if (e.key === "ArrowLeft")  nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (nextIndex === null) return;
+    e.preventDefault();
+    const nextTab = tabs[nextIndex];
+    setActiveTab(nextTab);
+    document.getElementById(`tab-${nextTab}`)?.focus();
+  }
 
   return (
     <section
@@ -278,12 +323,15 @@ function Projects() {
                 role="tab"
                 aria-selected={activeTab === "case-studies"}
                 aria-controls="tabpanel-projects"
+                tabIndex={activeTab === "case-studies" ? 0 : -1}
                 onClick={() => setActiveTab("case-studies")}
-                className={`cursor-pointer text-sm ${
+                onKeyDown={(e) => handleTabKeyDown(e, "case-studies")}
+                className={`eyebrow cursor-pointer transition-colors duration-150 border-l-2 pl-2 ${
                   activeTab === "case-studies"
-                    ? "font-semibold underline underline-offset-4"
-                    : "hover:underline hover:underline-offset-4"
+                    ? "border-foreground"
+                    : "border-transparent nav-link"
                 }`}
+                style={activeTab === "case-studies" ? { color: "var(--color-foreground)" } : undefined}
               >
                 Case Studies
               </button>
@@ -292,17 +340,24 @@ function Projects() {
                 role="tab"
                 aria-selected={activeTab === "personal"}
                 aria-controls="tabpanel-projects"
+                tabIndex={activeTab === "personal" ? 0 : -1}
                 onClick={() => setActiveTab("personal")}
-                className={`cursor-pointer text-sm ${
+                onKeyDown={(e) => handleTabKeyDown(e, "personal")}
+                className={`eyebrow cursor-pointer transition-colors duration-150 border-l-2 pl-2 ${
                   activeTab === "personal"
-                    ? "font-semibold underline underline-offset-4"
-                    : "hover:underline hover:underline-offset-4"
+                    ? "border-foreground"
+                    : "border-transparent nav-link"
                 }`}
+                style={activeTab === "personal" ? { color: "var(--color-foreground)" } : undefined}
               >
                 Personal
               </button>
             </div>
           </div>
+
+          {/* Divider */}
+          <div className="bg-rule h-px w-full" aria-hidden="true" />
+
           {/* Project list */}
           <div
             id="tabpanel-projects"
@@ -310,20 +365,15 @@ function Projects() {
             aria-labelledby={
               activeTab === "case-studies" ? "tab-case-studies" : "tab-personal"
             }
+            className="flex flex-col gap-4"
           >
-            {activeTab === "case-studies" ? (
-              <div>
-                {caseStudies.map((project) => (
+            {activeTab === "case-studies"
+              ? caseStudies.map((project) => (
                   <CaseStudyCard key={project.id} project={project} />
-                ))}
-              </div>
-            ) : (
-              <div>
-                {personalProjects.map((project) => (
+                ))
+              : personalProjects.map((project) => (
                   <PersonalProjectCard key={project.id} project={project} />
                 ))}
-              </div>
-            )}
           </div>
         </div>
       </Container>
