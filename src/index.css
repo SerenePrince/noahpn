@@ -55,7 +55,7 @@
   --color-surface:    #ffffff; /* card / elevated surface  */
   --color-foreground: #0f0f0f; /* primary text             */
   --color-secondary:  #444444; /* secondary text           */
-  --color-muted:      #888888; /* labels, metadata         */
+  --color-muted:      #717171; /* labels, metadata         */
   --color-rule:       #e8e8e8; /* borders and dividers     */
 
   /* ── Accent palette ── */
@@ -118,7 +118,7 @@
     --color-surface:    #1a1a1a;
     --color-foreground: #f6f2ea;
     --color-secondary:  #aaaaaa;
-    --color-muted:      #666666;
+    --color-muted:      #898989;
     --color-rule:       #2a2a2a;
 
     /* Accents — lighter on dark backgrounds */
@@ -252,6 +252,16 @@
     font-size: 0.8125rem; /* 13px */
   }
 
+  /* ── Button reset ── strip browser defaults; style via utility classes ── */
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+
   /* ── Focus ring — visible for all interactive elements ── */
   :focus-visible {
     outline: 2px solid var(--color-foreground);
@@ -339,8 +349,6 @@
     transition: transform var(--transition);
   }
 
-  .badge:hover { transform: translateY(-1px); }
-
   .badge-green  { background: var(--color-green-bg);  color: var(--color-green);  border-color: var(--color-green-border);  }
   .badge-blue   { background: var(--color-blue-bg);   color: var(--color-blue);   border-color: var(--color-blue-border);   }
   .badge-amber  { background: var(--color-amber-bg);  color: var(--color-amber);  border-color: var(--color-amber-border);  }
@@ -393,6 +401,25 @@
 
   .nav-link:hover {
     color: var(--color-foreground);
+  }
+
+  /* ── Badge neutral ──
+     Fallback variant for tags with no category color.     */
+  .badge-neutral {
+    background: var(--color-rule);
+    color: var(--color-secondary);
+    border-color: var(--color-rule);
+  }
+
+  /* ── Panel enter ──
+     Fade + slide-up animation for the full-screen stack panel. */
+  @keyframes panel-in {
+    from { opacity: 0; transform: translateY(1rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-enter {
+    animation: panel-in 0.25s ease both;
   }
 
   /* ── Italic sans ── */
