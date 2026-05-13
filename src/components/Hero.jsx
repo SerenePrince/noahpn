@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Container from "./Container";
 
 const links = [
@@ -26,55 +27,66 @@ function Hero() {
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-          {/* Name & Title */}
-          <div className="space-y-1">
+
+          {/* Eyebrow + Name */}
+          <div className="space-y-3">
+            <p className="eyebrow">Fullstack Developer</p>
             <h1>Noah Park-Nguyen</h1>
-            <p className="tagline">Fullstack Developer</p>
           </div>
 
           {/* Divider */}
-          <div className="bg-foreground h-px w-full" aria-hidden="true" />
+          <div className="bg-rule h-px w-full" aria-hidden="true" />
 
-          {/* Links */}
-          <ul aria-label="Social links" className="flex flex-row gap-6">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  {...(link.external
-                    ? { target: "_blank", rel: "noreferrer" }
-                    : {})}
-                  className="text-sm hover:underline hover:underline-offset-4"
-                >
-                  {link.label}
-                  <span aria-hidden="true"> ↗</span>
-                  {link.external && (
-                    <span className="sr-only"> (opens in new tab)</span>
-                  )}
-                </a>
-              </li>
+          {/* Links — meta strip */}
+          <ul
+            aria-label="Social links"
+            className="flex flex-row flex-wrap items-center gap-y-2"
+          >
+            {links.map((link, i) => (
+              <Fragment key={link.href}>
+                {i > 0 && (
+                  <li aria-hidden="true" className="eyebrow select-none px-3">
+                    ·
+                  </li>
+                )}
+                <li>
+                  <a
+                    href={link.href}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noreferrer" }
+                      : {})}
+                    className="link text-sm"
+                  >
+                    {link.label}
+                    <span aria-hidden="true"> ↗</span>
+                    {link.external && (
+                      <span className="sr-only"> (opens in new tab)</span>
+                    )}
+                  </a>
+                </li>
+              </Fragment>
             ))}
           </ul>
 
           {/* Divider */}
-          <div className="bg-foreground h-px w-full" aria-hidden="true" />
+          <div className="bg-rule h-px w-full" aria-hidden="true" />
 
           {/* Bio */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <p className="tagline">
               Enterprise team experience. Ottawa-based, open to remote or
               relocation within BC and ON.
             </p>
-            <p>Why chase trends when you can just walk at your own pace?</p>
+            <p className="secondary">
+              Why chase trends when you can just walk at your own pace?
+            </p>
           </div>
 
           {/* CTA */}
-          <a
-            href="#projects"
-            className="self-start text-sm hover:underline hover:underline-offset-4"
-          >
-            View my work ↓
+          <a href="#projects" className="link self-start text-sm">
+            View my work <span aria-hidden="true">↓</span>
           </a>
+
         </div>
       </Container>
     </section>
