@@ -6,14 +6,18 @@ Portfolio of Noah Park-Nguyen — fullstack developer based in Ottawa. Covers ca
 
 ## Design
 
-Inspired by the simplicity of a well-designed business card. Two colours — a warm off-white (`#F5F0E8`) and near-black (`#1A1A1A`). Two fonts — Libre Baskerville for headings, DM Sans for body text. Thin lines for dividers, nothing decorative. The goal was a site that gets out of the way and lets the content speak.
+Minimal but not flat. The goal was a site that gets out of the way and lets the content speak — cards for structure, colour only where it earns its place.
+
+Three fonts: Libre Baskerville for headings, DM Sans for body text, DM Mono for labels and metadata. Colour palette built around a warm off-white surface with five semantic accent groups (green for Java, blue for JavaScript/React, teal for databases, purple for infrastructure, amber for tooling). Full dark mode via CSS custom properties — no JavaScript, no flicker.
+
+Cards carry the layout. Dividers are rule-weight lines. Every interactive element uses one of two hover patterns: a colour shift for navigation controls, a slide-in underline for destination links. No other decorative motion.
 
 ## Stack
 
 - React 19
-- Vite 8
+- Vite 6
 - Tailwind CSS v4
-- Google Fonts — DM Sans (body), Libre Baskerville (headings)
+- Google Fonts — DM Sans (body), Libre Baskerville (headings), DM Mono (labels)
 
 ## Dev
 
