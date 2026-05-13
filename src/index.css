@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 /*
-  Tuned fallback fonts — match the metrics of each custom font so the browser
-  swap from fallback → custom is invisible (no layout shift / jitter).
-  Values calibrated to minimise CLS. Fine-tune with https://screenspan.net/fallback
+  ─────────────────────────────────────────────────────
+  Font fallbacks — metric-matched to eliminate CLS.
+  Each fallback mirrors the proportions of its custom font
+  so the browser swap is invisible.
+  ─────────────────────────────────────────────────────
 */
 
-/* Arial scaled to approximate DM Sans proportions */
+/* Arial → DM Sans */
 @font-face {
   font-family: "DM Sans Fallback";
   src: local("Arial");
@@ -16,7 +18,7 @@
   line-gap-override: 0%;
 }
 
-/* Georgia scaled to approximate Libre Baskerville proportions */
+/* Georgia → Libre Baskerville */
 @font-face {
   font-family: "Libre Baskerville Fallback";
   src: local("Georgia");
@@ -26,25 +28,127 @@
   line-gap-override: 0%;
 }
 
-@theme {
-  --nav-height: 4rem;
-  --color-background: #f6f2ea;
-  --color-foreground: #0f0f0f;
-  --font-serif: "Libre Baskerville", "Libre Baskerville Fallback", serif;
-  --font-sans: "DM Sans", "DM Sans Fallback", sans-serif;
-
-  /* Breakpoints — xs covers 320px minimum */
-  --breakpoint-xs: 20rem; /* 320px */
-  --breakpoint-sm: 40rem; /* 640px */
+/* Courier New → DM Mono */
+@font-face {
+  font-family: "DM Mono Fallback";
+  src: local("Courier New");
+  size-adjust: 90%;
+  ascent-override: 88%;
+  descent-override: 24%;
+  line-gap-override: 0%;
 }
 
+/*
+  ─────────────────────────────────────────────────────
+  Design tokens — Tailwind v4 theme extension.
+  Every visual decision lives here. Components reference
+  these tokens — nothing is hardcoded elsewhere.
+  ─────────────────────────────────────────────────────
+*/
+
+@theme {
+  /* ── Navigation ── */
+  --nav-height: 4rem;
+
+  /* ── Color palette ── */
+  --color-background: #fafaf8; /* page background         */
+  --color-surface:    #ffffff; /* card / elevated surface  */
+  --color-foreground: #0f0f0f; /* primary text             */
+  --color-secondary:  #444444; /* secondary text           */
+  --color-muted:      #888888; /* labels, metadata         */
+  --color-rule:       #e8e8e8; /* borders and dividers     */
+
+  /* ── Accent palette ── */
+  /* Green — Java, Spring */
+  --color-green:        #2d6a4f;
+  --color-green-bg:     #f0faf5;
+  --color-green-border: #c0e0d0;
+
+  /* Blue — JavaScript, React, Node */
+  --color-blue:         #1a4d8f;
+  --color-blue-bg:      #f0f4fc;
+  --color-blue-border:  #c0d0ec;
+
+  /* Amber — Python, config */
+  --color-amber:        #7a4f00;
+  --color-amber-bg:     #fdf8f0;
+  --color-amber-border: #e8d8b0;
+
+  /* Purple — Docker, infrastructure */
+  --color-purple:        #4a2d7a;
+  --color-purple-bg:     #f5f0fc;
+  --color-purple-border: #d0c0ec;
+
+  /* Teal — PostgreSQL, databases */
+  --color-teal:         #1a6670;
+  --color-teal-bg:      #f0f8fa;
+  --color-teal-border:  #b0d8e0;
+
+  /* ── Typography ── */
+  --font-serif: "Libre Baskerville", "Libre Baskerville Fallback", serif;
+  --font-sans:  "DM Sans", "DM Sans Fallback", sans-serif;
+  --font-mono:  "DM Mono", "DM Mono Fallback", monospace;
+
+  /* ── Breakpoints ──
+     xs  320px  minimum supported width
+     sm  640px  tablets, landscape phones — single → multi-column
+     md  768px  two-column card grids
+     lg  1024px wider layouts, expanded grids                     */
+  --breakpoint-xs: 20rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+
+  /* ── Radius ── single token, used everywhere */
+  --radius: 6px;
+
+  /* ── Transition ── single duration + easing for all interactive states */
+  --transition: 0.15s ease;
+}
+
+/*
+  ─────────────────────────────────────────────────────
+  Dark mode — color tokens only.
+  Layout, type scale, and spacing are untouched.
+  ─────────────────────────────────────────────────────
+*/
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #0f0f0f;
+    --color-surface:    #1a1a1a;
     --color-foreground: #f6f2ea;
+    --color-secondary:  #aaaaaa;
+    --color-muted:      #666666;
+    --color-rule:       #2a2a2a;
+
+    /* Accents — lighter on dark backgrounds */
+    --color-green:        #6fcf97;
+    --color-green-bg:     #0a1f14;
+    --color-green-border: #1a3d28;
+
+    --color-blue:         #7eb3f5;
+    --color-blue-bg:      #0a1525;
+    --color-blue-border:  #1a2e4a;
+
+    --color-amber:        #f0b860;
+    --color-amber-bg:     #1f1508;
+    --color-amber-border: #3d2a10;
+
+    --color-purple:        #b89cf5;
+    --color-purple-bg:     #150d25;
+    --color-purple-border: #2d1f4a;
+
+    --color-teal:         #60c8d8;
+    --color-teal-bg:      #081820;
+    --color-teal-border:  #103040;
   }
 }
 
+/*
+  ─────────────────────────────────────────────────────
+  Base styles — element defaults
+  ─────────────────────────────────────────────────────
+*/
 @layer base {
   * {
     margin: 0;
@@ -61,46 +165,63 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-size: 0.875rem; /* 14px — base for all body/ui text */
+    font-size: 0.875rem; /* 14px — base for all body / UI text */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* h1 — name, page-level title: bold serif */
+  /* ── Headings ──────────────────────────────────────
+
+     h1  Display — hero name only. Large, impactful.
+         clamp() scales fluidly from 320px to wide viewports.
+
+     h2  Section heading — Projects, Experience, Hey I'm Noah.
+         Readable but restrained; not competing with h1.
+
+     h3  Sub-section heading — Work, Education, Case Studies.
+         Same weight as body text; differentiated by family only.
+
+  ─────────────────────────────────────────────────── */
+
   h1 {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-style: normal;
-    font-size: 1.5rem; /* 24px on 320px+ */
-    line-height: 1.2;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
-  /* h2 — section headings: bold serif */
   h2 {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-style: normal;
-    font-size: 1rem; /* 16px */
-    line-height: 1.4;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
-  /* h3 — sub-section headings: bold serif */
+  @media (min-width: 40rem) {
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
   h3 {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-style: normal;
-    font-size: 0.875rem; /* 14px — same as body; differentiated by font-family and weight */
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.4;
   }
 
-  /* Responsive heading scale — sm and up (640px+) */
-  @media (min-width: 40rem) {
-    h1 {
-      font-size: 2.25rem; /* 36px */
-    }
-  }
+  /* ── Body text ─────────────────────────────────────
+
+     p           Base sans — all running copy.
+     p.tagline   Regular serif — roles, pull quotes, bios.
+     p.title     Semibold sans — company names, project titles.
+     p.secondary Subdued foreground — supporting copy.
+     p.muted     Metadata grey — dates, labels, helper text.
+
+  ─────────────────────────────────────────────────── */
 
   p {
     font-family: var(--font-sans);
@@ -108,74 +229,176 @@
     line-height: 1.7;
   }
 
-  /* Tagline — regular serif, for pull quotes and bios */
   p.tagline {
     font-family: var(--font-serif);
     font-weight: 400;
-    font-style: normal;
     font-size: 0.875rem;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
-  /* Item title — semibold sans, for project titles and company names */
   p.title {
     font-family: var(--font-sans);
     font-weight: 600;
-    font-style: normal;
     font-size: 0.875rem;
     line-height: 1.4;
   }
 
-  /* Keyboard focus ring — visible for all interactive elements */
+  p.secondary {
+    color: var(--color-secondary);
+  }
+
+  p.muted {
+    color: var(--color-muted);
+    font-size: 0.8125rem; /* 13px */
+  }
+
+  /* ── Focus ring — visible for all interactive elements ── */
   :focus-visible {
     outline: 2px solid var(--color-foreground);
     outline-offset: 3px;
   }
 
-  /* Webkit scrollbar (Chrome, Safari, Edge) */
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
     background: var(--color-foreground);
     border-radius: 0;
   }
 
-  /* Firefox desktop */
   html {
     scrollbar-width: thin;
     scrollbar-color: var(--color-foreground) transparent;
   }
 
-  /* Firefox mobile — hide scrollbar on small screens */
+  /* Hide scrollbar on mobile — too narrow to be useful */
   @media (max-width: 40rem) {
-    html {
-      scrollbar-width: none;
-    }
+    html { scrollbar-width: none; }
   }
 }
 
+/*
+  ─────────────────────────────────────────────────────
+  Utility classes — shared across all components.
+  These are semantic classes, not layout helpers;
+  layout and spacing stay in Tailwind utilities.
+  ─────────────────────────────────────────────────────
+*/
 @layer utilities {
-  /* Tag — uppercase tracking-widest xs, for technology tags */
+
+  /* ── Eyebrow ──
+     DM Mono label above section headings.
+     e.g. "WORK EXPERIENCE" / "CASE STUDIES"               */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* ── Card ──
+     Base elevated surface. Apply to any boxed element.
+     Spacing and layout are added via Tailwind utilities.   */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+  }
+
+  /* ── Tag ──
+     Neutral monospace chip — default for tech tags.        */
   .tag {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--color-rule);
+    color: var(--color-secondary);
+    border: 1px solid transparent;
   }
 
-  /* Italic — DM Sans italic */
-  .italic-sans {
-    font-style: italic;
+  /* ── Badge ──
+     Colored category pill. Combine .badge with one variant.
+     e.g. <span class="badge badge-green">Java</span>       */
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: calc(var(--radius) - 2px);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    transition: transform var(--transition);
   }
 
-  /* Visually hidden — accessible to screen readers, invisible on screen */
+  .badge:hover { transform: translateY(-1px); }
+
+  .badge-green  { background: var(--color-green-bg);  color: var(--color-green);  border-color: var(--color-green-border);  }
+  .badge-blue   { background: var(--color-blue-bg);   color: var(--color-blue);   border-color: var(--color-blue-border);   }
+  .badge-amber  { background: var(--color-amber-bg);  color: var(--color-amber);  border-color: var(--color-amber-border);  }
+  .badge-purple { background: var(--color-purple-bg); color: var(--color-purple); border-color: var(--color-purple-border); }
+  .badge-teal   { background: var(--color-teal-bg);   color: var(--color-teal);   border-color: var(--color-teal-border);   }
+
+  /* ── Mono ──
+     Inline DM Mono for command strings, IDs, version numbers. */
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+  }
+
+  /* ── Link ──
+     Slide-in underline via scaleX on ::after.
+     The element's box never changes — zero layout shift.
+     Use for inline text links: GitHub, "Read more", etc.  */
+  .link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ── Nav link ──
+     Color transition: secondary → foreground.
+     No underline, no size change, no shift.
+     Use for navigation items and button-style controls.   */
+  .nav-link {
+    color: var(--color-secondary);
+    transition: color var(--transition);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--color-foreground);
+  }
+
+  /* ── Italic sans ── */
+  .italic-sans { font-style: italic; }
+
+  /* ── Visually hidden — accessible to screen readers ── */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -188,7 +411,7 @@
     border-width: 0;
   }
 
-  /* Skip link — hidden until focused by keyboard */
+  /* ── Skip link — keyboard accessibility ── */
   .skip-link {
     position: absolute;
     top: -100%;
@@ -200,9 +423,8 @@
     font-size: 0.875rem;
     text-decoration: underline;
     border: 1px solid var(--color-foreground);
+    border-radius: var(--radius);
   }
 
-  .skip-link:focus {
-    top: 1rem;
-  }
+  .skip-link:focus { top: 1rem; }
 }
