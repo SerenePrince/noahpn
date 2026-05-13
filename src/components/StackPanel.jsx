@@ -179,7 +179,7 @@ function StackPanel({ open, onClose }) {
       aria-modal="true"
       aria-label="Full tech stack"
       tabIndex={-1}
-      className="panel-enter fixed inset-0 z-[100] overflow-y-auto bg-background outline-none"
+      className="panel-enter fixed inset-0 z-100 overflow-y-auto bg-background outline-none"
     >
       {/* Sticky top bar */}
       <div className="border-rule sticky top-0 z-10 border-b bg-background">
