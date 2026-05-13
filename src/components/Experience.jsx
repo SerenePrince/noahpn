@@ -42,53 +42,65 @@ function Experience() {
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-          <h2 id="experience-heading" className="sr-only">
-            Experience
-          </h2>
+
+          {/* Section heading */}
+          <h2 id="experience-heading">Experience</h2>
+
+          {/* Divider */}
+          <div className="bg-rule h-px w-full" aria-hidden="true" />
+
           {/* Work */}
           <section
-            aria-labelledby="work-heading"
+            aria-label="Work"
             className="flex flex-col space-y-6"
           >
-            <h3 id="work-heading">Work</h3>
-            <ul>
+            <p className="eyebrow">Work</p>
+
+            <ul className="flex flex-col gap-4">
               {workExperience.map((job) => (
-                <li
-                  key={job.company + job.period}
-                  className="border-foreground space-y-2 border-t py-6 last:border-b"
-                >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="title">{job.company}</p>
-                    <p className="shrink-0">{job.period}</p>
+                <li key={job.company + job.period} className="card p-6 space-y-3">
+                  <div className="space-y-1">
+                    <p className="eyebrow">{job.period}</p>
+                    <div className="space-y-0.5">
+                      <p className="title">{job.company}</p>
+                      <p className="tagline">{job.role}</p>
+                    </div>
                   </div>
-                  <p className="tagline">{job.role}</p>
-                  <p>{job.description}</p>
+                  <p className="secondary">{job.description}</p>
                 </li>
               ))}
             </ul>
           </section>
+
+          {/* Divider */}
+          <div className="bg-rule h-px w-full" aria-hidden="true" />
+
           {/* Education */}
           <section
-            aria-labelledby="education-heading"
+            aria-label="Education"
             className="flex flex-col space-y-6"
           >
-            <h3 id="education-heading">Education</h3>
-            <ul>
+            <p className="eyebrow">Education</p>
+
+            <ul className="flex flex-col gap-4">
               {education.map((entry) => (
                 <li
                   key={entry.institution + entry.period}
-                  className="border-foreground space-y-2 border-t py-6 last:border-b"
+                  className="card p-6 space-y-3"
                 >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="title">{entry.institution}</p>
-                    <p className="shrink-0">{entry.period}</p>
+                  <div className="space-y-1">
+                    <p className="eyebrow">{entry.period}</p>
+                    <div className="space-y-0.5">
+                      <p className="title">{entry.institution}</p>
+                      <p className="tagline">{entry.credential}</p>
+                    </div>
                   </div>
-                  <p className="tagline">{entry.credential}</p>
-                  <p>{entry.detail}</p>
+                  <p className="secondary">{entry.detail}</p>
                 </li>
               ))}
             </ul>
           </section>
+
         </div>
       </Container>
     </section>
