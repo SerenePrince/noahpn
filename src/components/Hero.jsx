@@ -74,11 +74,13 @@ function Hero() {
           {/* Bio */}
           <div className="space-y-4">
             <p className="tagline">
-              Enterprise team experience. Ottawa-based, open to remote or
+              A recent CS grad with enterprise experience shipping real tools for
+              real teams. Currently based in Ottawa. Open to remote roles or
               relocation within BC and ON.
             </p>
             <p className="secondary">
-              Why chase trends when you can just walk at your own pace?
+              Every day I like to kick off my morning with some daily affirmations,
+              "No blockers on my end, thanks!"
             </p>
           </div>
 

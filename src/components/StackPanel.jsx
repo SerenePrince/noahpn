@@ -24,17 +24,17 @@ const philosophy = [
   {
     num: "01",
     title: "Runtimes live in WSL, not Windows",
-    desc: "Node, Python, Java, and every dev runtime runs exclusively in WSL2. Windows hosts GUI apps only — no loose PATH variables, no version conflicts.",
+    desc: "Every runtime lives in WSL2 — Node, Python, Java, all of it. Windows is for GUIs only. No loose PATH variables, no version conflicts, no wondering what's polluting what.",
   },
   {
     num: "02",
     title: "One tool per job",
-    desc: "No redundant installs. Each tool was chosen deliberately — Bruno over Postman, pyenv over system Python, SDKMAN over manual JDK installs.",
+    desc: "Each tool was chosen for a reason — Bruno over Postman, pyenv over system Python, SDKMAN over manual JDK installs. Nothing I can't explain, nothing I don't actually use.",
   },
   {
     num: "03",
     title: "Git-trackable by default",
-    desc: "API collections in Bruno live as plain files inside the repo. Dotfiles are organized. Everything that can be versioned, is.",
+    desc: "API collections in Bruno live as plain files inside the repo. Dotfiles are organised. Everything that can be versioned, is.",
   },
   {
     num: "04",
@@ -210,7 +210,7 @@ function StackPanel({ open, onClose }) {
           <div className="bg-rule h-px w-full" aria-hidden="true" />
 
           {/* Setup Philosophy */}
-          <SectionBlock eyebrow="Setup Philosophy" heading="How I think about tooling">
+          <SectionBlock eyebrow="Setup Philosophy" heading="How I set things up">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {philosophy.map((p) => (
                 <div key={p.num} className="card p-6 space-y-3">
@@ -280,9 +280,13 @@ function StackPanel({ open, onClose }) {
       <footer className="border-rule border-t" aria-label="Stack footer">
         <Container>
           <div className="py-6">
-            <p className="muted text-center">
-              Windows 11 · WSL2 Ubuntu · Built from scratch — every tool verified end-to-end.
-            </p>
+            <p className="muted text-center">Windows 11 · WSL2 Ubuntu</p>
+            <blockquote className="space-y-1 text-center">
+              <p className="secondary italic">
+                "Programming is a skill best acquired by practice and example rather than from books."
+              </p>
+              <p className="muted">— Alan Turing, and me — because I hate reading.</p>
+            </blockquote>
           </div>
         </Container>
       </footer>

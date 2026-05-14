@@ -6,7 +6,7 @@ const workExperience = [
     role: "Application Developer",
     period: "Feb 2025 – Dec 2025",
     description:
-      "Learned what it means to own a feature end-to-end — demos, feedback, and shipped tools still in use today.",
+      "Owned features end-to-end — ran demos, took feedback, and shipped tools still in use today.",
   },
   {
     company: "Algonquin College",

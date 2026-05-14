@@ -23,7 +23,7 @@ function About() {
           <div className="flex flex-col space-y-8 py-24">
 
             {/* Heading */}
-            <h2 id="about-heading">Hey, I'm Noah.</h2>
+            <h2 id="about-heading">Hey there, I'm Noah.</h2>
 
             {/* Divider */}
             <div className="bg-rule h-px w-full" aria-hidden="true" />
@@ -32,31 +32,34 @@ function About() {
             <div className="space-y-6">
               <p>
                 A fullstack developer with experience building production-ready
-                tools and apps. Looking for roles in frontend, backend, or
-                anything in between. Open to remote or relocation within BC and
-                ON.
+                tools and apps. I'm currently based in Ottawa — hoping to land a
+                role in frontend, backend, or anything in between.
               </p>
               <p>
-                I got into coding at 17 in my last semester of high school —
-                signed up for a beginner class on a whim and immediately knew it
-                was what I wanted to do for a living. I spent that summer working
-                full-time while taking online courses to meet the math
-                prerequisites for college.
+                My primary stack includes Java and Spring Boot for the back,
+                React and Tailwind for the front, and PostgreSQL for the data.
+                Right now I'm trying to teach myself a little Python, some
+                TypeScript, and maybe some CI/CD practices here and there.
               </p>
               <p>
-                My regular toolkit includes Java, Spring Boot, React, and
-                Tailwind. I have my go-to setup, but I'm always excited to pick
-                up something new.
+                I'd love to work for a team that holds the same values as me,
+                mainly an understanding of the need for diversity, knowing that
+                mistakes are necessary for improvement, and most importantly,
+                patience. I tend to take my time, working at my own pace.
               </p>
               <p>
-                I work best independently, but I know how to show up for a team
-                — one that values patience, accountability, and learning from
-                mistakes over blame.
+                So much, in fact, that it took me two years after graduating to
+                figure out what I wanted to do in life. Once I realised I wanted
+                to code for a living, I worked full-time through an entire summer
+                just to prep for my first day of college. All that time planning
+                and preparing is how I've gotten to where I am today, and it's how
+                I'll continue to handle big life decisions from here on. Always
+                measure twice, cut once.
               </p>
               <p>
-                When I'm not at my computer, you can probably find me taking a
-                walk, playing volleyball, or working through a game that came out
-                a decade ago.
+                When I'm not at my computer, you can find me taking a walk on a
+                sunny day, playing volleyball, or working through a game that
+                came out a decade ago.
               </p>
               <blockquote className="card p-6 space-y-2">
                 <p className="tagline">

@@ -76,7 +76,7 @@ function Contact() {
             <div className="space-y-1">
               <p className="eyebrow">Resume</p>
               <p className="secondary">
-                Currently looking for frontend, backend, or fullstack roles — Power Platform resume available too.
+                Take a look at my resumes. I have experience in both traditional fullstack and the Power Platform, so feel free to pick the one that fits best.
               </p>
             </div>
             <ul aria-label="Resume downloads" className="card grid grid-cols-2 overflow-hidden">
@@ -105,9 +105,7 @@ function Contact() {
 
           {/* Closing note */}
           <p className="secondary">
-            My professional work was built for internal teams — the case studies
-            cover approach and outcome rather than public code. Personal
-            projects have full source on GitHub.
+            Thanks for checking out my portfolio! If anything here made an impression, feel free to reach out for a chat.
           </p>
 
         </div>
