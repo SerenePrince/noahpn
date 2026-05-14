@@ -27,7 +27,6 @@ function Hero() {
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-
           {/* Eyebrow + Name */}
           <div className="space-y-3">
             <p className="eyebrow">Fullstack Developer</p>
@@ -45,7 +44,7 @@ function Hero() {
             {links.map((link, i) => (
               <Fragment key={link.href}>
                 {i > 0 && (
-                  <li aria-hidden="true" className="eyebrow select-none px-3">
+                  <li aria-hidden="true" className="eyebrow px-3 select-none">
                     ·
                   </li>
                 )}
@@ -74,13 +73,13 @@ function Hero() {
           {/* Bio */}
           <div className="space-y-4">
             <p className="tagline">
-              A recent CS grad with enterprise experience shipping real tools for
-              real teams. Currently based in Ottawa. Open to remote roles or
+              A recent CS grad with enterprise experience shipping real tools
+              for real teams. Currently based in Ottawa. Open to remote roles or
               relocation within BC and ON.
             </p>
             <p className="secondary">
-              Every day I like to kick off my morning with some daily affirmations,
-              "No blockers on my end, thanks!"
+              Every day I like to kick off my morning with some daily
+              affirmations, "No blockers on my end, thanks!"
             </p>
           </div>
 
@@ -88,7 +87,6 @@ function Hero() {
           <a href="#projects" className="link self-start text-sm">
             View my work <span aria-hidden="true">↓</span>
           </a>
-
         </div>
       </Container>
     </section>

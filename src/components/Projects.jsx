@@ -114,32 +114,32 @@ const personalProjects = [
 
 const tagVariant = {
   // Green — Java ecosystem
-  "Java":         "badge-green",
-  "Spring Boot":  "badge-green",
-  "Maven":        "badge-green",
+  Java: "badge-green",
+  "Spring Boot": "badge-green",
+  Maven: "badge-green",
 
   // Blue — JS ecosystem, web platforms
-  "JavaScript":   "badge-blue",
-  "React":        "badge-blue",
-  "Node.js":      "badge-blue",
-  "Tailwind":     "badge-blue",
+  JavaScript: "badge-blue",
+  React: "badge-blue",
+  "Node.js": "badge-blue",
+  Tailwind: "badge-blue",
   "Tailwind CSS": "badge-blue",
-  "Vite":         "badge-blue",
-  "Power Apps":   "badge-blue",
-  "SharePoint":   "badge-blue",
+  Vite: "badge-blue",
+  "Power Apps": "badge-blue",
+  SharePoint: "badge-blue",
 
   // Teal — data and analysis tools
-  "PostgreSQL":   "badge-teal",
-  "Power BI":     "badge-teal",
-  "Excel":        "badge-teal",
+  PostgreSQL: "badge-teal",
+  "Power BI": "badge-teal",
+  Excel: "badge-teal",
 
   // Purple — automation and infrastructure
-  "Docker":            "badge-purple",
-  "Power Automate":    "badge-purple",
-  "Cloudflare Pages":  "badge-purple",
+  Docker: "badge-purple",
+  "Power Automate": "badge-purple",
+  "Cloudflare Pages": "badge-purple",
 
   // Amber — protocols and tooling
-  "REST APIs":    "badge-amber",
+  "REST APIs": "badge-amber",
 };
 
 // --- Sub-components ---
@@ -166,7 +166,7 @@ function CaseStudyCard({ project }) {
   return (
     <article
       aria-labelledby={`title-${project.id}`}
-      className="card p-6 space-y-4"
+      className="card space-y-4 p-6"
     >
       {/* Header */}
       <div className="space-y-2">
@@ -208,7 +208,15 @@ function CaseStudyCard({ project }) {
         aria-controls={detailsId}
         className="nav-link text-sm"
       >
-        {open ? <>Read less <span aria-hidden="true">↑</span></> : <>Read more <span aria-hidden="true">↓</span></>}
+        {open ? (
+          <>
+            Read less <span aria-hidden="true">↑</span>
+          </>
+        ) : (
+          <>
+            Read more <span aria-hidden="true">↓</span>
+          </>
+        )}
       </button>
     </article>
   );
@@ -221,7 +229,7 @@ function PersonalProjectCard({ project }) {
   return (
     <article
       aria-labelledby={`title-${project.id}`}
-      className="card p-6 space-y-4"
+      className="card space-y-4 p-6"
     >
       {/* Header */}
       <div className="space-y-2">
@@ -264,7 +272,9 @@ function PersonalProjectCard({ project }) {
       <div id={detailsId} hidden={!open}>
         <div className="border-rule space-y-4 border-t pt-5">
           {project.details.map((para, i) => (
-            <p key={i} className="secondary">{para}</p>
+            <p key={i} className="secondary">
+              {para}
+            </p>
           ))}
           {project.note && <p className="muted">{project.note}</p>}
         </div>
@@ -277,7 +287,15 @@ function PersonalProjectCard({ project }) {
         aria-controls={detailsId}
         className="nav-link text-sm"
       >
-        {open ? <>Read less <span aria-hidden="true">↑</span></> : <>Read more <span aria-hidden="true">↓</span></>}
+        {open ? (
+          <>
+            Read less <span aria-hidden="true">↑</span>
+          </>
+        ) : (
+          <>
+            Read more <span aria-hidden="true">↓</span>
+          </>
+        )}
       </button>
     </article>
   );
@@ -294,7 +312,8 @@ function Projects() {
     const currentIndex = tabs.indexOf(currentTab);
     let nextIndex = null;
     if (e.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
-    if (e.key === "ArrowLeft")  nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (e.key === "ArrowLeft")
+      nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
     if (nextIndex === null) return;
     e.preventDefault();
     const nextTab = tabs[nextIndex];
@@ -326,12 +345,16 @@ function Projects() {
                 tabIndex={activeTab === "case-studies" ? 0 : -1}
                 onClick={() => setActiveTab("case-studies")}
                 onKeyDown={(e) => handleTabKeyDown(e, "case-studies")}
-                className={`eyebrow cursor-pointer transition-colors duration-150 border-l-2 pl-2 ${
+                className={`eyebrow cursor-pointer border-l-2 pl-2 transition-colors duration-150 ${
                   activeTab === "case-studies"
                     ? "border-foreground"
-                    : "border-transparent nav-link"
+                    : "nav-link border-transparent"
                 }`}
-                style={activeTab === "case-studies" ? { color: "var(--color-foreground)" } : undefined}
+                style={
+                  activeTab === "case-studies"
+                    ? { color: "var(--color-foreground)" }
+                    : undefined
+                }
               >
                 Case Studies
               </button>
@@ -343,12 +366,16 @@ function Projects() {
                 tabIndex={activeTab === "personal" ? 0 : -1}
                 onClick={() => setActiveTab("personal")}
                 onKeyDown={(e) => handleTabKeyDown(e, "personal")}
-                className={`eyebrow cursor-pointer transition-colors duration-150 border-l-2 pl-2 ${
+                className={`eyebrow cursor-pointer border-l-2 pl-2 transition-colors duration-150 ${
                   activeTab === "personal"
                     ? "border-foreground"
-                    : "border-transparent nav-link"
+                    : "nav-link border-transparent"
                 }`}
-                style={activeTab === "personal" ? { color: "var(--color-foreground)" } : undefined}
+                style={
+                  activeTab === "personal"
+                    ? { color: "var(--color-foreground)" }
+                    : undefined
+                }
               >
                 Personal
               </button>

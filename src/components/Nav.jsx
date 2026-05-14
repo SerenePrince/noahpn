@@ -24,7 +24,12 @@ function Nav() {
           <a href="#hero" onClick={() => setOpen(false)} aria-label="Go to top">
             <picture>
               <source srcSet={LightIcon} media="(prefers-color-scheme: dark)" />
-              <img src={DarkIcon} alt="" aria-hidden="true" className="h-6 w-auto" />
+              <img
+                src={DarkIcon}
+                alt=""
+                aria-hidden="true"
+                className="h-6 w-auto"
+              />
             </picture>
           </a>
 

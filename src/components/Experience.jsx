@@ -42,7 +42,6 @@ function Experience() {
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-
           {/* Section heading */}
           <h2 id="experience-heading">Experience</h2>
 
@@ -50,15 +49,15 @@ function Experience() {
           <div className="bg-rule h-px w-full" aria-hidden="true" />
 
           {/* Work */}
-          <section
-            aria-label="Work"
-            className="flex flex-col space-y-6"
-          >
+          <section aria-label="Work" className="flex flex-col space-y-6">
             <p className="eyebrow">Work</p>
 
             <ul className="flex flex-col gap-4">
               {workExperience.map((job) => (
-                <li key={job.company + job.period} className="card p-6 space-y-3">
+                <li
+                  key={job.company + job.period}
+                  className="card space-y-3 p-6"
+                >
                   <div className="space-y-1">
                     <p className="eyebrow">{job.period}</p>
                     <div className="space-y-0.5">
@@ -76,17 +75,14 @@ function Experience() {
           <div className="bg-rule h-px w-full" aria-hidden="true" />
 
           {/* Education */}
-          <section
-            aria-label="Education"
-            className="flex flex-col space-y-6"
-          >
+          <section aria-label="Education" className="flex flex-col space-y-6">
             <p className="eyebrow">Education</p>
 
             <ul className="flex flex-col gap-4">
               {education.map((entry) => (
                 <li
                   key={entry.institution + entry.period}
-                  className="card p-6 space-y-3"
+                  className="card space-y-3 p-6"
                 >
                   <div className="space-y-1">
                     <p className="eyebrow">{entry.period}</p>
@@ -100,7 +96,6 @@ function Experience() {
               ))}
             </ul>
           </section>
-
         </div>
       </Container>
     </section>
