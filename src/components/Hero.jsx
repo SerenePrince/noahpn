@@ -5,6 +5,7 @@ const links = [
   {
     label: "Email",
     href: "mailto:noahparknguyen@gmail.com",
+    external: true,
   },
   {
     label: "GitHub",
@@ -57,9 +58,11 @@ function Hero() {
                     className="link text-sm"
                   >
                     {link.label}
-                    <span aria-hidden="true"> ↗</span>
                     {link.external && (
-                      <span className="sr-only"> (opens in new tab)</span>
+                      <>
+                        <span aria-hidden="true"> ↗</span>
+                        <span className="sr-only"> (opens in new tab)</span>
+                      </>
                     )}
                   </a>
                 </li>
