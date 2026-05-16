@@ -2,9 +2,13 @@ import Container from "./Container";
 import { Fragment } from "react";
 
 const socials = [
-  { label: "Email", href: "mailto:noahparknguyen@gmail.com", external: false },
+  { label: "Email", href: "mailto:noahparknguyen@gmail.com", external: true },
   { label: "GitHub", href: "https://github.com/SerenePrince", external: true },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/nparknguyen/", external: true },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/nparknguyen/",
+    external: true,
+  },
 ];
 
 const resumes = [
@@ -20,14 +24,9 @@ const resumes = [
 
 function Contact() {
   return (
-    <section
-      id="contact"
-      aria-labelledby="contact-heading"
-      className="w-full"
-    >
+    <section id="contact" aria-labelledby="contact-heading" className="w-full">
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-
           {/* Heading */}
           <h2 id="contact-heading">Get In Touch</h2>
 
@@ -53,14 +52,21 @@ function Contact() {
                         className="link text-sm"
                       >
                         {link.label}
-                        <span aria-hidden="true"> ↗</span>
                         {link.external && (
-                          <span className="sr-only"> (opens in new tab)</span>
+                          <>
+                            <span aria-hidden="true"> ↗</span>
+                            <span className="sr-only"> (opens in new tab)</span>
+                          </>
                         )}
                       </a>
                     </li>
                     {i < socials.length - 1 && (
-                      <li aria-hidden="true" className="eyebrow select-none px-1">·</li>
+                      <li
+                        aria-hidden="true"
+                        className="eyebrow px-1 select-none"
+                      >
+                        ·
+                      </li>
                     )}
                   </Fragment>
                 ))}
@@ -76,12 +82,20 @@ function Contact() {
             <div className="space-y-1">
               <p className="eyebrow">Resume</p>
               <p className="secondary">
-                Take a look at my resumes. I have experience in both traditional fullstack and the Power Platform, so feel free to pick the one that fits best.
+                Take a look at my resumes. I have experience in both traditional
+                fullstack and the Power Platform, so feel free to pick the one
+                that fits best.
               </p>
             </div>
-            <ul aria-label="Resume downloads" className="card grid grid-cols-2 overflow-hidden">
+            <ul
+              aria-label="Resume downloads"
+              className="card grid grid-cols-2 overflow-hidden"
+            >
               {resumes.map((resume, i) => (
-                <li key={resume.href} className={`flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between${i > 0 ? " border-l border-rule" : ""}`}>
+                <li
+                  key={resume.href}
+                  className={`flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between${i > 0 ? " border-rule border-l" : ""}`}
+                >
                   <p className="title">{resume.label}</p>
                   <div>
                     <a
@@ -92,7 +106,10 @@ function Contact() {
                     >
                       View PDF
                       <span aria-hidden="true"> ↗</span>
-                      <span className="sr-only"> — {resume.label} resume (opens in new tab)</span>
+                      <span className="sr-only">
+                        {" "}
+                        — {resume.label} resume (opens in new tab)
+                      </span>
                     </a>
                   </div>
                 </li>
@@ -105,9 +122,9 @@ function Contact() {
 
           {/* Closing note */}
           <p className="secondary">
-            Thanks for checking out my portfolio! If anything here made an impression, feel free to reach out for a chat.
+            Thanks for checking out my portfolio! If anything here made an
+            impression, feel free to reach out for a chat.
           </p>
-
         </div>
       </Container>
     </section>
