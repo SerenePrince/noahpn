@@ -270,7 +270,7 @@ function PersonalProjectCard({ project }) {
 
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
-        <div className="border-rule space-y-4 border-t pt-5">
+        <div className="border-rule space-y-5 border-t pt-5">
           {project.details.map((para, i) => (
             <p key={i} className="secondary">
               {para}
@@ -347,14 +347,9 @@ function Projects() {
                 onKeyDown={(e) => handleTabKeyDown(e, "case-studies")}
                 className={`eyebrow cursor-pointer border-l-2 pl-2 transition-colors duration-150 ${
                   activeTab === "case-studies"
-                    ? "border-foreground"
+                    ? "text-foreground! border-foreground"
                     : "nav-link border-transparent"
                 }`}
-                style={
-                  activeTab === "case-studies"
-                    ? { color: "var(--color-foreground)" }
-                    : undefined
-                }
               >
                 Case Studies
               </button>
@@ -368,14 +363,9 @@ function Projects() {
                 onKeyDown={(e) => handleTabKeyDown(e, "personal")}
                 className={`eyebrow cursor-pointer border-l-2 pl-2 transition-colors duration-150 ${
                   activeTab === "personal"
-                    ? "border-foreground"
+                    ? "text-foreground! border-foreground"
                     : "nav-link border-transparent"
                 }`}
-                style={
-                  activeTab === "personal"
-                    ? { color: "var(--color-foreground)" }
-                    : undefined
-                }
               >
                 Personal
               </button>
