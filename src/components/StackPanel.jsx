@@ -228,11 +228,15 @@ const vscodeExtensions = [
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
 function SectionBlock({ eyebrow, heading, children }) {
+  const headingId = heading
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
   return (
-    <section aria-label={heading} className="space-y-6">
+    <section aria-labelledby={headingId} className="space-y-6">
       <div className="space-y-1">
         <p className="eyebrow">{eyebrow}</p>
-        <h3>{heading}</h3>
+        <h3 id={headingId}>{heading}</h3>
       </div>
       {children}
     </section>
@@ -281,12 +285,41 @@ function StackPanel({ open, onClose }) {
     };
   }, [open]);
 
-  // Escape to close
+  // Escape to close + focus trap
   useEffect(() => {
     if (!open) return;
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
     const onKey = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const panel = panelRef.current;
+        if (!panel) return;
+        const focusable = Array.from(panel.querySelectorAll(FOCUSABLE));
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     };
+
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
@@ -321,7 +354,7 @@ function StackPanel({ open, onClose }) {
             eyebrow="Languages & Frameworks"
             heading="Core technologies"
           >
-            <ul aria-label="Core technologies" className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2">
               {coreBadges.map((b) => (
                 <li key={b.label}>
                   <span className={`badge ${b.variant}`}>{b.label}</span>
@@ -418,7 +451,7 @@ function StackPanel({ open, onClose }) {
                 rather than from books."
               </p>
               <p className="muted">
-                — Alan Turing, and me — because I hate reading.
+                — <cite>Alan Turing</cite>, and me — because I hate reading.
               </p>
             </blockquote>
           </div>
