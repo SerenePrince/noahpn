@@ -60,12 +60,16 @@ function About() {
                 sunny day, playing volleyball, or working through a game that
                 came out a decade ago.
               </p>
-              <blockquote className="card space-y-2 p-6">
-                <p className="tagline">
-                  "I am built of the things I do every day, and the results are
-                  no more than a byproduct."
-                </p>
-                <p className="muted">— Shinsuke Kita</p>
+              <blockquote className="card p-6">
+                <div className="mx-auto w-fit max-w-full space-y-2">
+                  <p className="tagline text-center">
+                    "I am built of the things I do every day, and the results are
+                    no more than a byproduct."
+                  </p>
+                  <p className="muted">
+                    — <cite>Shinsuke Kita</cite>
+                  </p>
+                </div>
               </blockquote>
             </div>
 
