@@ -54,7 +54,8 @@ const workExperience = [
 const education = [
   {
     institution: "Algonquin College",
-    credential: "Advanced Diploma · Computer Engineering Technology – Computer Science",
+    credential:
+      "Advanced Diploma · Computer Engineering Technology – Computer Science",
     period: "Jan 2023 – Apr 2026",
     detail: "GPA 3.78 · Dean's Honours List every term",
     tags: [
