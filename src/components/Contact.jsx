@@ -14,10 +14,12 @@ const socials = [
 const resumes = [
   {
     label: "Fullstack",
+    badge: "badge-blue",
     href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_fullstack_resume.pdf`,
   },
   {
     label: "Power Platform",
+    badge: "badge-purple",
     href: `${import.meta.env.BASE_URL}resumes/noahpark-nguyen_powerplatform_resume.pdf`,
   },
 ];
@@ -26,7 +28,7 @@ function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="w-full">
       <Container>
-        <div className="flex flex-col space-y-8 py-24">
+        <div className="flex flex-col space-y-8 pt-24 pb-32">
           {/* Heading */}
           <h2 id="contact-heading">Get In Touch</h2>
 
@@ -89,29 +91,30 @@ function Contact() {
             </div>
             <ul
               aria-label="Resume downloads"
-              className="card grid grid-cols-2 overflow-hidden"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
             >
-              {resumes.map((resume, i) => (
+              {resumes.map((resume) => (
                 <li
                   key={resume.href}
-                  className={`flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between${i > 0 ? " border-rule border-l" : ""}`}
+                  className="card flex items-center justify-between gap-4 p-4"
                 >
-                  <p className="title">{resume.label}</p>
-                  <div>
-                    <a
-                      href={resume.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="link text-sm"
-                    >
-                      View PDF
-                      <span aria-hidden="true"> ↗</span>
-                      <span className="sr-only">
-                        {" "}
-                        — {resume.label} resume (opens in new tab)
-                      </span>
-                    </a>
-                  </div>
+                  <h3 className="sr-only">{resume.label} Resume</h3>
+                  <span className={`badge ${resume.badge}`} aria-hidden="true">
+                    {resume.label}
+                  </span>
+                  <a
+                    href={resume.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link text-sm"
+                  >
+                    View PDF
+                    <span aria-hidden="true"> ↗</span>
+                    <span className="sr-only">
+                      {" "}
+                      — {resume.label} resume (opens in new tab)
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -122,8 +125,9 @@ function Contact() {
 
           {/* Closing note */}
           <p className="secondary">
-            Thanks for checking out my portfolio! If anything here made an
-            impression, feel free to reach out for a chat.
+            If something here resonated, let's talk. The best way to reach me is
+            through email — if you try to scam me, I can guarantee that I will
+            fall for it.
           </p>
         </div>
       </Container>
