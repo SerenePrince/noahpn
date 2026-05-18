@@ -52,10 +52,10 @@
 
   /* ── Color palette ── */
   --color-background: #fafaf8; /* page background         */
-  --color-surface: #ffffff; /* card / elevated surface  */
+  --color-surface: #fffdf5; /* card / elevated surface  */
   --color-foreground: #0f0f0f; /* primary text             */
-  --color-secondary: #444444; /* secondary text           */
-  --color-muted: #636363; /* labels, metadata         */
+  --color-secondary: #424040; /* secondary text           */
+  --color-muted: #615e5e; /* labels, metadata         */
   --color-rule: #e8e8e8; /* borders and dividers     */
 
   /* ── Accent palette ── */
