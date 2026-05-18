@@ -93,7 +93,8 @@
      xs  320px  minimum supported width
      sm  640px  tablets, landscape phones — single → multi-column
      md  768px  two-column card grids
-     lg  1024px wider layouts, expanded grids                     */
+     lg  1024px wider layouts, expanded grids             
+  */
   --breakpoint-xs: 20rem;
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
@@ -287,8 +288,12 @@
 
   /* Hide scrollbar on mobile — too narrow to be useful */
   @media (max-width: 40rem) {
-    html {
+    html,
+    .no-scrollbar-mobile {
       scrollbar-width: none;
+    }
+    .no-scrollbar-mobile::-webkit-scrollbar {
+      display: none;
     }
   }
 }
