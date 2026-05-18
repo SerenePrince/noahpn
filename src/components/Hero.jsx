@@ -33,7 +33,8 @@ function Hero() {
           <div className="flex items-center gap-8">
             <img
               src={candidPhoto}
-              alt="Noah Park-Nguyen"
+              alt=""
+              aria-hidden="true"
               width={540}
               height={810}
               className="border-rule hidden aspect-2/3 w-48 shrink-0 rounded-(--radius) border object-cover object-top sm:block"

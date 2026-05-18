@@ -32,7 +32,8 @@ function About() {
             <div className="space-y-6 overflow-hidden">
               <img
                 src={headshot}
-                alt="Noah Park-Nguyen"
+                alt=""
+                aria-hidden="true"
                 width={626}
                 height={626}
                 className="border-rule float-left mr-8 mb-4 hidden aspect-square w-50 rounded-(--radius) border object-cover object-top sm:block"

@@ -109,7 +109,7 @@ function Contact() {
                     <span aria-hidden="true"> ↗</span>
                     <span className="sr-only">
                       {" "}
-                      — {resume.label} resume (opens in new tab)
+                      — {resume.label} resume, PDF document (opens in new tab)
                     </span>
                   </a>
                 </li>
