@@ -55,7 +55,7 @@
   --color-surface: #ffffff; /* card / elevated surface  */
   --color-foreground: #0f0f0f; /* primary text             */
   --color-secondary: #444444; /* secondary text           */
-  --color-muted: #717171; /* labels, metadata         */
+  --color-muted: #636363; /* labels, metadata         */
   --color-rule: #e8e8e8; /* borders and dividers     */
 
   /* ── Accent palette ── */
@@ -166,7 +166,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-size: 0.875rem; /* 14px — base for all body / UI text */
+    font-size: 0.9375rem; /* 15px — base for all body / UI text */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -210,7 +210,7 @@
   h3 {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 1rem; /* 16px */
     line-height: 1.4;
   }
 
@@ -226,21 +226,21 @@
 
   p {
     font-family: var(--font-sans);
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.7;
   }
 
   p.tagline {
     font-family: var(--font-serif);
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.5;
   }
 
   p.title {
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.4;
   }
 
@@ -250,7 +250,7 @@
 
   p.muted {
     color: var(--color-muted);
-    font-size: 0.8125rem; /* 13px */
+    font-size: 0.875rem; /* 14px */
   }
 
   /* ── Button reset ── strip browser defaults; style via utility classes ── */
@@ -311,7 +311,7 @@
      e.g. "WORK EXPERIENCE" / "CASE STUDIES"               */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.6875rem; /* 11px */
+    font-size: 0.75rem; /* 12px */
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -331,7 +331,7 @@
      Neutral monospace chip — default for tech tags.        */
   .tag {
     font-family: var(--font-mono);
-    font-size: 0.6875rem; /* 11px */
+    font-size: 0.75rem; /* 12px */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -347,7 +347,7 @@
      e.g. <span class="badge badge-green">Java</span>       */
   .badge {
     font-family: var(--font-mono);
-    font-size: 0.6875rem; /* 11px */
+    font-size: 0.75rem; /* 12px */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.08em;
