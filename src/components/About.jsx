@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Container from "./Container";
 import StackPanel from "./StackPanel";
+import headshot from "../assets/images/noah-headshot-profile.png";
 
 const stackBadges = [
   { label: "Java", variant: "badge-green" },
@@ -27,8 +28,15 @@ function About() {
             {/* Divider */}
             <div className="bg-rule h-px w-full" aria-hidden="true" />
 
-            {/* Bio */}
-            <div className="space-y-6">
+            {/* Bio — float layout: image anchors top-left, text wraps around */}
+            <div className="space-y-6 overflow-hidden">
+              <img
+                src={headshot}
+                alt="Noah Park-Nguyen"
+                width={626}
+                height={626}
+                className="border-rule float-left mr-8 mb-4 hidden aspect-square w-40 rounded-(--radius) border object-cover object-top sm:block"
+              />
               <p>
                 A fullstack developer with experience building production-ready
                 tools and apps. I'm currently based in Ottawa — hoping to land a
@@ -47,26 +55,17 @@ function About() {
                 patience. I tend to take my time, working at my own pace.
               </p>
               <p>
-                So much, in fact, that it took me two years after graduating to
-                figure out what I wanted to do in life. Once I realised I wanted
-                to code for a living, I worked full-time through an entire
-                summer just to prep for my first day of college. All that time
-                planning and preparing is how I've gotten to where I am today,
-                and it's how I'll continue to handle big life decisions from
-                here on. Always measure twice, cut once.
-              </p>
-              <p>
                 When I'm not at my computer, you can find me taking a walk on a
                 sunny day, playing volleyball, or working through a game that
                 came out a decade ago.
               </p>
               <blockquote className="card p-6">
-                <div className="mx-auto w-fit max-w-full space-y-2">
+                <div className="mx-auto w-fit max-w-full space-y-4">
                   <p className="tagline text-center">
-                    "I am built of the things I do every day, and the results are
-                    no more than a byproduct."
+                    "I am built of the things I do every day, and the results
+                    are no more than a byproduct."
                   </p>
-                  <p className="muted">
+                  <p className="muted text-center">
                     — <cite>Shinsuke Kita</cite>
                   </p>
                 </div>
