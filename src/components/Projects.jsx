@@ -1,5 +1,7 @@
 import Container from "./Container";
 import { useState } from "react";
+import imgStatmon from "../assets/images/project-statmon.png";
+import imgHubspot from "../assets/images/project-hubspot.png";
 
 const caseStudies = [
   {
@@ -76,6 +78,7 @@ const personalProjects = [
     ],
     github: "https://github.com/SerenePrince/java-dictionary",
     live: null,
+    image: null,
     note: null,
   },
   {
@@ -91,6 +94,7 @@ const personalProjects = [
     ],
     github: "https://github.com/SerenePrince/hubspot-recommendation-tool",
     live: "https://hubspot-recommendation-tool.onrender.com/",
+    image: imgHubspot,
     note: "Built for Inbox Communications · Algonquin College Capstone",
   },
   {
@@ -106,6 +110,7 @@ const personalProjects = [
     ],
     github: "https://github.com/SerenePrince/statmon",
     live: "https://master.statmon.pages.dev/",
+    image: imgStatmon,
     note: null,
   },
 ];
@@ -183,15 +188,15 @@ function CaseStudyCard({ project }) {
       {/* Expanded content */}
       <div id={detailsId} hidden={!open}>
         <div className="border-rule space-y-5 border-t pt-5">
-          <div className="space-y-1">
+          <div className="border-rule space-y-2 border-l-2 pl-4">
             <p className="eyebrow">Problem</p>
             <p className="secondary">{project.problem}</p>
           </div>
-          <div className="space-y-1">
+          <div className="border-rule space-y-2 border-l-2 pl-4">
             <p className="eyebrow">My Role</p>
             <p className="secondary">{project.role}</p>
           </div>
-          <div className="space-y-1">
+          <div className="border-rule space-y-2 border-l-2 pl-4">
             <p className="eyebrow">Outcome</p>
             <p className="secondary">{project.outcome}</p>
           </div>
@@ -229,74 +234,88 @@ function PersonalProjectCard({ project }) {
   return (
     <article
       aria-labelledby={`title-${project.id}`}
-      className="card space-y-4 p-6"
+      className="card overflow-hidden"
     >
-      {/* Header */}
-      <div className="space-y-2">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-          <h3 id={`title-${project.id}`}>{project.title}</h3>
-          <div className="flex gap-4">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="link text-sm"
-              >
-                GitHub
-                <span aria-hidden="true"> ↗</span>
-                <span className="sr-only"> (opens in new tab)</span>
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-                className="link text-sm"
-              >
-                Live
-                <span aria-hidden="true"> ↗</span>
-                <span className="sr-only"> (opens in new tab)</span>
-              </a>
-            )}
+      {/* Screenshot — full bleed, only if image exists */}
+      {project.image && (
+        <div className="border-rule border-b">
+          <img
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            className="h-48 w-full object-cover object-top"
+          />
+        </div>
+      )}
+
+      {/* Card content */}
+      <div className="space-y-4 p-6">
+        {/* Header */}
+        <div className="space-y-2">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+            <h3 id={`title-${project.id}`}>{project.title}</h3>
+            <div className="flex gap-4">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link text-sm"
+                >
+                  GitHub
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link text-sm"
+                >
+                  Live
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              )}
+            </div>
+          </div>
+          <Tags tags={project.tags} />
+        </div>
+
+        {/* Summary */}
+        <p className="secondary">{project.summary}</p>
+
+        {/* Expanded content */}
+        <div id={detailsId} hidden={!open}>
+          <div className="border-rule space-y-5 border-t pt-5">
+            {project.details.map((para, i) => (
+              <p key={i} className="border-rule secondary border-l-2 pl-4">
+                {para}
+              </p>
+            ))}
+            {project.note && <p className="muted">{project.note}</p>}
           </div>
         </div>
-        <Tags tags={project.tags} />
+
+        {/* Toggle */}
+        <button
+          onClick={() => setOpen((prev) => !prev)}
+          aria-expanded={open}
+          aria-controls={detailsId}
+          className="nav-link text-sm"
+        >
+          {open ? (
+            <>
+              Read less <span aria-hidden="true">↑</span>
+            </>
+          ) : (
+            <>
+              Read more <span aria-hidden="true">↓</span>
+            </>
+          )}
+        </button>
       </div>
-
-      {/* Summary */}
-      <p className="secondary">{project.summary}</p>
-
-      {/* Expanded content */}
-      <div id={detailsId} hidden={!open}>
-        <div className="border-rule space-y-5 border-t pt-5">
-          {project.details.map((para, i) => (
-            <p key={i} className="secondary">
-              {para}
-            </p>
-          ))}
-          {project.note && <p className="muted">{project.note}</p>}
-        </div>
-      </div>
-
-      {/* Toggle */}
-      <button
-        onClick={() => setOpen((prev) => !prev)}
-        aria-expanded={open}
-        aria-controls={detailsId}
-        className="nav-link text-sm"
-      >
-        {open ? (
-          <>
-            Read less <span aria-hidden="true">↑</span>
-          </>
-        ) : (
-          <>
-            Read more <span aria-hidden="true">↓</span>
-          </>
-        )}
-      </button>
     </article>
   );
 }
@@ -379,6 +398,7 @@ function Projects() {
           <div
             id="tabpanel-projects"
             role="tabpanel"
+            tabIndex={0}
             aria-labelledby={
               activeTab === "case-studies" ? "tab-case-studies" : "tab-personal"
             }
