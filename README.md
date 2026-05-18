@@ -15,7 +15,7 @@ Cards carry the layout. Dividers are rule-weight lines. Every interactive elemen
 ## Stack
 
 - React 19
-- Vite 6
+- Vite 8
 - Tailwind CSS v4
 - Google Fonts — DM Sans (body), Libre Baskerville (headings), DM Mono (labels)
 
@@ -29,8 +29,9 @@ npm run dev
 ## Build & deploy
 
 ```bash
-npm run build
-npm run preview
+npm run build    # compile to dist/
+npm run preview  # local preview of the build
+npm run deploy   # build + push to gh-pages branch
 ```
 
 Outputs to `dist/`. Base path is set to `/noahpn/` for GitHub Pages.
