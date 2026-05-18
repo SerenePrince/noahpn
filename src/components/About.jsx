@@ -35,7 +35,7 @@ function About() {
                 alt="Noah Park-Nguyen"
                 width={626}
                 height={626}
-                className="border-rule float-left mr-8 mb-4 hidden aspect-square w-40 rounded-(--radius) border object-cover object-top sm:block"
+                className="border-rule float-left mr-8 mb-4 hidden aspect-square w-50 rounded-(--radius) border object-cover object-top sm:block"
               />
               <p>
                 A fullstack developer with experience building production-ready
@@ -46,13 +46,15 @@ function About() {
                 My primary stack includes Java and Spring Boot for the back,
                 React and Tailwind for the front, and PostgreSQL for the data.
                 Right now I'm trying to teach myself a little Python, some
-                TypeScript, and maybe some CI/CD practices here and there.
+                SQLite, and maybe some TypeScript here and there.
               </p>
               <p>
                 I'd love to work for a team that holds the same values as me,
                 mainly an understanding of the need for diversity, knowing that
                 mistakes are necessary for improvement, and most importantly,
-                patience. I tend to take my time, working at my own pace.
+                patience. You can have the most talented people in the world on
+                a team, but without it, what you ship can be rushed or
+                unfinished.
               </p>
               <p>
                 When I'm not at my computer, you can find me taking a walk on a
