@@ -43,185 +43,38 @@ const philosophy = [
   },
 ];
 
-// Dev tools first, then productivity, then utilities
-const windowsApps = [
+const curatedTools = [
   {
-    name: "VS Code",
-    desc: "Primary editor. Opens WSL filesystem via Remote-WSL. GitHub sync for settings and extensions.",
+    name: "WSL2 + Ubuntu",
+    desc: "Every runtime — Node, Python, Java — lives here. Windows handles GUIs only.",
   },
   {
     name: "IntelliJ IDEA",
     desc: "Primary IDE for Java and Spring Boot. Community Edition.",
   },
   {
-    name: "Docker Desktop",
-    desc: "GUI frontend only — Docker engine runs inside WSL2. All docker commands issued from Ubuntu.",
+    name: "SDKMAN",
+    desc: "Manages Java and Maven versions per project. No manual JDK installs.",
   },
   {
-    name: "Windows Terminal",
-    desc: "Tabbed terminal with Ubuntu (WSL) as the default profile. JetBrains Mono Nerd Font.",
+    name: "pyenv",
+    desc: "Python version manager. Per-project isolation via venv.",
   },
   {
     name: "Bruno",
     desc: "Open-source API client. Collections stored as plain files — git-versionable, no account required.",
   },
   {
-    name: "GitHub Desktop",
-    desc: "Visual Git client for diffs, staging, and branch management.",
+    name: "lazygit",
+    desc: "Terminal UI for git — branches, diffs, and staging without leaving the shell.",
   },
   {
-    name: "DBeaver",
-    desc: "Universal database GUI. Connects to WSL-hosted PostgreSQL from Windows.",
+    name: "Docker",
+    desc: "Containerised databases and services. Engine runs in WSL2.",
   },
-  {
-    name: "Firefox Developer Edition",
-    desc: "CSS grid inspector, network throttling, enhanced debugger. Used alongside standard Firefox.",
-  },
-  { name: "Figma", desc: "UI/UX design and prototyping." },
   {
     name: "Obsidian",
-    desc: "Markdown knowledge base for dev notes and architecture decisions. Vault stored locally.",
-  },
-  {
-    name: "Bitwarden",
-    desc: "Open-source password manager with browser extension sync.",
-  },
-  {
-    name: "PowerToys",
-    desc: "FancyZones, Color Picker, PowerRename, Keyboard Manager and more.",
-  },
-  {
-    name: "Flow Launcher",
-    desc: "Spotlight-style app launcher. Faster than the Start menu for apps, files, and commands.",
-  },
-  { name: "ShareX", desc: "Screenshots, screen recording, and GIF capture." },
-];
-
-const terminalTools = [
-  {
-    name: "zsh + Oh My Zsh",
-    desc: "Shell with plugin support, git shortcuts, and theme system",
-  },
-  {
-    name: "zsh-autosuggestions",
-    desc: "Fish-style history suggestions as you type",
-  },
-  {
-    name: "zsh-syntax-highlighting",
-    desc: "Commands color green/red as you type",
-  },
-  { name: "fzf", desc: "Fuzzy finder — interactive history search on Ctrl+R" },
-  {
-    name: "lazygit",
-    desc: "Terminal UI for git — branches, diffs, and staging without leaving the shell",
-  },
-  { name: "ripgrep", desc: "Blazing fast recursive file search" },
-  {
-    name: "bat",
-    desc: "cat replacement with syntax highlighting and line numbers",
-  },
-  { name: "eza", desc: "Modern ls with color, icons, and git status" },
-  { name: "btop", desc: "Visual system monitor — CPU, memory, disk, network" },
-  {
-    name: "tmux",
-    desc: "Terminal multiplexer — split panes, persistent sessions",
-  },
-  { name: "jq", desc: "JSON processor — pipe curl output directly into it" },
-  { name: "direnv", desc: "Auto-loads .env files per project when you cd in" },
-  {
-    name: "httpie",
-    desc: "Friendlier curl alternative for API testing in the terminal",
-  },
-];
-
-const devRuntimes = [
-  {
-    name: "nvm",
-    desc: "Node Version Manager. Manages Node.js versions cleanly — no global installs polluting the system.",
-  },
-  {
-    name: "Node.js LTS",
-    desc: "Installed via nvm. Current LTS pinned as default.",
-  },
-  {
-    name: "SDKMAN",
-    desc: "SDK version manager for Java, Maven, and Spring Boot CLI. Switch versions per project.",
-  },
-  {
-    name: "Java 17+21+25",
-    desc: "All three installed via SDKMAN. Java 21 LTS set as global default.",
-  },
-  {
-    name: "Maven",
-    desc: "Build tool for Java projects — dependencies, compiling, packaging.",
-  },
-  {
-    name: "pyenv",
-    desc: "Python version manager. Install and switch Python versions per project cleanly.",
-  },
-  {
-    name: "Python 3.13",
-    desc: "Installed via pyenv. Global default. Per-project isolation via venv.",
-  },
-  {
-    name: "Docker",
-    desc: "Engine runs in WSL2 via Docker Desktop integration. All commands from Ubuntu.",
-  },
-  {
-    name: "PostgreSQL",
-    desc: "Runs as a Docker container. Port-forwarded to Windows for DBeaver access.",
-  },
-  {
-    name: "SQLite",
-    desc: "Lightweight database for smaller projects and prototypes.",
-  },
-];
-
-const vscodeExtensions = [
-  {
-    name: "Remote — WSL",
-    desc: "Open VS Code directly from the WSL filesystem with code .",
-  },
-  { name: "ESLint", desc: "JavaScript and TypeScript linting" },
-  { name: "Prettier", desc: "Code formatter. Format on Save enabled." },
-  {
-    name: "Tailwind CSS IntelliSense",
-    desc: "Autocomplete and linting for Tailwind classes",
-  },
-  { name: "GitLens", desc: "Inline git blame, history, and authorship" },
-  {
-    name: "Error Lens",
-    desc: "Shows errors and warnings inline where they occur",
-  },
-  {
-    name: "Docker",
-    desc: "Manage containers, images, and compose files visually",
-  },
-  {
-    name: "Python",
-    desc: "Linting, IntelliSense, debugging, and venv support",
-  },
-  {
-    name: "Java Extension Pack",
-    desc: "IntelliSense, debugging, and Maven support for Java",
-  },
-  {
-    name: "Spring Boot Tools",
-    desc: "Spring Boot-specific support and Initializr integration",
-  },
-  { name: "Astro", desc: "Syntax highlighting for .astro files" },
-  {
-    name: "Todo Tree",
-    desc: "Scans codebase for TODO/FIXME comments and lists them",
-  },
-  {
-    name: "indent-rainbow",
-    desc: "Colorizes indentation levels — helpful for Python and nested JSX",
-  },
-  { name: "Material Icon Theme", desc: "File icons in the explorer" },
-  {
-    name: "Path IntelliSense",
-    desc: "Autocompletes file paths as you type them",
+    desc: "Local markdown knowledge base for dev notes and architecture decisions.",
   },
 ];
 
@@ -246,15 +99,6 @@ function SectionBlock({ eyebrow, heading, children }) {
 function ToolCard({ name, desc }) {
   return (
     <div className="card flex flex-col gap-3 p-4">
-      <p className="title">{name}</p>
-      <p className="secondary">{desc}</p>
-    </div>
-  );
-}
-
-function ToolRow({ name, desc }) {
-  return (
-    <div className="border-rule grid grid-cols-1 gap-1 border-b p-4 last:border-b-0 sm:grid-cols-[180px_1fr] sm:items-center sm:gap-4">
       <p className="title">{name}</p>
       <p className="secondary">{desc}</p>
     </div>
@@ -333,7 +177,7 @@ function StackPanel({ open, onClose }) {
       aria-modal="true"
       aria-label="Full tech stack"
       tabIndex={-1}
-      className="panel-enter bg-background fixed inset-0 z-100 overflow-y-auto outline-none"
+      className="panel-enter no-scrollbar-mobile bg-background fixed inset-0 z-100 overflow-y-auto outline-none"
     >
       {/* Sticky top bar */}
       <div className="border-rule bg-background sticky top-0 z-10 border-b">
@@ -342,13 +186,13 @@ function StackPanel({ open, onClose }) {
             <button onClick={onClose} className="nav-link text-sm">
               <span aria-hidden="true">←</span> Back
             </button>
-            <p className="eyebrow">My Stack</p>
+            <h2 className="eyebrow">My Stack</h2>
           </div>
         </Container>
       </div>
 
       <Container>
-        <div className="flex flex-col space-y-16 py-16">
+        <div className="flex flex-col space-y-8 py-24">
           {/* Languages & Frameworks */}
           <SectionBlock
             eyebrow="Languages & Frameworks"
@@ -372,10 +216,10 @@ function StackPanel({ open, onClose }) {
           >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {philosophy.map((p) => (
-                <div key={p.num} className="card space-y-3 p-6">
+                <div key={p.num} className="card space-y-4 p-6">
                   <p
                     aria-hidden="true"
-                    className="text-muted font-serif text-3xl font-bold"
+                    className="muted font-serif text-3xl font-bold"
                   >
                     {p.num}
                   </p>
@@ -390,50 +234,11 @@ function StackPanel({ open, onClose }) {
 
           <div className="bg-rule h-px w-full" aria-hidden="true" />
 
-          {/* Windows Applications */}
-          <SectionBlock eyebrow="GUI Layer" heading="Windows Applications">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {windowsApps.map((t) => (
+          {/* Curated Tools */}
+          <SectionBlock eyebrow="The essentials" heading="Tools I actually use">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {curatedTools.map((t) => (
                 <ToolCard key={t.name} {...t} />
-              ))}
-            </div>
-          </SectionBlock>
-
-          <div className="bg-rule h-px w-full" aria-hidden="true" />
-
-          {/* WSL Terminal Toolkit */}
-          <SectionBlock eyebrow="Ubuntu / Zsh" heading="WSL — Terminal Toolkit">
-            <div className="card overflow-hidden">
-              {terminalTools.map((t) => (
-                <ToolRow key={t.name} {...t} />
-              ))}
-            </div>
-          </SectionBlock>
-
-          <div className="bg-rule h-px w-full" aria-hidden="true" />
-
-          {/* Dev Runtimes */}
-          <SectionBlock
-            eyebrow="All inside WSL, none on Windows"
-            heading="Dev Runtimes"
-          >
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {devRuntimes.map((t) => (
-                <ToolCard key={t.name} {...t} />
-              ))}
-            </div>
-          </SectionBlock>
-
-          <div className="bg-rule h-px w-full" aria-hidden="true" />
-
-          {/* VS Code Extensions */}
-          <SectionBlock
-            eyebrow="Synced via GitHub"
-            heading="VS Code Extensions"
-          >
-            <div className="card overflow-hidden">
-              {vscodeExtensions.map((t) => (
-                <ToolRow key={t.name} name={t.name} desc={t.desc} />
               ))}
             </div>
           </SectionBlock>
@@ -446,7 +251,7 @@ function StackPanel({ open, onClose }) {
           <div className="py-6">
             <p className="muted text-center">Windows 11 · WSL2 Ubuntu</p>
             <blockquote className="space-y-1 text-center">
-              <p className="secondary italic">
+              <p className="secondary italic-sans">
                 "Programming is a skill best acquired by practice and example
                 rather than from books."
               </p>
