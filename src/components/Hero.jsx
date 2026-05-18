@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Container from "./Container";
+import candidPhoto from "../assets/images/noah-candid-profile.png";
 
 const links = [
   {
@@ -23,15 +24,27 @@ function Hero() {
   return (
     <section
       id="hero"
-      aria-label="Introduction"
+      aria-labelledby="hero-heading"
       className="flex min-h-svh w-full flex-col justify-center"
     >
       <Container>
         <div className="flex flex-col space-y-8 py-24">
-          {/* Eyebrow + Name */}
-          <div className="space-y-3">
-            <p className="eyebrow">Fullstack Developer</p>
-            <h1>Noah Park-Nguyen</h1>
+          {/* Photo + Eyebrow + Name */}
+          <div className="flex items-center gap-8">
+            <img
+              src={candidPhoto}
+              alt="Noah Park-Nguyen"
+              width={540}
+              height={810}
+              className="border-rule hidden aspect-2/3 w-48 shrink-0 rounded-(--radius) border object-cover object-top sm:block"
+            />
+            <div className="space-y-3">
+              <span className="badge badge-green">Actively looking</span>
+              <p className="eyebrow">Fullstack Developer</p>
+              <h1 id="hero-heading">
+                Noah <span className="whitespace-nowrap">Park-Nguyen</span>
+              </h1>
+            </div>
           </div>
 
           {/* Divider */}
