@@ -37,10 +37,7 @@ function Contact() {
 
           {/* Socials */}
           <div className="space-y-6">
-            <div className="space-y-1">
-              <p className="eyebrow">Contact</p>
-              <p className="secondary">Email is the best way to reach me.</p>
-            </div>
+            <p className="eyebrow">Contact</p>
             <nav aria-label="Contact links">
               <ul className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 {socials.map((link, i) => (
